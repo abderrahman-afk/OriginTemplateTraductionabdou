@@ -10,6 +10,7 @@ import { Module } from "@ag-grid-community/core";
 import { ValeurficheevalService } from '../valeurficheeval.service';
 import { GridApi } from 'ag-grid-community';
 import { ClientSideRowModelModule } from "@ag-grid-community/client-side-row-model";
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -70,7 +71,7 @@ export class EvaldefinitifComponent implements OnInit {
     // bread crumb items
   
   
-    constructor(private token:TokenStorage,private serv:PersonnelService,private serv2:FamilleService,private serv3:RenseignementpersService,
+    constructor(private translatee:TranslateService,private token:TokenStorage,private serv:PersonnelService,private serv2:FamilleService,private serv3:RenseignementpersService,
       private servmod:ModeleService,private servficheeval:FicheevalcompService,private servval:ValeurficheevalService,private fb:FormBuilder) { }
   
     ngOnInit() {
@@ -81,9 +82,32 @@ export class EvaldefinitifComponent implements OnInit {
       this.getconjoint()
       this.getallmodele()
       this.getficheeval()
+      this.serv.language$.subscribe((language) => {
+        this.translateHeaderNames(language);
+      });
+      const currentLang = this.translatee.getBrowserLang();
+      this.translatee.onLangChange.subscribe(() => {
+        this.columnDefs = this.columnDefs.map((col) => {
+          col.headerName = this.translatee.instant(col.headerName,currentLang);
+          return col;
+        });
+      });
+  
+   
   
   
       
+    }
+    changeLanguage() {
+      const currentLanguage = this.serv.languageSubject.value;
+      this.serv.setLanguage(currentLanguage === 'en' ? 'fr' : 'en');
+    }
+  
+    translateHeaderNames(language: string) {
+      this.columnDefs = this.columnDefs.map((col) => {
+        col.headerName = this.translatee.instant(col.headerName, language);
+        return col;
+      });
     }
     getpers(){
   
@@ -217,7 +241,7 @@ export class EvaldefinitifComponent implements OnInit {
       width: 200,
     },
     {
-      headerName: "Taux real.Obj.",
+      headerName: "Taux reel.Obj",
       field: "taux_real_obj",
       editable: true,
       resizable: true,
@@ -229,7 +253,7 @@ export class EvaldefinitifComponent implements OnInit {
     
     
     {
-      headerName: "Taux App. Comp.",
+      headerName: "Taux App. Comp",
       field: "taux_app_comp",
       editable: true,
       resizable: true,
@@ -241,7 +265,7 @@ export class EvaldefinitifComponent implements OnInit {
      
     },
     {
-      headerName: "Taux Eval. Def.",
+      headerName: "Taux Eval. Def",
       field: "taux_eval_def",
       editable: true,
       resizable: true,
@@ -312,7 +336,7 @@ export class EvaldefinitifComponent implements OnInit {
      
     },
     {
-      headerName: "Lib. Val.",
+      headerName: "Lib. Val",
       field: "libval",
       editable: true,
       resizable: true,

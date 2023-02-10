@@ -6,12 +6,12 @@
           <li [ngbNavItem]="1">
             <a ngbNavLink>
               <i class="bx bxs-user d-block check-nav-icon mt-4 mb-2"></i>
-              <p class="fw-bold mb-4">Consultation bulletin de soin</p>
+              <p class="fw-bold mb-4">{{"Consultation bulletin de soin"|translate}}</p>
             </a>
             <ng-template ngbNavContent>
              
               <div class="container-fluid">
-                <b>S'il vous veuillez choisir un numéro de soin :</b>  <br><hr>
+                <b>{{"S'il vous veuillez choisir un numéro de soin"|translate}} :</b>  <br><hr>
                 <ag-grid-angular
                   style="display: flex; flex-direction: column; height: 500px"
                   class="ag-theme-alpine"
@@ -38,11 +38,11 @@
           <li [ngbNavItem]="2">
             <a ngbNavLink>
               <i class="bx bx-notepad d-block check-nav-icon mt-4 mb-2"></i>
-              <p class="fw-bold mb-4">Bulletin Assurance</p>
+              <p class="fw-bold mb-4">{{"Bulletin Assurance"|translate}}</p>
             </a>
             <ng-template ngbNavContent>
               <div class="container-fluid">
-                <b>S'il vous veuillez choisir un numéro bordereau :</b>  <br><hr>
+                <b>{{"S'il vous veuillez choisir un numéro bordereau"|translate}} :</b>  <br><hr>
                 <ag-grid-angular
                   style="display: flex; flex-direction: column; height: 500px"
                   class="ag-theme-alpine"

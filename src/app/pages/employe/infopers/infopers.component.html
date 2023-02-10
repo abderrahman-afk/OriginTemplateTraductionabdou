@@ -7,7 +7,7 @@
           <li [ngbNavItem]="1">
             <a ngbNavLink>
               <i class="bx bxs-user d-block check-nav-icon mt-4 mb-2"></i>
-              <p class="fw-bold mb-4">Identite</p>
+              <p class="fw-bold mb-4"> {{ 'Identite' | translate }}</p>
             </a>
             <ng-template ngbNavContent>
               <div class="container-fluid">
@@ -19,7 +19,7 @@
                   <div class="col-12">
                     <div class="card">
                       <div class="card-body">
-                        <h1 class="card-title">Identite</h1>
+                        <h1 class="card-title">{{ 'Identite' | translate }}</h1>
                         
                         <p class="card-title-desc">Information</p>
 
@@ -27,7 +27,7 @@
                           <div class="row">
                             <div class="col-sm-6">
                               <div class="mb-3">
-                                <label for="productname">Nom</label>
+                                <label for="productname">{{'Nom'|translate}}</label>
                                 <input
                                   [value]="perso11.nom_pers"
                                   id="productname"
@@ -38,7 +38,7 @@
                                 />
                               </div>
                               <div class="mb-3">
-                                <label for="manufacturername">Prenom</label>
+                                <label for="manufacturername">{{'Prenom' | translate}}</label>
                                 <input
                                   [value]="perso11.pren_pers"
                                   id="manufacturername"
@@ -50,7 +50,7 @@
                               </div>
                               <div class="mb-3">
                                 <label for="manufacturerbrand"
-                                  >Lieu emission identité</label
+                                  >{{'Lieu emission identité' | translate}}</label
                                 >
                                 <input
                                   id="manufacturerbrand"
@@ -63,7 +63,7 @@
                               </div>
 
                               <div class="mb-3">
-                                <label for="price">Etat paie</label>
+                                <label for="price">{{'Etat paie' | translate}}</label>
                                 <input
                                   [value]="perso11.lib_etat_act"
                                   type="text"
@@ -74,7 +74,7 @@
                               </div>
                               <div class="mb-3">
                                 <label for="manufacturerbrand"
-                                  >Date de Naissance</label
+                                  >{{'Date de Naissance' | translate}}</label
                                 >
                                 <input
                                   id="manufacturerbrand"
@@ -90,7 +90,7 @@
                             <div class="col-sm-6">
                               <div class="mb-3">
                                 <label class="control-label"
-                                  >Nom 2emé langue</label
+                                  >{{'Nom 2emé langue'  | translate}}</label
                                 >
                                 <input
                                   id="manufacturerbrand"
@@ -103,7 +103,7 @@
                               </div>
                               <div class="mb-3">
                                 <label class="control-label"
-                                  >Prenom 2éme langue</label
+                                  >{{'Prenom 2éme langue'  | translate}}</label
                                 >
                                 <input
                                   id="manufacturerbrand"
@@ -116,7 +116,7 @@
                               </div>
                               <div class="mb-3">
                                 <label for="manufacturerbrand"
-                                  >N identité
+                                  >{{'N identité'  | translate}}
                                 </label>
                                 <input
                                   id="manufacturerbrand"
@@ -129,7 +129,7 @@
                               </div>
                               <div class="mb-3">
                                 <label for="manufacturerbrand"
-                                  >Nationalité</label
+                                  >{{'Nationalité' | translate}}</label
                                 >
                                 <input
                                   id="manufacturerbrand"
@@ -142,7 +142,7 @@
                               </div>
                               <div class="mb-3">
                                 <label for="manufacturerbrand"
-                                  >Lieu de Naissance</label
+                                  >{{'Lieu de Naissance'  | translate}}</label
                                 >
                                 <input
                                   id="manufacturerbrand"
@@ -166,7 +166,7 @@
                           <div class="row">
                             <div class="col-sm-6">
                               <div class="mb-3">
-                                <label for="metatitle">Service Militaie</label>
+                                <label for="metatitle">{{'Service Militaie'  | translate}}</label>
                                 <input
                                   [value]="perso11.lib_mil"
                                   id="metatitle"
@@ -177,7 +177,7 @@
                                 />
                               </div>
                               <div class="mb-3">
-                                <label for="metakeywords">Groupe sanguin</label>
+                                <label for="metakeywords">{{'Groupe sanguin'  | translate}}</label>
                                 <input
                                   id="metakeywords"
                                   [value]="perso11.grp_sang"
@@ -195,7 +195,7 @@
                                 class="mb-3"
                               >
                                 <label for="metadescription"
-                                  >Presum Nais
+                                  >{{'Presum Nais'  | translate}}
                                 </label>
                                 <input
                                   id="metakeywords"
@@ -211,7 +211,7 @@
                                 class="mb-3"
                               >
                                 <label for="metadescription"
-                                  >Presum Nais
+                                  >{{'Presum Nais'  | translate}}
                                 </label>
                                 <input
                                   id="metakeywords"
@@ -227,7 +227,7 @@
                                 class="mb-3"
                               >
                                 <label for="metadescription"
-                                  >Presum Nais
+                                  >{{'Presum Nais'  | translate}}
                                 </label>
                                 <input
                                   id="metakeywords"
@@ -240,7 +240,7 @@
                               </div>
                               <div class="mb-3">
                                 <label for="metakeywords"
-                                  >Situation familiale</label
+                                  >{{'Situation familiale'  | translate}}</label
                                 >
                                 <input
                                   *ngIf="perso11.cod_sit == 'M'"
@@ -294,7 +294,7 @@
           <li [ngbNavItem]="2">
             <a ngbNavLink>
               <i class="bx bx-notepad d-block check-nav-icon mt-4 mb-2"></i>
-              <p class="fw-bold mb-4">Adresse&contact</p>
+              <p class="fw-bold mb-4">{{'Adresse&contact'  | translate}}</p>
             </a>
             <ng-template ngbNavContent>
               <div class="container-fluid">
@@ -306,9 +306,9 @@
                   <div class="col-12">
                     <div class="card">
                       <div class="card-body">
-                        <h1 class="card-title">Adresse et contact</h1>
+                        <h1 class="card-title">{{'Adresse et contact'  | translate}}</h1>
                         
-                        <p class="card-title-desc">Information</p>
+                        <p class="card-title-desc">{{'Information'  | translate}}</p>
 
                         <form>
                           <div class="row">
@@ -317,7 +317,7 @@
                                 *ngFor="let item of adrpersbycodeandmat"
                                 class="mb-3"
                               >
-                                <label for="productname"> Rue</label>
+                                <label for="productname"> {{'Rue'  | translate}}</label>
                                 <input
                                   value="{{ item.rue }}"
                                   id="productname"
@@ -329,7 +329,7 @@
                               </div>
                               <div class="mb-3">
                                 <label for="manufacturername">
-                                  Code Gouvernorat</label
+                                 {{' Code Gouvernorat'  | translate}}</label
                                 >
                                 <input
                                   [value]="perso11.cod_gouv"
@@ -345,7 +345,7 @@
                                 class="mb-3"
                               >
                                 <label for="manufacturerbrand"
-                                  >Code Poste</label
+                                  >{{'Code Poste'  | translate}}</label
                                 >
                                 <input
                                   id="manufacturerbrand"
@@ -361,7 +361,7 @@
                                 *ngFor="let item of adrpersbycodeandmat"
                                 class="mb-3"
                               >
-                                <label for="price">Adresse Electronique </label>
+                                <label for="price">{{'Adresse Electronique'  | translate}} </label>
                                 <input
                                   value="{{ item.adr_electronique }}"
                                   type="text"
@@ -374,7 +374,7 @@
                                 *ngFor="let item of adrpersbycodeandmat"
                                 class="mb-3"
                               >
-                                <label for="manufacturerbrand">Gsm</label>
+                                <label for="manufacturerbrand">{{'Gsm'  | translate}}</label>
                                 <input
                                   id="manufacturerbrand"
                                   value="{{ item.tel_pers }}"
@@ -391,7 +391,7 @@
                                 *ngFor="let item of adrpersbycodeandmat"
                                 class="mb-3"
                               >
-                                <label for="price"> Rue 2éme langue </label>
+                                <label for="price"> {{'Rue 2éme langue' | translate}} </label>
                                 <input
                                   type="text"
                                   class="form-control"
@@ -402,7 +402,7 @@
                               </div>
                               <div class="mb-3">
                                 <label class="control-label">
-                                  Libellé Gouvernorat</label
+                                  {{'Libellé Gouvernorat'  | translate}}</label
                                 >
                                 <input
                                   [value]="perso11.lib_gouv"
@@ -421,7 +421,7 @@
                                   aria-disabled="true"
                                   for="manufacturerbrand"
                                 >
-                                  Libellé Poste
+                                  {{'Libellé Poste' | translate}}
                                 </label>
                                 <input
                                   [value]="item.libpost"
@@ -437,7 +437,7 @@
                                 class="mb-3"
                               >
                                 <label for="manufacturerbrand"
-                                  >Téléphone
+                                  >{{'Téléphone'  | translate}}
                                 </label>
 
                                 <input
@@ -453,7 +453,7 @@
                                 class="mb-3"
                                 *ngFor="let item of adrpersbycodeandmat"
                               >
-                                <label for="manufacturerbrand">Fax</label>
+                                <label for="manufacturerbrand">{{'Fax' | translate}}</label>
                                 <input
                                   value="{{ item.fax_pers }}"
                                   id="manufacturerbrand"
@@ -473,7 +473,7 @@
                     <div class="card">
                       <div class="card-body">
                         <h4 class="card-title"></h4>
-                        <p class="card-title-desc">Information</p>
+                        <p class="card-title-desc">{{'Information'  | translate}}</p>
                         
                         <app-aggridadress></app-aggridadress>
                       </div>
@@ -488,7 +488,7 @@
           <li [ngbNavItem]="3">
             <a ngbNavLink>
               <i class="bx bx-badge-check d-block check-nav-icon mt-4 mb-2"></i>
-              <p class="fw-bold mb-4">Niveau d'instruction</p>
+              <p class="fw-bold mb-4"> {{"Niveau d'instruction"  | translate}} </p>
             </a>
             <ng-template ngbNavContent>
               <div class="container-fluid">
@@ -500,7 +500,7 @@
                   <div class="col-12">
                     <div class="card">
                       <div class="card-body">
-                        <h1 class="card-title">Niveau d'instruction</h1>
+                        <h1 class="card-title">{{"Niveau d'instruction"  | translate}}</h1>
                         
                         <p class="card-title-desc">Information</p>
 

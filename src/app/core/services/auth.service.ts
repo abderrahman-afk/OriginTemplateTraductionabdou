@@ -18,7 +18,7 @@ export class AuthenticationService {
   constructor(private http: HttpClient) { }
 
   login(matpers: string, usepswd: string): Observable<any> {
-    return this.http.post("http://192.168.2.96:8080/api/auth/signin", {
+    return this.http.post("http://127.0.0.1:8080/api/auth/signin", {
       matpers,
       usepswd
     }, httpOptions);
@@ -37,17 +37,17 @@ export class AuthenticationService {
     }, httpOptions);
   }
   register2(user:any){
-    return this.http.post("http://192.168.2.96:8080/api/auth/signupt",user)
+    return this.http.post("http://127.0.0.1:8080/api/auth/signupt",user)
 
   }
 
 
   tokenExp(){
-    return this.http.get("http://192.168.2.96:8080/param/getTokenExp")
+    return this.http.get("http://127.0.0.1:8080/param/getTokenExp")
 
   }
   findbymatpers(mat:any){
-    return this.http.get("http://192.168.2.96:8080/api/auth/findbymatpers/"+mat)
+    return this.http.get("http://127.0.0.1:8080/api/auth/findbymatpers/"+mat)
 
   }
 

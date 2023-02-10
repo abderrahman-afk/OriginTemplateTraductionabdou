@@ -50,38 +50,25 @@ exp:any
   }
 
   ngOnInit(): void {
-    // if (this.tokenStorage.getToken()) {
-    //   this.isLoggedIn = true;
-    //   this.roles = this.tokenStorage.getUser().roles;
-    // }
-    // this.authService.tokenExp().subscribe((data) => {
-    //   this.exp=data
-    //   })
+    if (this.tokenStorage.getToken()) {
+      this.isLoggedIn = true;
+      this.roles = this.tokenStorage.getUser().roles;
+    }
+    this.authService.tokenExp().subscribe((data) => {
+      this.exp=data
+      })
   }
 
-  
   onSubmit() :void {
     const { matpers, usepswd } = this.form;
-    console.log("1   ffff",matpers,"ppp",usepswd);
-    
     let p=new Promise(resolve => {
-    console.log("2   ffff",matpers,"ppp",usepswd);
-
-    //     this.authService.findbymatpers(matpers).subscribe(
-    //        data => {
-    // console.log("3   ffff",matpers,"ppp",usepswd);
-
-    //         console.log("ffff",matpers,"ppp",usepswd);
-
-    //         console.log("eeee",data);
-            
-    //             resolve( data);
-    //             this.uss=data
-    //             console.log("eeeeeeee"+this.uss.matpers)
+        this.authService.findbymatpers(matpers).subscribe(
+           data => {
+                resolve( data);
+                this.uss=data
+                console.log("eeeeeeee"+this.uss.matpers)
                 this.authService.login(matpers, usepswd).subscribe(
                   (data) => {
-    console.log("3   ffff",matpers,"ppp",usepswd);
-
                     this.tokenStorage.saveToken(data.token);
                     this.tokenStorage.saveUser(data);
                     this.ereur2=false
@@ -147,58 +134,58 @@ exp:any
                 
                
                 //console.log('exected' + data);
-    //         },
-    //         err => {
-    //             console.log(err);
-    //         }
-    //     );
-    //  })
-    //  p.then(()=>{ if(this.uss.use_nbessai>5){
-    //   this.seconds=16
-    //   this.ereur2=true
+            },
+            err => {
+                console.log(err);
+            }
+        );
+     })
+     p.then(()=>{ if(this.uss.use_nbessai>5){
+      this.seconds=16
+      this.ereur2=true
       
-    //   this.countDown()
+      this.countDown()
       
 
 
 
 
 
-    //  }else if (this.uss.use_nbessai<5){
+     }else if (this.uss.use_nbessai<5){
 
 
-    //  }})
+     }})
       
-    // }
-    // clearTimer() {
-    //   clearInterval(this.intervalId);
-    // }
+    }
+    clearTimer() {
+      clearInterval(this.intervalId);
+    }
   
 
-    // start() {
-    //   this.countDown();
-    // }
-    // stop() {
-    //   this.clearTimer();
-    //   this.ereur2=false
-    //   this.message=null
-    // }
-    // private countDown() {
-    //   this.clearTimer();
-    //   this.intervalId = window.setInterval(() => {
+    start() {
+      this.countDown();
+    }
+    stop() {
+      this.clearTimer();
+      this.ereur2=false
+      this.message=null
+    }
+    private countDown() {
+      this.clearTimer();
+      this.intervalId = window.setInterval(() => {
         
-    //     this.seconds -= 1;
-    //     if (this.seconds === 0) {
-    //       this.message = '';
-    //       this.stop();
-    //     } else {
-    //       if (this.seconds < 0) {
-    //         this.seconds = 15;
-    //       } // reset
-    //       this.message = `Compte bloqué, veuillez réessayer aprés ${this.seconds} secondes`;
-    //     }
-    //   }, 1000);
-    // }
+        this.seconds -= 1;
+        if (this.seconds === 0) {
+          this.message = '';
+          this.stop();
+        } else {
+          if (this.seconds < 0) {
+            this.seconds = 15;
+          } // reset
+          this.message = `Compte bloqué, veuillez réessayer aprés ${this.seconds} secondes`;
+        }
+      }, 1000);
+    }
 
 
   
@@ -218,26 +205,25 @@ exp:any
   
 
 
-//   ccccc($event){
-//     this.matPers=$event.target.value
-//     this.authService.findbymatpers($event.target.value).subscribe(
-//     (data: any[]) => {
+  ccccc($event){
+    this.matPers=$event.target.value
+    this.authService.findbymatpers($event.target.value).subscribe(
+    (data: any[]) => {
       
-//       this.usss=data
+      this.usss=data
 
-// this.nbreEsaai=this.uss.use_nbessai
-// console.log(this.nbreEsaai)
+this.nbreEsaai=this.uss.use_nbessai
+console.log(this.nbreEsaai)
 
-//       console.log(data);
-//     },
-//     (error) => {
-//       console.log(error);
-//     }
-//   );}
-}
+      console.log(data);
+    },
+    (error) => {
+      console.log(error);
+    }
+  );}}
 
 
-    )}
-}
+
+
 
 /* */

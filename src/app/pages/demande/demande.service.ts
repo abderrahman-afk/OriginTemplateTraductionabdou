@@ -1,8 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-const AUTH_API = 'http://192.168.2.96:8080/';
-const AUTH_APII = 'http://192.168.2.96:8080/demande/downloadFile/';
+const AUTH_API = 'http://localhost:8080/';
+const AUTH_APII = 'http://localhost:8080/demande/downloadFile/';
 const AUTH_API_MAIL = 'http://localhost:8181/';
 
 const httpOptions = {
@@ -63,10 +63,10 @@ export class DemandeService {
 
   }
   GetAdrChef = (mat:any): Observable<any[]> => {
-    return this.http.get<any[]>("http://192.168.2.96:8080/api/auth/"+mat);
+    return this.http.get<any[]>("http://localhost:8080/api/auth/"+mat);
   };
   getMaskMontant= (): Observable<any[]> => {
-    return this.http.get<any[]>( "http://192.168.2.96:8080/mask/getFormatMontant");
+    return this.http.get<any[]>( "http://localhost:8080/mask/getFormatMontant");
   };
 
   GetMatRH = (): Observable<any[]> => {

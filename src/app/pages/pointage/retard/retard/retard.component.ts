@@ -4,7 +4,6 @@ import { PointageService } from "../../pointage.service";
 import { ClientSideRowModelModule } from "@ag-grid-community/client-side-row-model";
 import * as moment from "moment";
 import { Module } from "@ag-grid-community/core";
-import { PersonnelService } from "src/app/pages/Employe/personnel.service";
 
 @Component({
   selector: "app-retard",
@@ -12,42 +11,18 @@ import { PersonnelService } from "src/app/pages/Employe/personnel.service";
   styleUrls: ["./retard.component.scss"],
 })
 export class RetardComponent implements OnInit {
-
-  perso11 :any = {
-    cod_soc:this.tokenService.getUser().cod_soc,
-    mat_pers:this.tokenService.getUser().matpers}
-    n:any
-
   rowData: any[] = [];
   constructor(
     private serv: PointageService,
-    private tokenService: TokenStorage,
-    private ser: PersonnelService
+    private tokenService: TokenStorage
   ) {}
 
   ngOnInit() {
-    this.getpers();
+    this.GetRetardById();
   }
 
-
-  getpers(){
-
-    this.ser.getpersonnel(this.perso11).subscribe(
-      data => {
-        this.perso11 = data; console.log('exected' + data);
-        this.n=this.perso11.cod_serv
-        console.log("codserv"+this.n)
-    this.GetRetardById()
-
-      },
-      err => {
-        console.log(err);
-      }
-      );}
-
-
   GetRetardById() {
-    this.serv.GetRetardById(this.n,this.tokenService.getUser().matpers).subscribe(
+    this.serv.GetRetardById("1F0", "10326").subscribe(
       (data: any[]) => {
         this.rowData = data;
 

@@ -436,18 +436,6 @@ export const MENU: MenuItem[] = [
                     link: '/competence/competence',
                     parentId: 128
                 },
-                {
-                    id: 136,
-                    label: 'MENUITEMS.ESPACERH.LIST.FICH',
-                    link: '/Ajout/Agent',
-                    parentId: 128
-                },
-                {
-                    id: 137,
-                    label: 'MENUITEMS.ESPACERH.LIST.EDITFICH',
-                    link: '/Ajout/Modifer',
-                    parentId: 128
-                },
             ]
         },
         {

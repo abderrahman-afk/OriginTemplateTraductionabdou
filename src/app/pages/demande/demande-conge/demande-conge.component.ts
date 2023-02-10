@@ -10,9 +10,6 @@ import { Email } from '../elail.model';
 import { WebsocketService } from 'src/app/layouts/topbar/shared/services/websocket.service';
 import { AjoutPersService } from '../../FicheSignalitique/ajout-pers.service';
 import Inputmask from "inputmask";
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { PersonnelService } from '../../Employe/personnel.service';
-import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-demande-conge',
   templateUrl: './demande-conge.component.html',
@@ -53,10 +50,8 @@ etat_notif:""
   listMotifCng:any[]=[]
   // breadcrumb items
   breadCrumbItems: Array<{}>;
-  constructor(private translatee:TranslateService ,private serv: PersonnelService,private demandeService:DemandeService,private formBuilder : FormBuilder
-    ,private tokenService:TokenStorage,
-    private modalService: NgbModal,
-    private websocketService: WebsocketService,private persServ: AjoutPersService) { }
+  constructor(private demandeService:DemandeService,private formBuilder : FormBuilder
+    ,private tokenService:TokenStorage,private websocketService: WebsocketService,private persServ: AjoutPersService) { }
   ngOnInit(): void {
     this.formConge = this.formBuilder.group({
 
@@ -81,31 +76,8 @@ etat_notif:""
     this.getEmailChef()
     this.getformatDateDebut()
     this.getformatDateFin()
-    console.log('lang curren ',this.translatee.currentLang)
-    this.serv.language$.subscribe((language) => {
-     this.translateHeaderNames(language);
-   });
-   const currentLang = this.translatee.getBrowserLang();
-   this.translatee.onLangChange.subscribe(() => {
-     this.columnConge = this.columnConge.map((col) => {
-       col.headerName = this.translatee.instant(col.headerName,currentLang);
-       return col;
-     });
-   });
-  }
-  
-  changeLanguage() {
-    const currentLanguage = this.serv.languageSubject.value;
-    this.serv.setLanguage(currentLanguage === 'en' ? 'fr' : 'en');
-  }
 
-  translateHeaderNames(language: string) {
-    this.columnConge = this.columnConge.map((col) => {
-      col.headerName = this.translatee.instant(col.headerName, language);
-      return col;
-    });
   }
-
   getEmailChef(){
     this.demandeService.GetAdrChef("10321").subscribe(
       (data:any) =>{
@@ -285,12 +257,6 @@ createHyperLink(params:any): any {
 }
 get homeUrl(): string {
   return 'home';
-}
-openModal(targetModal) {
-  this.modalService.open(targetModal, {
-    windowClass: "my-class",
-    centered: true,
-  });
 }
 DemandeConge() {
   this.demandeService.GetMatchef(this.tokenService.getUser().matpers).subscribe(

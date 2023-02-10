@@ -40,7 +40,7 @@ enfs:any
   cv:any[]
 userForm: FormGroup;
 conj:any[]
-enf:any=[]
+enf:any[]
 maskdate: any;
 isCollapsed: boolean;
 personnel:any
@@ -87,8 +87,7 @@ listFonction: any = [];
 listEchlonh: any[];
 listServ: any;
 value: any;
-matricule: any=0;
-cod_soc:any=0;
+matricule: any;
 payss: any = [];
 formEnfant: FormGroup;
 form: FormGroup;
@@ -102,23 +101,22 @@ empForm: FormGroup;
 
 formTest: FormGroup;
 settings = {
-  add:{
-    confirmCreate:true,
-    addButtonContent: '<i class="mdi mdi-folder-plus"></i> ',
-    createButtonContent: '<i class="mdi mdi-content-save"></i>',
-    cancelButtonContent: '<i class="mdi mdi-book-remove-outline"></i>',
-},
+  actions: {
+    add: false,      //  if you want to remove add button
+    edit: false,     //  if you want to remove edit button
+    delete: false ,
+  },
   edit: {
     confirmSave: true,
     editButtonContent: '<i class="mdi mdi-update"></i> ',
     saveButtonContent: '<a (click)="UpdateEnfant(event)"> <i class="mdi mdi-content-save"></i></a>',
-    cancelButtonContent: '<i class="mdi mdi-book-remove-outline"></i>',
+    cancelButtonContent: '<i class="mdi-book-remove-outline"></i>',
   },
   delete: {
     confirmDelete: true,
     deleteButtonContent: '<i class="mdi mdi-delete"></i>',
-    saveButtonContent: '<i class="mdi mdi-content-save"></i>',
-    cancelButtonContent: '<i class="mdi mdi-book-remove-outline"></i>',
+    saveButtonContent: 'save',
+    cancelButtonContent: 'cancel'
   },
 //     edit:{
 //       confirmEdit:true
@@ -145,22 +143,6 @@ filter:false
       },
 
     },
-
-    mat_pers: {
-      title: 'Matricule',
-      filter:false,
-defaultValue:this.matricule,
-hide:true
- 
-    },
-    cod_soc: {
-      title: 'code socité',
-      filter:false,
-      defaultValue:this.cod_soc,
-      hide:true
- 
-    },
-
     dat_naiss: {
       title: 'Date naissance',
       filter:false,
@@ -185,12 +167,11 @@ hide:true
   },
 };
 Conj = {
-  add:{
-    confirmCreate:true,
-    addButtonContent: '<i class="mdi mdi-folder-plus"></i> ',
-    createButtonContent: '<i class="mdi mdi-content-save"></i>',
-    cancelButtonContent: '<i class="mdi mdi-book-remove-outline"></i>',
-},
+  actions: {
+    add: false,      //  if you want to remove add button
+    edit: true,     //  if you want to remove edit button
+    delete:false //  if you want to remove delete button
+  },
   edit: {
     confirmSave: true,
     editButtonContent: '<i class="mdi mdi-update"></i> ',
@@ -200,28 +181,14 @@ Conj = {
   delete: {
     confirmDelete: true,
     deleteButtonContent: '<i class="mdi mdi-delete"></i>',
-    saveButtonContent: '<i class="mdi mdi-content-save"></i>',
-    cancelButtonContent: '<i class="mdi-book-remove-outline"></i>',
+    saveButtonContent: 'save',
+    cancelButtonContent: 'cancel'
   },
   columns: {
 
     prenom: {
       title: 'Nom et prénom',
       filter:false
- 
-    },
-    mat_pers: {
-      title: 'Matricule',
-      filter:false,
-defaultValue:this.matricule,
-hide:true
- 
-    },
-    cod_soc: {
-      title: 'code socité',
-      filter:false,
-      defaultValue:this.cod_soc,
-      hide:true
  
     },
     cod_pays: {
@@ -265,12 +232,11 @@ hide:true
   },
 };
 CV = {
-  add:{
-    confirmCreate:true,
-    addButtonContent: '<i class="mdi mdi-folder-plus"></i> ',
-    createButtonContent: '<i class="mdi mdi-content-save"></i>',
-    cancelButtonContent: '<i class="mdi mdi-book-remove-outline"></i>',
-},
+  actions: {
+    add: false,      //  if you want to remove add button
+    edit: true,     //  if you want to remove edit button
+    delete:false //  if you want to remove delete button
+  },
   edit: {
     confirmSave: true,
     editButtonContent: '<i class="mdi mdi-update"></i> ',
@@ -280,15 +246,14 @@ CV = {
   delete: {
     confirmDelete: true,
     deleteButtonContent: '<i class="mdi mdi-delete"></i>',
-    saveButtonContent: '<i class="mdi mdi-content-save"></i>',
-    cancelButtonContent: '<i class="mdi-book-remove-outline"></i>',
+    saveButtonContent: 'save',
+    cancelButtonContent: 'cancel'
   },
   columns: {
 
 
     cod_niveau: {
-      title: 'Dîplome',        
-      filter:false,
+      title: 'Dîplome',        filter:false,
 
       type:'list',
       editor: {
@@ -333,21 +298,6 @@ CV = {
         filter:false
         
 
-   
-      },
-
-      mat_pers: {
-        title: 'Matricule',
-        filter:false,
-  defaultValue:this.matricule,
-  hide:true
-   
-      },
-      cod_soc: {
-        title: 'code socité',
-        filter:false,
-        defaultValue:this.cod_soc,
-        hide:true
    
       },
     },
@@ -662,12 +612,11 @@ getDiplome() {
   this.persServ.getAllnivv().subscribe((data) => {
     this.listDiplome = data;
     this.CV = {
-      add:{
-        confirmCreate:true,
-        addButtonContent: '<i class="mdi mdi-folder-plus"></i> ',
-        createButtonContent: '<i class="mdi mdi-content-save"></i>',
-        cancelButtonContent: '<i class="mdi mdi-book-remove-outline"></i>',
-    },
+      actions: {
+        add: false,      //  if you want to remove add button
+        edit: true,     //  if you want to remove edit button
+        delete:true //  if you want to remove delete button
+      },
       edit: {
         confirmSave: true,
         editButtonContent: '<i class="mdi mdi-update"></i>',
@@ -676,108 +625,9 @@ getDiplome() {
       },
       delete: {
         confirmDelete: true,
-    deleteButtonContent: '<i class="mdi mdi-delete"></i>',
-    saveButtonContent: '<i class="mdi mdi-content-save"></i>',
-    cancelButtonContent: '<i class="mdi-book-remove-outline"></i>',
-      },
-
-      columns: {
-  
-  
-        cod_niveau: {
-          title: 'Dîplome',       
-           filter:false,
-  
-          type:'list',
-          editor: {
-            type: 'list',
-            config: {
-              list:this.listDiplome &&this.listDiplome.map((grp)=>{
-              return {'value':grp.cod_niveau,'title':grp.lib_niveau}
-              })
-              },
-          },
-        },
-        code_domaine: {
-          title: 'Spécialité',
-          filter:false,
-  
-          type:'list',
-          editor: {
-            type: 'list',
-            config: {
-              list:this.listSpecialite &&this.listSpecialite.map((grp)=>{
-              return {'value':grp.code_domaine,'title':grp.lib_domaine}
-              })
-              },
-          },
-        },
-          cod_etab: {
-            title: 'Ecole',
-            filter:false,
-  
-            editor: {
-              type: 'list',
-              config: {
-                list:this.listOrganisme &&this.listOrganisme.map((grp)=>{
-                return {'value':grp.cod_org,'title':grp.lib_org}
-                })
-                },
-            },
-          },
-  
-          date_niveau: {
-            title: 'Date dîplome',
-            filter:false
-            
-  
-       
-          },
-          
-      mat_pers: {
-        title: 'Matricule',
-        filter:false,
-  defaultValue:this.matricule,
-  hide:true
-   
-      },
-      cod_soc: {
-        title: 'code socité',
-        filter:false,
-        defaultValue:this.cod_soc,
-        hide:true
-   
-      },
-        },
-  
-  
-      
-    };
-  
-  });
-}
-
-getSpecialite() {
-  this.persServ.getAllSpecialite().subscribe((data) => {
-    this.listSpecialite = data;
-    this.CV = {
-      add:{
-        confirmCreate:true,
-          addButtonContent: '<i class="mdi mdi-folder-plus"></i> ',
-          createButtonContent: '<i class="mdi mdi-content-save"></i>',
-          cancelButtonContent: '<i class="mdi mdi-book-remove-outline"></i>',
-    },
-      edit: {
-        confirmSave: true,
-        editButtonContent: '<i class="mdi mdi-update"></i> ',
-        saveButtonContent: '<a (click)="UpdateConjoint(event)"> <i class="mdi mdi-content-save"></i></a>',
-        cancelButtonContent: '<i class="mdi mdi-book-remove-outline"></i>',
-      },
-      delete: {
-        confirmDelete: true,
-    deleteButtonContent: '<i class="mdi mdi-delete"></i>',
-    saveButtonContent: '<i class="mdi mdi-content-save"></i>',
-    cancelButtonContent: '<i class="mdi-book-remove-outline"></i>'
+        deleteButtonContent: '<i class="mdi mdi-delete"></i>',
+        saveButtonContent: 'save',
+        cancelButtonContent: 'cancel'
       },
       columns: {
   
@@ -830,19 +680,85 @@ getSpecialite() {
   
        
           },
+        },
+  
+  
+      
+    };
+  
+  });
+}
 
-          mat_pers: {
-            title: 'Matricule',
-            filter:false,
-      defaultValue:this.matricule,
-      hide:true
-       
+getSpecialite() {
+  this.persServ.getAllSpecialite().subscribe((data) => {
+    this.listSpecialite = data;
+    this.CV = {
+      actions: {
+        add: false,      //  if you want to remove add button
+        edit: true,     //  if you want to remove edit button
+        delete:true //  if you want to remove delete button
+      },
+      edit: {
+        confirmSave: true,
+        editButtonContent: '<i class="mdi mdi-update"></i> ',
+        saveButtonContent: '<a (click)="UpdateConjoint(event)"> <i class="mdi mdi-content-save"></i></a>',
+        cancelButtonContent: '<i class="mdi mdi-book-remove-outline"></i>',
+      },
+      delete: {
+        confirmDelete: true,
+        deleteButtonContent: '<i class="mdi mdi-delete"></i>',
+        saveButtonContent: 'save',
+        cancelButtonContent: 'cancel'
+      },
+      columns: {
+  
+  
+        cod_niveau: {
+          title: 'Dîplome',        filter:false,
+  
+          type:'list',
+          editor: {
+            type: 'list',
+            config: {
+              list:this.listDiplome &&this.listDiplome.map((grp)=>{
+              return {'value':grp.cod_niveau,'title':grp.lib_niveau}
+              })
+              },
           },
-          cod_soc: {
-            title: 'code socité',
+        },
+        code_domaine: {
+          title: 'Spécialité',
+          filter:false,
+  
+          type:'list',
+          editor: {
+            type: 'list',
+            config: {
+              list:this.listSpecialite &&this.listSpecialite.map((grp)=>{
+              return {'value':grp.code_domaine,'title':grp.lib_domaine}
+              })
+              },
+          },
+        },
+          cod_etab: {
+            title: 'Ecole',
             filter:false,
-            defaultValue:this.cod_soc,
-            hide:true
+  
+            editor: {
+              type: 'list',
+              config: {
+                list:this.listOrganisme &&this.listOrganisme.map((grp)=>{
+                return {'value':grp.cod_org,'title':grp.lib_org}
+                })
+                },
+            },
+          },
+  
+          date_niveau: {
+            title: 'Date dîplome',
+            filter:false
+            
+  
        
           },
         },
@@ -857,12 +773,11 @@ getOrganisme() {
   this.persServ.getAllOrganisme().subscribe((data) => {
     this.listOrganisme = data;
     this.CV = {
-      add:{
-        confirmCreate:true,
-          addButtonContent: '<i class="mdi mdi-folder-plus"></i> ',
-          createButtonContent: '<i class="mdi mdi-content-save"></i>',
-          cancelButtonContent: '<i class="mdi mdi-book-remove-outline"></i>',
-    },
+      actions: {
+        add: false,      //  if you want to remove add button
+        edit: true,     //  if you want to remove edit button
+        delete:true //  if you want to remove delete button
+      },
       edit: {
         confirmSave: true,
         editButtonContent: '<i class="mdi mdi-update"></i> ',
@@ -872,8 +787,8 @@ getOrganisme() {
       delete: {
         confirmDelete: true,
         deleteButtonContent: '<i class="mdi mdi-delete"></i>',
-        saveButtonContent: '<i class="mdi mdi-content-save"></i>',
-        cancelButtonContent: '<i class="mdi-book-remove-outline"></i>',
+        saveButtonContent: 'save',
+        cancelButtonContent: 'cancel'
       },
       columns: {
   
@@ -924,21 +839,6 @@ getOrganisme() {
             filter:false
             
   
-       
-          },
-
-          mat_pers: {
-            title: 'Matricule',
-            filter:false,
-      defaultValue:this.matricule,
-      hide:true
-       
-          },
-          cod_soc: {
-            title: 'code socité',
-            filter:false,
-            defaultValue:this.cod_soc,
-            hide:true
        
           },
         },
@@ -958,12 +858,11 @@ getLibActFam() {
   this.persServ.GetListMetier().subscribe((data) => {
     this.listMetier = data;
     this.Conj = {
-      add:{
-        confirmCreate:true,
-        addButtonContent: '<i class="mdi mdi-folder-plus"></i> ',
-        createButtonContent: '<i class="mdi mdi-content-save"></i>',
-        cancelButtonContent: '<i class="mdi mdi-book-remove-outline"></i>',
-   },
+      actions: {
+        add: false,      //  if you want to remove add button
+        edit: true,     //  if you want to remove edit button
+        delete:true //  if you want to remove delete button
+      },
       edit: {
         confirmSave: true,
         editButtonContent: '<i class="mdi mdi-update"></i> ',
@@ -973,8 +872,8 @@ getLibActFam() {
       delete: {
         confirmDelete: true,
         deleteButtonContent: '<i class="mdi mdi-delete"></i>',
-        saveButtonContent: '<i class="mdi mdi-content-save"></i>',
-        cancelButtonContent: '<i class="mdi-book-remove-outline"></i>',
+        saveButtonContent: 'save',
+        cancelButtonContent: 'cancel'
       },
       columns: {
   
@@ -982,22 +881,6 @@ getLibActFam() {
           title: 'Nom et prénom',
           filter:false,
 
-     
-        },
-        mat_pers: {
-          title: 'Matricule',
-          filter:false,
-          defaultValue:this.matricule,
-          hide:true
-    
-
-          
-        },
-        cod_soc: {
-          title: 'code socité',
-          filter:false,
-          defaultValue:this.cod_soc,
-          hide:true
      
         },
         cod_pays: {
@@ -1050,12 +933,11 @@ getActiviteEnfant() {
   this.persServ.GetListActiviteEnfant().subscribe((data) => {
     this.listActiviteEnfant = data;
     this.settings = {
-      add:{
-        confirmCreate:true,
-        addButtonContent: '<i class="mdi mdi-folder-plus"></i> ',
-        createButtonContent: '<i class="mdi mdi-content-save"></i>',
-        cancelButtonContent: '<i class="mdi mdi-book-remove-outline"></i>',
-    },
+      actions: {
+        add: false,      //  if you want to remove add button
+        edit: true,     //  if you want to remove edit button
+        delete:true //  if you want to remove delete button
+      },
       edit: {
         confirmSave: true,
         editButtonContent: '<a (click)="getformatDateNaissanceEnfant()"><i class="mdi mdi-update"></i></a> ',
@@ -1065,8 +947,8 @@ getActiviteEnfant() {
       delete: {
         confirmDelete: true,
         deleteButtonContent: '<i class="mdi mdi-delete"></i>',
-        saveButtonContent: '<i class="mdi mdi-content-save"></i>',
-        cancelButtonContent: '<i class="mdi mdi-book-remove-outline"></i>',
+        saveButtonContent: 'save',
+        cancelButtonContent: 'cancel'
       },
   //     edit:{
   //       confirmEdit:true
@@ -1099,20 +981,6 @@ getActiviteEnfant() {
 
           title: 'Date naissance',
 
-        },
-        mat_pers: {
-          title: 'Matricule',
-          filter:false,
-    defaultValue:this.matricule,
-    hide:true
-     
-        },
-        cod_soc: {
-          title: 'code socité',
-          filter:false,
-          defaultValue:this.cod_soc,
-          hide:true
-     
         },
         cod_activite: {
           title: 'Activité',
@@ -1199,12 +1067,11 @@ getPays() {
   this.persServ.GetListNationalité().subscribe((data) => {
     this.payss = data;
     this.Conj = {
-      add:{
-        confirmCreate:true,
-        addButtonContent: '<i class="mdi mdi-folder-plus"></i> ',
-        createButtonContent: '<i class="mdi mdi-content-save"></i>',
-        cancelButtonContent: '<i class="mdi mdi-book-remove-outline"></i>',
-   },
+      actions: {
+        add: false,      //  if you want to remove add button
+        edit: true,     //  if you want to remove edit button
+        delete:true //  if you want to remove delete button
+      },
       edit: {
         confirmSave: true,
         editButtonContent: '<i class="mdi mdi-update"></i> ',
@@ -1214,8 +1081,8 @@ getPays() {
       delete: {
         confirmDelete: true,
         deleteButtonContent: '<i class="mdi mdi-delete"></i>',
-        saveButtonContent: '<i class="mdi mdi-content-save"></i>',
-        cancelButtonContent: '<i class="mdi-book-remove-outline"></i>',
+        saveButtonContent: 'save',
+        cancelButtonContent: 'cancel'
       },
       columns: {
   
@@ -1223,20 +1090,6 @@ getPays() {
           title: 'Nom et prénom',
           filter:false,
 
-     
-        },
-        mat_pers: {
-          title: 'Matricule',
-          filter: false,
-          defaultValue:this.matricule,
-          hide:true
-
-        },
-        cod_soc: {
-          title: 'code socité',
-          filter:false,
-          defaultValue:this.cod_soc,
-          hide:true
      
         },
         cod_pays: {
@@ -1463,24 +1316,8 @@ UpdateConjoint(event:any) {
   this.persServ
     .UpdateEnfant(event.newData)
     .subscribe((event: any) => {
-      if (event) {
+    //  this.Conj.load(event as []);
 
-        Swal.fire({
-          position: "top-end",
-          icon: "error",
-          title: "Veuiller vérifier vos données",
-          showConfirmButton: false,
-          timer: 2000,
-        });
-      } else {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "L`ajout à été bien enregistrer",
-          showConfirmButton: false,
-          timer: 2000,
-        });
-      }
     });
 }
 
@@ -1492,16 +1329,16 @@ updateEnfant(event:any) {
       if (event) {
         Swal.fire({
           position: "top-end",
-          icon: "error",
-          title: "Veuiller vérifier vos données",
+          icon: "success",
+          title: "L`ajout à été bien enregistrer",
           showConfirmButton: false,
           timer: 2000,
         });
       } else {
         Swal.fire({
           position: "top-end",
-          icon: "success",
-          title: "L`ajout à été bien enregistrer",
+          icon: "error",
+          title: "Veuiller vérifier vos données",
           showConfirmButton: false,
           timer: 2000,
         });
@@ -1537,267 +1374,6 @@ GetPers() {
     .GetPersonnel(this.formPers.value)
     .subscribe((data: any) => {
       this.personnel=data
-      this.matricule=this.personnel.mat_pers
-      this.cod_soc=this.personnel.cod_soc
-      console.log("rrrrrr"+this.personnel.mat_pers)
-      this.Conj = {
-        add:{
-          confirmCreate:true,
-          addButtonContent: '<i class="mdi mdi-folder-plus"></i> ',
-          createButtonContent: '<i class="mdi mdi-content-save"></i>',
-          cancelButtonContent: '<i class="mdi mdi-book-remove-outline"></i>',
-     },
-        edit: {
-          confirmSave: true,
-          editButtonContent: '<i class="mdi mdi-update"></i> ',
-          saveButtonContent: '<a (click)="UpdateConjoint(event)"> <i class="mdi mdi-content-save"></i></a>',
-          cancelButtonContent: '<i class="mdi mdi-book-remove-outline"></i>',
-        },
-        delete: {
-          confirmDelete: true,
-    deleteButtonContent: '<i class="mdi mdi-delete"></i>',
-    saveButtonContent: '<i class="mdi mdi-content-save"></i>',
-    cancelButtonContent: '<i class="mdi-book-remove-outline"></i>',
-        },
-        columns: {
-    
-          prenom: {
-            title: 'Nom et prénom',
-            filter:false,
-  
-       
-          },
-          mat_pers: {
-            title: 'Matricule',
-            filter:false,
-            defaultValue:this.matricule,
-            hide:true
-      
-  
-            
-          },
-          cod_soc: {
-            title: 'code socité',
-            filter:false,
-            defaultValue:this.cod_soc,
-            hide:true
-            
-       
-          },
-          cod_pays: {
-            title: 'Nationalité',
-            filter:false,
-  
-            type:'list',
-            editor: {
-              type: 'list',
-              config: {
-                list:this.payss &&this.payss.map((grp)=>{
-                return {'value':grp.cod_pays,'title':grp.lib_pays}
-                })
-                },
-            },
-  
-          },
-          cod_activite: {
-            title: 'Metier',
-            filter:false,
-  
-            type:'list',
-            editor: {
-              type: 'list',
-              config: {
-                list:this.listMetier &&this.listMetier.map((grp)=>{
-                return {'value':grp.cod_activite,'title':grp.lib_activite}
-                })
-                },
-            },
-    
-          },
-          profession: {
-            title: 'Emploi',
-            filter:false,
-  
-  
-          },
-    
-        },
-      };
-     this. settings = {
-        add:{
-          confirmCreate:true,
-          addButtonContent: '<i class="mdi mdi-folder-plus"></i> ',
-          createButtonContent: '<i class="mdi mdi-content-save"></i>',
-          cancelButtonContent: '<i class="mdi mdi-book-remove-outline"></i>',
-      },
-        edit: {
-          confirmSave: true,
-          editButtonContent: '<i class="mdi mdi-update"></i> ',
-          saveButtonContent: '<a (click)="UpdateEnfant(event)"> <i class="mdi mdi-content-save"></i></a>',
-          cancelButtonContent: '<i class="mdi-book-remove-outline"></i>',
-        },
-        delete: {
-          confirmDelete: true,
-          deleteButtonContent: '<i class="mdi mdi-delete"></i>',
-          saveButtonContent: '<i class="mdi mdi-content-save"></i>',
-          cancelButtonContent: '<i class="mdi mdi-book-remove-outline"></i>',
-        },
-      //     edit:{
-      //       confirmEdit:true
-      //  },
-        columns: {
-      
-          prenom: {
-            title: 'Nom et prénom',
-      filter:false
-          },
-          sexe: {
-            title: 'Genre',
-            filter:false,
-      
-            editor: {
-              type: 'list',
-              config: {
-                
-                list: [
-                  { value: 'F', title: 'Femme' },
-                  { value: 'H', title: 'Homme' },
-                ],
-                },
-            },
-      
-          },
-      
-          mat_pers: {
-            title: 'Matricule',
-            filter:false,
-      defaultValue:this.matricule,
-      hide:true
-       
-          },
-          cod_soc: {
-            title: 'code socité',
-            filter:false,
-            defaultValue:this.cod_soc,
-            hide:true
-       
-          },
-      
-          dat_naiss: {
-            title: 'Date naissance',
-            filter:false,
-      
-      
-          },
-          
-          cod_activite: {
-            title: 'Activité',
-            filter:false,
-      
-            editor: {
-              type: 'list',
-              config: {
-                list:this.listActiviteEnfant &&this.listActiviteEnfant.map((grp)=>{
-                return {'value':grp.cod_activite,'title':grp.lib_activite}
-                })
-                },
-            },
-      
-          },
-        },
-      };
-
-      this.CV = {
-        add:{
-          confirmCreate:true,
-          addButtonContent: '<i class="mdi mdi-folder-plus"></i> ',
-          createButtonContent: '<i class="mdi mdi-content-save"></i>',
-          cancelButtonContent: '<i class="mdi mdi-book-remove-outline"></i>',
-      },
-        edit: {
-          confirmSave: true,
-          editButtonContent: '<i class="mdi mdi-update"></i> ',
-          saveButtonContent: '<a (click)="UpdateConjoint(event)"> <i class="mdi mdi-content-save"></i></a>',
-          cancelButtonContent: '<i class="mdi mdi-book-remove-outline"></i>',
-        },
-        delete: {
-          confirmDelete: true,
-    deleteButtonContent: '<i class="mdi mdi-delete"></i>',
-    saveButtonContent: '<i class="mdi mdi-content-save"></i>',
-    cancelButtonContent: '<i class="mdi-book-remove-outline"></i>',
-        },
-        columns: {
-      
-      
-          cod_niveau: {
-            title: 'Dîplome',        filter:false,
-      
-            type:'list',
-            editor: {
-              type: 'list',
-              config: {
-                list:this.listDiplome &&this.listDiplome.map((grp)=>{
-                return {'value':grp.cod_niveau,'title':grp.lib_niveau}
-                })
-                },
-            },
-          },
-          code_domaine: {
-            title: 'Spécialité',
-            filter:false,
-      
-            type:'list',
-            editor: {
-              type: 'list',
-              config: {
-                list:this.listSpecialite &&this.listSpecialite.map((grp)=>{
-                return {'value':grp.code_domaine,'title':grp.lib_domaine}
-                })
-                },
-            },
-          },
-            cod_etab: {
-              title: 'Ecole',
-              filter:false,
-      
-              editor: {
-                type: 'list',
-                config: {
-                  list:this.listOrganisme &&this.listOrganisme.map((grp)=>{
-                  return {'value':grp.cod_org,'title':grp.lib_org}
-                  })
-                  },
-              },
-            },
-      
-            date_niveau: {
-              title: 'Date dîplome',
-              filter:false
-              
-      
-         
-            },
-      
-            mat_pers: {
-              title: 'Matricule',
-              filter:false,
-        defaultValue:this.matricule,
-        hide:true
-         
-            },
-            cod_soc: {
-              title: 'code socité',
-              filter:false,
-              defaultValue:this.cod_soc,
-              hide:true
-         
-            },
-          },
-      
-      
-        
-      };
-
       this.formPersonnel.patchValue({
         cod_soc:this.personnel.cod_soc,
         mat_pers: this.personnel.mat_pers,
@@ -1953,7 +1529,7 @@ GetPers() {
     .subscribe((data: any) => {
       this.enf=data
       this.tableData = this.enf;
-      console.log(this.tableData)
+      console.log(this.tableData.length)
       this.formEnfant.get("mat_pers")
       .patchValue("09650");
       this.formEnfant.get("num_fam")
@@ -1977,7 +1553,6 @@ GetPers() {
 
 
     });
-
 }
 
 
@@ -2072,79 +1647,5 @@ getformatDateNaissanceEnfant() {
     }).mask(this.myInputElementRefNaissanceEnfant.nativeElement);
   });
 }
-
-closeRow(event) {
-  event.confirm.resolve();
-}
-
-AddNewLineConjoint(event:any) {
- console.log(event.newData)
- console.log(event.data)
-
-
-    this.persServ
-      .AddNewLineConjoint(event.newData)
-      .subscribe((event: any) => {
-        if (event) {
-        } else {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "L`ajout à été bien enregistrer",
-            showConfirmButton: false,
-            timer: 2000,
-          });
-          this.changeTitle();
-
-        }
-      });
-  }
-
-  AddNewLineEnfant(event:any) {
-    console.log(event.newData)
-    console.log(event.data)
-   
-   
-       this.persServ
-         .AddNewLineEnfant(event.newData)
-         .subscribe((event: any) => {
-           if (event) {
-           } else {
-             Swal.fire({
-               position: "top-end",
-               icon: "success",
-               title: "L`ajout à été bien enregistrer",
-               showConfirmButton: false,
-               timer: 2000,
-             });
-             this.changeTitle();
-   
-           }
-         });
-     }
-
-
-     AddNewLineCV(event:any) {
-      console.log(event.newData)
-      console.log(event.data)
-     
-     
-         this.persServ
-           .AddNewLineCV(event.newData)
-           .subscribe((event: any) => {
-             if (event) {
-             } else {
-               Swal.fire({
-                 position: "top-end",
-                 icon: "success",
-                 title: "L`ajout à été bien enregistrer",
-                 showConfirmButton: false,
-                 timer: 2000,
-               });
-               this.changeTitle();
-     
-             }
-           });
-       }
 
 }

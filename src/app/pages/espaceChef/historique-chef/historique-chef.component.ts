@@ -152,6 +152,7 @@ getpers(){
      this.perso11 = data; console.log('exected' + data);
 
      this.n=this.perso11.cod_serv
+     this.getListDemandeChef()
 
 
    },
@@ -161,7 +162,7 @@ getpers(){
    );}
 
  getListDemandeChef() {
-   this.serv.GetListDemandeRepChefNotNull(this.tokenService.getUser().cod_soc,"10326" /* this.tokenService.getUser().matpers */,/* this.n */"1F0").subscribe(
+   this.serv.GetListDemandeRepChefNotNull(this.tokenService.getUser().cod_soc, this.tokenService.getUser().matpers , this.n ).subscribe(
      (data: any[]) => {
        this.listDemande = data;
  

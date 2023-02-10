@@ -4,7 +4,7 @@ import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 
 const API_URL = environment.urlServerMouadh;
-const api = "http://192.168.2.96:8080/consPaie/getPaie";
+const api = "http://localhost:8080/consPaie/getPaie";
 const httpOptions = {
   headers: new HttpHeaders({ "Content-Type": "application/json" }),
 };
@@ -30,7 +30,7 @@ export class CongeService {
   };
   GetConge = (codSoc: any, matPers: any): Observable<any[]> => {
     return this.httpClient.get<any[]>(
-     "http://192.168.2.96:8080/conge/getcongePers/" + codSoc + "/" + matPers
+     "http://localhost:8080/conge/getcongePers/" + codSoc + "/" + matPers
     );
   };
 

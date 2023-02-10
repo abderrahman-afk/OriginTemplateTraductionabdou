@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { TokenStorage } from "src/app/core/services/token-storage.service";
-const AUTH_API = "http://192.168.2.96:8080";
+const AUTH_API = "http://localhost:8080";
 
 @Injectable({
   providedIn: "root",
@@ -18,7 +18,7 @@ export class OppositionserviceService {
 
   fetchListCodPret(codSoc: any, matPers: any) {
     return this.http.get<any[]>(
-      "http://192.168.2.96:8080" +
+      "http://localhost:8080" +
         "/api/auth/getlistpretpers/" +
         codSoc +
         "/" +
@@ -32,7 +32,7 @@ export class OppositionserviceService {
 
   bultSoinDet(s:any){
 
-    return this.http.post<any[]>('http://192.168.2.96:8080/bultSoin/bsoindet',s);
+    return this.http.post<any[]>('http://localhost:8080/bultSoin/bsoindet',s);
 
    }
    

@@ -21,10 +21,12 @@ import { ArchwizardModule } from 'angular-archwizard';
 import { DropzoneModule } from 'ngx-dropzone-wrapper';
 import { SimplebarAngularModule } from 'simplebar-angular';
 import { AgGridModule } from '@ag-grid-community/angular';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
     declarations: [BloglistComponent, BloggridComponent, DetailComponent, AddEventComponent, EventUpdateComponent, CalendarComponent],
     imports: [
+        TranslateModule,
         CommonModule,
         UIModule,
         BlogRoutingModule,

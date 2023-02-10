@@ -13,8 +13,6 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { Width } from "ngx-owl-carousel-o/lib/services/carousel.service";
 import { AjoutPersService } from "../../FicheSignalitique/ajout-pers.service";
 import Inputmask from "inputmask";
-import { TranslateService } from "@ngx-translate/core";
-import { PersonnelService } from "../../Employe/personnel.service";
 
 @Component({
   selector: "app-demande-formation",
@@ -59,7 +57,7 @@ export class DemandeFormationComponent implements OnInit {
   };
   dataa: any;
   matChef: any;
-  constructor(  private translatee:TranslateService ,private serv: PersonnelService,
+  constructor(
     private demandeService: DemandeService,
     private formBuilder: FormBuilder,
     private tokenService: TokenStorage,
@@ -95,32 +93,6 @@ export class DemandeFormationComponent implements OnInit {
     this.getEmailChef();
     this.getformatDateDebut();
     this.getformatDateFin();
- 
-    console.log('lang curren ',this.translatee.currentLang)
-    this.serv.language$.subscribe((language) => {
-     this.translateHeaderNames(language);
-   });
-   const currentLang = this.translatee.getBrowserLang();
-   this.translatee.onLangChange.subscribe(() => {
-     this.columnFormaton = this.columnFormaton.map((col) => {
-       col.headerName = this.translatee.instant(col.headerName,currentLang);
-       return col;
-     });
-   });
-
-  }
-
-  
-  changeLanguage() {
-    const currentLanguage = this.serv.languageSubject.value;
-    this.serv.setLanguage(currentLanguage === 'en' ? 'fr' : 'en');
-  }
-
-  translateHeaderNames(language: string) {
-    this.columnFormaton = this.columnFormaton.map((col) => {
-      col.headerName = this.translatee.instant(col.headerName, language);
-      return col;
-    });
   }
   getEmailChef() {
     this.demandeService.GetAdrChef("10321").subscribe((data: any) => {

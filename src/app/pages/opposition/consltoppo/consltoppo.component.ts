@@ -5,7 +5,6 @@ import { PersonnelService } from '../../Employe/personnel.service';
 import { OppositionserviceService } from '../services/oppositionservice.service';
 import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
 import { Module } from '@ag-grid-community/core';
-import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -46,7 +45,7 @@ export class ConsltoppoComponent implements OnInit {
   
     array : any;
 
-  constructor(private translatee:TranslateService ,private serve: PersonnelService,private serv :OppositionserviceService,public token:TokenStorage, private service:PersonnelService,private serv1 : LigbsoinService ) {
+  constructor(private serv :OppositionserviceService,public token:TokenStorage, private service:PersonnelService,private serv1 : LigbsoinService ) {
 
   
    }
@@ -63,30 +62,6 @@ export class ConsltoppoComponent implements OnInit {
 
  
     this.getgouv1()
-    console.log('lang curren ',this.translatee.currentLang)
-    this.serve.language$.subscribe((language) => {
-     this.translateHeaderNames(language);
-   });
-   const currentLang = this.translatee.getBrowserLang();
-   this.translatee.onLangChange.subscribe(() => {
-     this.columnDefs = this.columnDefs.map((col) => {
-       col.headerName = this.translatee.instant(col.headerName,currentLang);
-       return col;
-     });
-   });
-  }
-
-  
-  changeLanguage() {
-    const currentLanguage = this.serve.languageSubject.value;
-    this.serve.setLanguage(currentLanguage === 'en' ? 'fr' : 'en');
-  }
-
-  translateHeaderNames(language: string) {
-    this.columnDefs = this.columnDefs.map((col) => {
-      col.headerName = this.translatee.instant(col.headerName, language);
-      return col;
-    });
   }
    anotherFunction(event: Event ) {
    

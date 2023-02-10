@@ -5,13 +5,13 @@
       <div class="card">
         <div class="card-body">
           <div class="col-sm-6">
-            <label class="control-label"> {{"Veuillez choisir un code prêt" | translate}}</label>
+            <label class="control-label"> Veuillez choisir un code prêt</label>
           </div>
           <div class="col-sm-12">
             <div class="row">
               <div class="col-sm-3">
                 <div class="mb-3">
-                  <label for="manufacturername">{{"Code prêt" | translate}}</label>
+                  <label for="manufacturername">Code prêt</label>
 
                   <select
                     [(ngModel)]="codepret"
@@ -20,7 +20,7 @@
                     id="selectAction"
                     *ngIf="array"
                   >
-                    <option>{{"aucun" | translate}}</option>
+                    <option>aucun</option>
                     <option *ngFor="let op of array" [ngValue]="op">
                       {{ op }}
                     </option>
@@ -29,7 +29,7 @@
               </div>
 
               <div class="col-sm-3">
-                <label for="manufacturername">{{"Libellé prêt" | translate}}</label>
+                <label for="manufacturername">Libellé prêt</label>
 
                 <div class="mb-3">
                   <select
@@ -46,7 +46,7 @@
                 </div>
               </div>
               <div class="col-sm-3">
-                <label for="manufacturername">{{"Date début pret" | translate}}</label>
+                <label for="manufacturername">Date début pret</label>
 
                 <div class="mb-3">
                   <input
@@ -84,7 +84,7 @@
           >
             <tbody>
               <tr>
-                <td scope="row">{{"Organisme prêt" | translate}}</td>
+                <td scope="row">Organisme prêt</td>
                 <td *ngIf="list">
                   <input
                     disabled
@@ -96,7 +96,7 @@
                     value="{{ list.org_pret }}"
                   />
                 </td>
-                <td scope="row">{{"Libellé Organisme" | translate}}</td>
+                <td scope="row">Libellé Organisme</td>
                 <td *ngIf="list">
                   <input
                     disabled
@@ -109,7 +109,7 @@
                   />
                 </td>
 
-                <td scope="row">{{"Délai grâce" | translate}}</td>
+                <td scope="row">Délai grâce</td>
                 <td *ngIf="list">
                   <input
                     disabled
@@ -121,7 +121,7 @@
                     value="{{ list.delai_grace }}"
                   />
                 </td>
-                <td scope="row">{{"Rendu" | translate}}</td>
+                <td scope="row">Rendu</td>
                 <td *ngIf="list">
                   <input
                     disabled
@@ -135,7 +135,7 @@
                 </td>
               </tr>
               <tr>
-                <td scope="row">{{"Etat prêt" | translate}}</td>
+                <td scope="row">Etat prêt</td>
                 <td *ngIf="list">
                   <input
                     disabled
@@ -147,7 +147,7 @@
                     value="{{ list.cod_etat_pret }}"
                   />
                 </td>
-                <td scope="row">{{"Montant global" | translate}}</td>
+                <td scope="row">Montant global</td>
                 <td *ngIf="list">
                   <input
                     disabled
@@ -159,7 +159,7 @@
                     value="{{ list.prt_mnt_glb }}"
                   />
                 </td>
-                <td scope="row">{{"Date début" | translate}}</td>
+                <td scope="row">Date début</td>
                 <td *ngIf="list">
                   <input
                     disabled
@@ -171,7 +171,7 @@
                     value="{{ list.prt_dat_deb }}"
                   />
                 </td>
-                <td scope="row">{{"Date fin" | translate}}</td>
+                <td scope="row">Date fin</td>
                 <td *ngIf="list">
                   <input
                     disabled
@@ -185,7 +185,7 @@
                 </td>
               </tr>
               <tr>
-                <td scope="row">{{"Groupe prêt" | translate}}</td>
+                <td scope="row">Groupe prêt</td>
                 <td *ngIf="list">
                   <input
                     disabled
@@ -197,7 +197,7 @@
                     value="{{ list.cod_grp_pret }}"
                   />
                 </td>
-                <td scope="row">{{"Taux" | translate}}</td>
+                <td scope="row">Taux</td>
                 <td>
                   <input
                     disabled
@@ -209,7 +209,7 @@
                     value="{{ list.prt_taux }}"
                   />
                 </td>
-                <td scope="row">{{"Echéance" | translate}}</td>
+                <td scope="row">Echéance</td>
                 <td *ngIf="list">
                   <input
                     disabled
@@ -221,7 +221,7 @@
                     value="{{ list.prt_ech }}"
                   />
                 </td>
-                <td scope="row">{{"Réference prêt" | translate}}</td>
+                <td scope="row">Réference prêt</td>
                 <td *ngIf="list">
                   <input
                     disabled
@@ -235,7 +235,7 @@
                 </td>
               </tr>
               <tr>
-                <td scope="row">{{"Code prêt" | translate}}</td>
+                <td scope="row">Code prêt</td>
                 <td *ngIf="list">
                   <input
                     disabled
@@ -247,7 +247,7 @@
                     value="{{ list.cod_pret }}"
                   />
                 </td>
-                <td scope="row">{{"Libellé prêt" | translate}}</td>
+                <td scope="row">Libellé prêt</td>
                 <td *ngIf="list">
                   <select class="form-control">
                     <option>
@@ -256,7 +256,7 @@
                   </select>
                 </td>
 
-                <td scope="row">{{"Date accord" | translate}}</td>
+                <td scope="row">Date accord</td>
                 <td *ngIf="list">
                   <input
                     disabled
@@ -268,7 +268,7 @@
                     value="{{ list.prt_dat_acc }}"
                   />
                 </td>
-                <td scope="row">{{"Date saisie" | translate}}</td>
+                <td scope="row">Date saisie</td>
                 <td *ngIf="list">
                   <input
                     disabled

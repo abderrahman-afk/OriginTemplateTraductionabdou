@@ -7,7 +7,7 @@
             <div class="row">
               <div class="col-sm-6">
                 <div class="mb-3">
-                  <label for="productname">{{"Date demande" | translate}}</label>
+                  <label for="productname">Date demande</label>
                   <input
                     id="productname"
                     name="productname"
@@ -18,7 +18,7 @@
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="product-image" class="mb-3"> {{"Fichier" | translate}} </label>
+                  <label for="product-image" class="mb-3"> Fichier </label>
                   <div class="text-center">
                     <input
                       class="form-control"
@@ -31,7 +31,7 @@
               </div>
               <div class="col-sm-6">
                 <div class="mb-3">
-                  <label for="manufacturername">{{"Objet de changement" | translate}}</label>
+                  <label for="manufacturername">Objet de changement</label>
                   <textarea
                     id="manufacturername"
                     name="manufacturername"
@@ -44,7 +44,7 @@
               </div>
               <div class="d-flex flex-wrap gap-2 mt-2">
                 <button type="submit" class="btn btn-primary">
-                  {{"Enregistrer" | translate}}
+                  Enregistrer
                 </button>
             </div>
           </form>
@@ -53,22 +53,11 @@
     </div>
   </div>
 
-
-</div>
-
-
-
-
 <div class="row">
-  <ng-template #content role="pret" let-modal class="modal-dialog modal-lg">
-    <button
-      type="button"
-      class="btn-close"
-      aria-hidden="true"
-      (click)="modal.dismiss('Cross click')"
-      style="margin-left: 99%"
-    ></button>
-    <ag-grid-angular
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <ag-grid-angular
           style="height: 400px; width: 100%"
           class="ag-theme-alpine"
           [rowData]="rowData"
@@ -79,40 +68,8 @@
           [modules]="modules"
         >
         </ag-grid-angular>
-  </ng-template>
-
-  <div class="card text-center">
-    <div class="card-footer bg-transparent border-top">
-      <div class="contact-links d-flex font-size-20">
-        <div class="flex-fill">
-          <a
-            style="float: left"
-            href="javascript: void(0);"
-            ngbTooltip="Visualiser demande"
-            (click)="openModal(content)"
-            ><i class="bx bx-zoom-in"></i>{{"Détacher" | translate}}</a
-          >
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="card">
-            <div class="card-body">
-              <ag-grid-angular
-              style="height: 400px; width: 100%"
-              class="ag-theme-alpine"
-              [rowData]="rowData"
-              [columnDefs]="columnDefs"
-              [defaultColDef]="defaultColDef"
-              [animateRows]="true"
-              [pagination]="true"
-              [modules]="modules"
-            >
-            </ag-grid-angular>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
+</div>
 </div>

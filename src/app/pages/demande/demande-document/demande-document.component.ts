@@ -9,8 +9,6 @@ import { Module } from "@ag-grid-community/core";
 import Swal from "sweetalert2";
 import { Email } from "../elail.model";
 import { WebsocketService } from "src/app/layouts/topbar/shared/services/websocket.service";
-import { TranslateService } from "@ngx-translate/core";
-import { PersonnelService } from "../../Employe/personnel.service";
 @Component({
   selector: "app-demande-document",
   templateUrl: "./demande-document.component.html",
@@ -47,7 +45,6 @@ etat_notif:""
   dataa:any
   matChef:any
   constructor(
-    private translatee:TranslateService ,private serv: PersonnelService,
     private demandeService: DemandeService,
     private formBuilder: FormBuilder,
     private tokenService: TokenStorage,private websocketService: WebsocketService
@@ -71,29 +68,7 @@ etat_notif:""
     this.getDecision()
     this.getEmailChef()
     
-    console.log('lang curren ',this.translatee.currentLang)
-    this.serv.language$.subscribe((language) => {
-     this.translateHeaderNames(language);
-   });
-   const currentLang = this.translatee.getBrowserLang();
-   this.translatee.onLangChange.subscribe(() => {
-     this.columnDocument = this.columnDocument.map((col) => {
-       col.headerName = this.translatee.instant(col.headerName,currentLang);
-       return col;
-     });
-   });
-  }
-   
-  changeLanguage() {
-    const currentLanguage = this.serv.languageSubject.value;
-    this.serv.setLanguage(currentLanguage === 'en' ? 'fr' : 'en');
-  }
 
-  translateHeaderNames(language: string) {
-    this.columnDocument = this.columnDocument.map((col) => {
-      col.headerName = this.translatee.instant(col.headerName, language);
-      return col;
-    });
   }
   getEmailChef(){
     this.demandeService.GetAdrChef("10321").subscribe(
@@ -294,7 +269,7 @@ etat_notif:""
       cellEditor: "primeCellEditor",
     },
     {
-      headerName: "Numéro attestation",
+      headerName: "Numéro attestation ",
       field: "numAttest",
       editable: true,
       oatingFilter: true,

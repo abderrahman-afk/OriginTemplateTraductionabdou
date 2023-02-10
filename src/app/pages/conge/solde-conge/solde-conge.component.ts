@@ -9,6 +9,7 @@ import { PersonnelService } from "../../Employe/personnel.service";
 import * as jspdf from "jspdf";
 import "jspdf-autotable";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-solde-conge",
@@ -27,13 +28,34 @@ export class SoldeCongeComponent implements OnInit {
   public columns = ["Année congé", "Libélle congé", "Date Congé", "Date début","Date fin","Nbr Jours","Date retour prévu","Date Retour","Motif congé"];
 
 
-  constructor(private serv: CongeService, private tokenService: TokenStorage,private ser: PersonnelService, private modalService: NgbModal) {}
+  constructor(private translatee:TranslateService,private serv: CongeService, private tokenService: TokenStorage,private ser: PersonnelService, private modalService: NgbModal) {}
 
   ngOnInit() {
     this.getnom();
     this.getprenom();
     this.GetCongeById();
     this.GetConge();
+    this.ser.language$.subscribe((language) => {
+      this.translateHeaderNames(language);
+    });
+    const currentLang = this.translatee.getBrowserLang();
+    this.translatee.onLangChange.subscribe(() => {
+      this.columnDefs = this.columnDefs.map((col) => {
+        col.headerName = this.translatee.instant(col.headerName,currentLang);
+        return col;
+      });
+    });
+  }
+  changeLanguage() {
+    const currentLanguage = this.ser.languageSubject.value;
+    this.ser.setLanguage(currentLanguage === 'en' ? 'fr' : 'en');
+  }
+
+  translateHeaderNames(language: string) {
+    this.columnDefs = this.columnDefs.map((col) => {
+      col.headerName = this.translatee.instant(col.headerName, language);
+      return col;
+    });
   }
   getnom() {
     this.serv

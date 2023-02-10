@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core'
-const AUTH_API = 'http://192.168.2.96:8080';
+const AUTH_API = 'http://localhost:8080';
 
 
 @Injectable({

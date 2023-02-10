@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-const AUTH_API = 'http://192.168.2.96:8080/';
+const AUTH_API = 'http://localhost:8080/';
 
 @Injectable({
   providedIn: 'root'
@@ -13,15 +13,15 @@ export class NoteEventService {
   getall(){
 
 
-    return this.http.get('http://192.168.2.96:8080/noteevent/getall')
+    return this.http.get('http://localhost:8080/noteevent/getall')
   }
   getbyid(id:number){
 
 
-    return this.http.get('http://192.168.2.96:8080/noteevent/getbyid/'+id)
+    return this.http.get('http://localhost:8080/noteevent/getbyid/'+id)
   }
   download(file: number | undefined): Observable<Blob> {
-    return this.http.get('http://192.168.2.96:8080/noteevent/files/'+file, {
+    return this.http.get('http://localhost:8080/noteevent/files/'+file, {
       responseType: 'blob'
     });
   }
@@ -31,11 +31,11 @@ export class NoteEventService {
   }
 
   getbyD(){
-    return this.http.get('http://192.168.2.96:8080/noteevent/getbyD')
+    return this.http.get('http://localhost:8080/noteevent/getbyD')
   }
 
   getbyDd(){
-    return this.http.get('http://192.168.2.96:8080/noteevent/get')
+    return this.http.get('http://localhost:8080/noteevent/get')
   }
 
 }

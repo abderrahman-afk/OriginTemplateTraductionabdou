@@ -9,10 +9,12 @@ import { SoldeCongeComponent } from './solde-conge/solde-conge.component';
 import { AgGridModule } from '@ag-grid-community/angular';
 import { CongeRhComponent } from './conge-rh/conge-rh.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [ListCongeComponent,SoldeCongeComponent, CongeRhComponent],
   imports: [
+    TranslateModule,
     CommonModule,
     CongeRoutingModule,
       UIModule,

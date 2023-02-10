@@ -5,8 +5,8 @@ import { Observable } from "rxjs";
 
 
 const API_URL = environment.urlServerMouadh;
-const api = "http://192.168.2.96:8080/consPaie/getPaie";
-const apiRh = "http://192.168.2.96:8080/consPaie/getPaieRh";
+const api = "http://localhost:8080/consPaie/getPaie";
+const apiRh = "http://localhost:8080/consPaie/getPaieRh";
 
 const httpOptions = {
   headers: new HttpHeaders({ "Content-Type": "application/json" }),
@@ -72,7 +72,7 @@ export class PaieService {
   }
 
   public GetBull(bulletin: any) {
-    return this.httpClient.post<any>("http://192.168.2.96:8080/consPaie/getPaie", bulletin);
+    return this.httpClient.post<any>("http://localhost:8080/consPaie/getPaie", bulletin);
   }
   public GetBullRh(bulletin: any) {
     return this.httpClient.post<any>(apiRh, bulletin);

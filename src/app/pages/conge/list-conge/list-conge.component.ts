@@ -8,6 +8,7 @@ import { reduce } from "rxjs/operators";
 import { PersonnelService } from "../../Employe/personnel.service";
 import * as jspdf from "jspdf";
 import "jspdf-autotable";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-list-conge",
@@ -25,12 +26,33 @@ export class ListCongeComponent implements OnInit {
   public apii!: GridApi; 
   public columnApi!: ColumnApi; 
   private gridApi: GridApi;
-  constructor(private serv: CongeService, private tokenService: TokenStorage,private ser: PersonnelService) {}
+  constructor(private translatee:TranslateService,private serv: CongeService, private tokenService: TokenStorage,private servv: PersonnelService) {}
 
   ngOnInit() {
     this.getnom();
     this.getprenom();
     this.GetCongeById();
+    this.servv.language$.subscribe((language) => {
+      this.translateHeaderNames(language);
+    });
+    const currentLang = this.translatee.getBrowserLang();
+    this.translatee.onLangChange.subscribe(() => {
+      this.columnDefs = this.columnDefs.map((col) => {
+        col.headerName = this.translatee.instant(col.headerName,currentLang);
+        return col;
+      });
+    });
+  }
+  changeLanguage() {
+    const currentLanguage = this.servv.languageSubject.value;
+    this.servv.setLanguage(currentLanguage === 'en' ? 'fr' : 'en');
+  }
+
+  translateHeaderNames(language: string) {
+    this.columnDefs = this.columnDefs.map((col) => {
+      col.headerName = this.translatee.instant(col.headerName, language);
+      return col;
+    });
   }
 
   getnom() {
@@ -173,7 +195,7 @@ export class ListCongeComponent implements OnInit {
     this.gridApi = params.api;
 }
 exportAsXLSX() {
-  this.ser.exportAsExcelFile(this.rowData, "Solde de congé");
+  this.servv.exportAsExcelFile(this.rowData, "Solde de congé");
 }
 
 public openPDF(): void {

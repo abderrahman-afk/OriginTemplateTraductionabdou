@@ -7,7 +7,7 @@
             <div class="row">
               <div class="col-sm-6">
                 <div class="mb-3">
-                  <label for="productname">{{"Date demande" | translate}}</label>
+                  <label for="productname">Date demande</label>
                   <input
                     id="productname"
                     name="productname"
@@ -19,7 +19,7 @@
                 </div>
 
                 <div class="mb-3">
-                  <label>{{"Date début" | translate}}</label>
+                  <label>Date début</label>
                   <input
                     type="text"
                     class="form-control"
@@ -29,7 +29,7 @@
                   />
                 </div>
                 <div class="mb-3">
-                  <label>{{"Date fin" | translate}}</label>
+                  <label>Date fin</label>
                   <input
                     type="text"
                     class="form-control"
@@ -39,7 +39,7 @@
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="manufacturername">{{"Text demande" | translate}}</label>
+                  <label for="manufacturername">Text demande</label>
                   <textarea
                     id="manufacturername"
                     name="manufacturername"
@@ -49,7 +49,7 @@
                   ></textarea>
                 </div>
                 <div class="mb-3">
-                  <label for="product-image" class="mb-3"> {{"Fichier" | translate}} </label>
+                  <label for="product-image" class="mb-3"> Fichier </label>
                   <div class="text-center">
                     <input
                       class="form-control"
@@ -62,7 +62,7 @@
               <div class="col-sm-6">
                 <div class="mb-3">
                   <label for="inputPassword3" class="control-label"
-                    >{{"Motif" | translate}}</label
+                    >Motif</label
                   >
 
                   <select
@@ -79,7 +79,7 @@
                   </select>
                   </div>
                   <div class="mb-3">
-                    <label class="control-label">{{"Unité de congé" | translate}}</label>
+                    <label class="control-label">Unité de congé</label>
                     <select
                       class="form-select"
                       aria-label="Default select example"
@@ -87,12 +87,12 @@
                     >
                       <option></option>
 
-                      <option value="J">{{"Jour Complet" | translate}}</option>
-                      <option value="D">{{"Demi-journée" | translate}}</option>
+                      <option value="J">Jour Complet</option>
+                      <option value="D">Demi-journée</option>
                     </select>
                   </div>
                   <div class="mb-3">
-                    <label class="control-label">{{"Séance début" | translate}}</label>
+                    <label class="control-label">Séance début</label>
                     <select
                       class="form-select"
                       aria-label="Default select example"
@@ -100,12 +100,12 @@
                     >
                       <option></option>
 
-                      <option value="M">{{"Matin" | translate}}</option>
-                      <option value="S">{{"Aprés-midi" | translate}}</option>
+                      <option value="M">Matin</option>
+                      <option value="S">Aprés-midi</option>
                     </select>
                   </div>
                   <div class="mb-3">
-                    <label class="control-label">{{"Séance fin" | translate}}</label>
+                    <label class="control-label">Séance fin</label>
                     <select
                       class="form-select"
                       aria-label="Default select example"
@@ -113,15 +113,15 @@
                     >
                       <option></option>
 
-                      <option value="M">{{"Matin" | translate}}</option>
-                      <option value="S">{{"Aprés-midi" | translate}}</option>
+                      <option value="M">Matin</option>
+                      <option value="S">Aprés-midi</option>
                     </select>
                   </div>
                 </div>
               </div>
               <div class="d-flex flex-wrap gap-2 mt-2">
                 <button type="submit" class="btn btn-primary">
-                  {{"Enregistrer" | translate}}
+                  Enregistrer
                 </button>
               </div>
             
@@ -130,55 +130,25 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <ng-template #content role="document" let-modal class="modal-dialog modal-lg">
-      <button
-        type="button"
-        class="btn-close"
-        aria-hidden="true"
-        (click)="modal.dismiss('Cross click')"
-        style="margin-left: 99%"
-      ></button>
-      <ag-grid-angular
-      style="height: 400px; width: 100%"
-      class="ag-theme-alpine"
-      [rowData]="ListConge"
-      [columnDefs]="columnConge"
-      [defaultColDef]="defaultColDef"
-      [animateRows]="true"
-      [pagination]="true"
-      [modules]="modules"
-    >
-    </ag-grid-angular>
-    </ng-template>
-  
-    <div class="card text-center">
-      <div class="card-footer bg-transparent border-top">
-        <div class="contact-links d-flex font-size-20">
-          <div class="flex-fill">
-            <a
-              style="float: left"
-              href="javascript: void(0);"
-              ngbTooltip="Visualiser demande"
-              (click)="openModal(content)"
-              ><i class="bx bx-zoom-in"></i>{{"Détacher" | translate}}</a
-            >
-          </div>
-        </div>
+
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
         <ag-grid-angular
-        style="height: 400px; width: 100%"
-        class="ag-theme-alpine"
-        [rowData]="ListConge"
-        [columnDefs]="columnConge"
-        [defaultColDef]="defaultColDef"
-        [animateRows]="true"
-        [pagination]="true"
-        [modules]="modules"
-      >
-      </ag-grid-angular>
+          style="height: 400px; width: 100%"
+          class="ag-theme-alpine"
+          [rowData]="ListConge"
+          [columnDefs]="columnConge"
+          [defaultColDef]="defaultColDef"
+          [animateRows]="true"
+          [pagination]="true"
+          [modules]="modules"
+        >
+        </ag-grid-angular>
       </div>
     </div>
   </div>
-
-
+</div>
 </div>

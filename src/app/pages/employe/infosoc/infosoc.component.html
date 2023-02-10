@@ -10,7 +10,7 @@
           <li [ngbNavItem]="1">
             <a ngbNavLink>
               <i class="bx bxs-user d-block check-nav-icon mt-4 mb-2"></i>
-              <p class="fw-bold mb-4">Information Générale</p>
+              <p class="fw-bold mb-4">{{'Information Générale' | translate}}</p>
             </a>
             <ng-template ngbNavContent>
               <div class="container-fluid">
@@ -22,7 +22,7 @@
                   <div class="col-12">
                     <div class="card">
                       <div class="card-body">
-                        <p class="card-title">Information Générale</p>
+                        <p class="card-title">{{'Information Générale' | translate}}</p>
 
                         <p class="card-title-desc">Informations :</p>
 
@@ -30,7 +30,7 @@
                           <div class="row">
                             <div class="col-sm-6">
                               <div *ngIf="perso11.cod_sit == 'M'" class="mb-3">
-                                <label for="productname">Situation familiale</label>
+                                <label for="productname">{{'Situation familiale' | translate}}</label>
                                 <input
                                   *ngIf="perso11.cod_sit == 'M'"
                                   value="Marié"
@@ -92,7 +92,7 @@
                               </div>
                               <div *ngIf="perso11.chef_fam == 'O'" class="mb-3">
                                 <label for="manufacturername"
-                                  >Chef famille</label
+                                  >{{'Chef famille' | translate}}</label
                                 >
                                 <input
                                   value="Oui"
@@ -108,7 +108,7 @@
                                 class="mb-3"
                               >
                                 <label for="manufacturername"
-                                  >Chef famille</label
+                                  >{{'Chef famille' | translate}}</label
                                 >
                                 <input
                                   value=""
@@ -121,7 +121,7 @@
                               </div>
                               <div *ngIf="perso11.fct_fam=='N'" class="mb-3">
                                 <label for="manufacturerbrand"
-                                  >Salaire unique
+                                  >{{'Salaire unique' | translate}}
                                 </label>
                                 <input
                                   id="manufacturerbrand"
@@ -134,7 +134,7 @@
                               </div>
                               <div *ngIf="perso11.fct_fam=='O'" class="mb-3">
                                 <label for="manufacturerbrand"
-                                  >Salaire unique
+                                  >{{'Salaire unique' | translate}}
                                 </label>
                                 <input
                                   id="manufacturerbrand"
@@ -147,7 +147,7 @@
                               </div>
 
                               <div class="mb-3">
-                                <label for="price">Nombre d'enfant</label>
+                                <label for="price">{{"Nombre d'enfant" | translate}}</label>
                                 <input
                                   [value]="perso11.nbre_enf"
                                   type="text"
@@ -158,7 +158,7 @@
                               </div>
                               <div class="mb-3">
                                 <label for="manufacturerbrand"
-                                  >Enfant imposable</label
+                                  >{{'Enfant imposable' | translate}}</label
                                 >
                                 <input
                                   id="manufacturerbrand"
@@ -171,7 +171,7 @@
                               </div>
                               <div class="mb-3">
                                 <label class="control-label"
-                                  >Etat de sante</label
+                                  >{{'Etat de sante' | translate}}</label
                                 >
                                 <input
                                   id="manufacturerbrand"
@@ -184,7 +184,7 @@
                               </div>
                               <div class="mb-3">
                                 <label class="control-label"
-                                  >Date effet fiche</label
+                                  >{{'Date effet fiche' | translate}}</label
                                 >
                                 <input
                                   id="manufacturerbrand"
@@ -200,7 +200,7 @@
                             <div class="col-sm-6">
                               <div class="mb-3">
                                 <label class="control-label"
-                                  >Enfant allocataire
+                                  >{{'Enfant allocataire' | translate}}
                                 </label>
                                 <input
                                   id="manufacturerbrand"
@@ -213,7 +213,7 @@
                               </div>
                               <div class="mb-3">
                                 <label class="control-label"
-                                  >Etat de sante</label
+                                  >{{"Etat de sante" | translate}}</label
                                 >
                                 <input
                                   *ngIf="perso11.typ_handicap == '0'"
@@ -254,7 +254,7 @@
                               </div>
                               <div class="mb-3">
                                 <label for="manufacturerbrand"
-                                  >N° d'identité
+                                  >{{"N° d'identité" | translate}}
                                 </label>
                                 <input
                                   id="manufacturerbrand"
@@ -266,7 +266,7 @@
                                 />
                               </div>
                               <div class="mb-3">
-                                <label for="manufacturerbrand">Taux IPP </label>
+                                <label for="manufacturerbrand">{{"Taux IPP" | translate}} </label>
                                 <input
                                   id="manufacturerbrand"
                                   [value]="perso11.pourcent_hand"
@@ -278,7 +278,7 @@
                               </div>
                               <div class="mb-3">
                                 <label for="manufacturerbrand"
-                                  >N°Fiche handicap
+                                  >{{"N°Fiche handicap" | translate}}
                                 </label>
                                 <input
                                   id="manufacturerbrand"
@@ -291,7 +291,7 @@
                               </div>
                               <div class="mb-3">
                                 <label class="control-label"
-                                  >Degré handicap</label
+                                  >{{"Degré handicap" | translate}}</label
                                 >
                                 <input
                                   *ngIf="perso11.typ_handicap == '0'"
@@ -341,7 +341,7 @@
                               </div>
                               <div class="mb-3">
                                 <label for="manufacturerbrand"
-                                  >Date effet fin fiche</label
+                                  >{{"Date effet fin fiche" | translate}}</label
                                 >
                                 <input
                                   id="manufacturerbrand"
@@ -365,7 +365,7 @@
                           <div class="row">
                             <div class="col-sm-6">
                               <div class="mb-3">
-                                <label for="metatitle">N°Retraite </label>
+                                <label for="metatitle">{{"N°Retraite" | translate}} </label>
                                 <input
                                   [value]="perso11.num_retr"
                                   id="metatitle"
@@ -376,7 +376,7 @@
                                 />
                               </div>
                               <div class="mb-3">
-                                <label for="metakeywords">Assurance </label>
+                                <label for="metakeywords">{{"Assurance" | translate}} </label>
                                 <input
                                   id="metakeywords"
                                   [value]="perso11.cod_assur"
@@ -392,21 +392,21 @@
                                   type="text"
                                   class="form-control"
                                 />
-                                <!-- <input
+                                <input
                                   disabled
                                   id="metakeywords"
                                   disabled
                                   name="manufacturername"
                                   type="text"
                                   class="form-control"
-                                /> -->
+                                />
                               </div>
                             </div>
 
                             <div class="col-sm-6">
                               <div class="mb-3">
                                 <label for="metakeywords"
-                                  >Allocation familiale</label
+                                  >{{"Allocation familiale" | translate}}</label
                                 >
                                 <input
                                   *ngIf="perso11.fct_fam == 'O'"
@@ -439,7 +439,7 @@
                               </div>
                               <div class="mb-3">
                                 <label for="metadescription">
-                                  N°Accident de travail
+                                  {{"N°Accident de travail" | translate}}
                                 </label>
                                 <input
                                   id="metakeywords"
@@ -466,7 +466,7 @@
           <li [ngbNavItem]="2">
             <a ngbNavLink>
               <i class="bx bx-money d-block check-nav-icon mt-4 mb-2"></i>
-              <p class="fw-bold mb-4">Conjoint</p>
+              <p class="fw-bold mb-4">{{"Conjoint" | translate}}</p>
             </a>
             <ng-template ngbNavContent>
               <div class="container-fluid">
@@ -478,7 +478,7 @@
                   <div class="col-12">
                     <div class="card">
                       <div class="card-body">
-                        <p class="card-title">Conjoint</p>
+                        <p class="card-title">{{"Conjoint" | translate}}</p>
 
                         <p class="card-title-desc">Informations :</p>
                         <app-conjoint></app-conjoint>
@@ -492,7 +492,7 @@
           <li [ngbNavItem]="3">
             <a ngbNavLink>
               <i class="bx bx-user-check d-block check-nav-icon mt-4 mb-2"></i>
-              <p class="fw-bold mb-4">Enfant</p>
+              <p class="fw-bold mb-4">{{"Enfant" | translate}}</p>
             </a>
             <ng-template ngbNavContent>
               <div class="container-fluid">
@@ -504,7 +504,7 @@
                   <div class="col-12">
                     <div class="card">
                       <div class="card-body">
-                        <p class="card-title">Enfant</p>
+                        <p class="card-title">{{"Enfant" | translate}}</p>
 
                         <p class="card-title-desc">Informations :</p>
                         <app-enfant></app-enfant>
@@ -518,7 +518,7 @@
           <li [ngbNavItem]="4">
             <a ngbNavLink>
               <i class="bx bx-task d-block check-nav-icon mt-4 mb-2"></i>
-              <p class="fw-bold mb-4">Scolarité Enfant</p>
+              <p class="fw-bold mb-4">{{"Scolarité Enfant" | translate}}</p>
             </a>
             <ng-template ngbNavContent>
               <div class="container-fluid">
@@ -530,7 +530,7 @@
                   <div class="col-12">
                     <div class="card">
                       <div class="card-body">
-                        <p class="card-title">Scolarité Enfant</p>
+                        <p class="card-title">{{"Scolarité Enfant" | translate}}</p>
                         <p class="card-title-desc">Informations :</p>
 
                         <app-scolenfant></app-scolenfant>
@@ -548,7 +548,7 @@
               <i
                 class="bx bx-dollar-circle d-block check-nav-icon mt-4 mb-2"
               ></i>
-              <p class="fw-bold mb-4">Affiliation</p>
+              <p class="fw-bold mb-4">{{"Affiliation" | translate}}</p>
             </a>
             <ng-template ngbNavContent>
               <div class="container-fluid">
@@ -560,7 +560,7 @@
                   <div class="col-12">
                     <div class="card">
                       <div class="card-body">
-                        <p class="card-title">Affiliation</p>
+                        <p class="card-title">{{"Affiliation" | translate}}</p>
 
                         <p class="card-title-desc">Informations :</p>
 

@@ -4,6 +4,7 @@ import { PersonnelService } from '../personnel.service';
 import { GridApi } from "ag-grid-community";
 import { Module } from '@ag-grid-community/core';
 import { ClientSideRowModelModule } from "@ag-grid-community/client-side-row-model";
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-scolenfant',
@@ -20,7 +21,7 @@ export class ScolenfantComponent implements OnInit {
     mat_pers:"07879"
   };
 
-  constructor(private serv: PersonnelService,private token: TokenStorage) {}
+  constructor(public translate:TranslateService,private serv: PersonnelService,private token: TokenStorage) {}
   columnDefs = [
    
 
@@ -33,7 +34,7 @@ with:200,
     },
    
     {
-      headerName: " annee_scolaire ",
+      headerName: "annee_scolaire",
       field: "annee_scolaire",
       width:200,
 
@@ -99,6 +100,27 @@ with:200,
 
   ngOnInit(): void {
     this.getFacture();
+    this.serv.language$.subscribe((language) => {
+      this.translateHeaderNames(language);
+    });
+    const currentLang = this.translate.getBrowserLang();
+    this.translate.onLangChange.subscribe(() => {
+      this.columnDefs = this.columnDefs.map((col) => {
+        col.headerName = this.translate.instant(col.headerName,currentLang);
+        return col;
+      });
+    });
+  }
+  changeLanguage() {
+    const currentLanguage = this.serv.languageSubject.value;
+    this.serv.setLanguage(currentLanguage === 'en' ? 'fr' : 'en');
+  }
+
+  translateHeaderNames(language: string) {
+    this.columnDefs = this.columnDefs.map((col) => {
+      col.headerName = this.translate.instant(col.headerName, language);
+      return col;
+    });
   }
   defaultColDef = {
     sortable: true,

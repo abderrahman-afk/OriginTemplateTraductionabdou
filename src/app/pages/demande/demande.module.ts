@@ -33,6 +33,7 @@ import { TranslateModule } from '@ngx-translate/core';
     DemandeDocumentComponent
   ],
   imports: [
+    TranslateModule,
     CommonModule,
     UIModule,
     CryptoRoutingModule,
@@ -49,8 +50,7 @@ import { TranslateModule } from '@ngx-translate/core';
     ArchwizardModule,
     DropzoneModule,
     SimplebarAngularModule,
-    AgGridModule,
-    TranslateModule
+    AgGridModule
   ]
 })
 export class DemandeModule { }

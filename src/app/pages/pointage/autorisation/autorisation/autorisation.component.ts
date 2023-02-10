@@ -4,6 +4,7 @@ import { PointageService } from '../../pointage.service';
 import { ClientSideRowModelModule } from "@ag-grid-community/client-side-row-model";
 import * as moment from 'moment';
 import { Module } from "@ag-grid-community/core";
+import { PersonnelService } from 'src/app/pages/Employe/personnel.service';
 
 @Component({
   selector: 'app-autorisation',
@@ -11,16 +12,34 @@ import { Module } from "@ag-grid-community/core";
   styleUrls: ['./autorisation.component.scss']
 })
 export class AutorisationComponent implements OnInit {
-
+  perso11 :any = {
+    cod_soc:this.tokenService.getUser().cod_soc,
+    mat_pers:this.tokenService.getUser().matpers}
+    n:any
   rowData: any[] = [];
-  constructor(private serv: PointageService , private tokenService: TokenStorage) { }
+  constructor(private serv: PointageService , private tokenService: TokenStorage,private ser: PersonnelService) { }
 
   ngOnInit(){
-    this.GeAutorisationById();
+    this.getpers();
   }
 
+  getpers(){
+
+    this.ser.getpersonnel(this.perso11).subscribe(
+      data => {
+        this.perso11 = data; console.log('exected' + data);
+        this.n=this.perso11.cod_serv
+        console.log("codserv"+this.n)
+    this.GeAutorisationById()
+
+      },
+      err => {
+        console.log(err);
+      }
+      );}
+
   GeAutorisationById() {
-    this.serv.GeAutorisationById("1F0", "10326").subscribe(
+    this.serv.GeAutorisationById(this.n,this.tokenService.getUser().matpers).subscribe(
       (data: any[]) => {
         this.rowData = data;
 

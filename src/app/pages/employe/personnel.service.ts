@@ -73,16 +73,15 @@ export class PersonnelService {
   }
   getlassolde(x:any,y:any){
     return this.http.get(api + "/conge/derniersolde/" + x + "/" + y); 
-  }
-
+  } 
+  
+  
+  
   public languageSubject = new BehaviorSubject<string>(this.translate.currentLang);
   language$: Observable<string> = this.languageSubject.asObservable();
 
   setLanguage(language: string) {
     this.languageSubject.next(language);
   }
-
-  // getlassolde(x:any,y:any){
-  //   return this.http.get(api + "/conge/derniersolde/" + x + "/" + y); 
-  // }
 }
+

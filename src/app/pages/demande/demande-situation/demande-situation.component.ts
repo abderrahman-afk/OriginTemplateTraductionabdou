@@ -8,9 +8,6 @@ import { Module } from '@ag-grid-community/core';
 import Swal from 'sweetalert2';
 import { Email } from '../elail.model';
 import { WebsocketService } from 'src/app/layouts/topbar/shared/services/websocket.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { PersonnelService } from '../../Employe/personnel.service';
-import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-demande-situation',
   templateUrl: './demande-situation.component.html',
@@ -45,10 +42,8 @@ etat_notif:""
   dataa:any
   matChef:any
   email:any
-  constructor(private serv:PersonnelService,private translatee:TranslateService ,private demandeService:DemandeService,private formBuilder : FormBuilder
-    ,private tokenService:TokenStorage,
-    private modalService: NgbModal,
-    private websocketService: WebsocketService) { }
+  constructor(private demandeService:DemandeService,private formBuilder : FormBuilder
+    ,private tokenService:TokenStorage,private websocketService: WebsocketService) { }
 
   ngOnInit(): void {
     this.dataForm = this.formBuilder.group({
@@ -65,30 +60,6 @@ etat_notif:""
     this.getListSituation()
     this.getEmailChef()
 
-    console.log('lang curren ',this.translatee.currentLang)
-    this.serv.language$.subscribe((language) => {
-     this.translateHeaderNames(language);
-   });
-   const currentLang = this.translatee.getBrowserLang();
-   this.translatee.onLangChange.subscribe(() => {
-     this.columnDefs = this.columnDefs.map((col) => {
-       col.headerName = this.translatee.instant(col.headerName,currentLang);
-       return col;
-     });
-   });
-  }
-
-  
-  changeLanguage() {
-    const currentLanguage = this.serv.languageSubject.value;
-    this.serv.setLanguage(currentLanguage === 'en' ? 'fr' : 'en');
-  }
-
-  translateHeaderNames(language: string) {
-    this.columnDefs = this.columnDefs.map((col) => {
-      col.headerName = this.translatee.instant(col.headerName, language);
-      return col;
-    });
   }
   getEmailChef(){
     this.demandeService.GetAdrChef("10321").subscribe(
@@ -299,16 +270,6 @@ width:400,
   onChange(event:any) {
     this.file = event.target.files[0];
 }
-
-
-openModal(targetModal) {
-  this.modalService.open(targetModal, {
-    windowClass: "my-class",
-    centered: true,
-  });
-}
-
-
   modules: Module[] = [ClientSideRowModelModule];
 
 

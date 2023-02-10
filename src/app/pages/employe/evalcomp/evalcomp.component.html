@@ -6,7 +6,7 @@
           <li [ngbNavItem]="1">
             <a ngbNavLink>
               <i class="bx bxs-user d-block check-nav-icon mt-4 mb-2"></i>
-              <p class="fw-bold mb-4">Evaluation Compétence</p>
+              <p class="fw-bold mb-4">{{"Evaluation Compétence"|translate}}</p>
             </a>
             <ng-template ngbNavContent>
               <div class="container-fluid">
@@ -18,14 +18,14 @@
                   <div class="col-12">
                     <div class="card">
                       <div class="card-body">
-                        <h1 class="card-title">Consultation Employee</h1>
+                        <h1 class="card-title">{{"Consultation Employee"|translate}}</h1>
                       
                         <form *ngIf="ficheeval" [formGroup]="formEval">
                           <div class="row">
                             <div class="col-sm-6">
                               <div class="mb-3">
                                 <label for="productname"
-                                  >Nom & Prenom personnel</label
+                                  >{{"Nom & Prenom personnel"|translate}}</label
                                 >
                                 <input
                                   value="{{ perso11.nom_pers }} {{
@@ -40,7 +40,7 @@
                               </div>
                               <div class="mb-3">
                                 <label for="manufacturername"
-                                  >Nom & Prenom evaluateur</label
+                                  >{{"Nom & Prenom evaluateur"|translate}}</label
                                 >
                                 <input
                                   [value]="ficheeval.libprenomevaluateur"
@@ -53,7 +53,7 @@
                               </div>
                               <div class="mb-3">
                                 <label for="manufacturerbrand"
-                                  >Libele modéle</label
+                                  >{{"Libele modéle"|translate}}</label
                                 >
                                 <input
                                   id="manufacturerbrand"
@@ -66,7 +66,7 @@
                               </div>
 
                               <div class="mb-3">
-                                <label for="price">Libellé nature action</label>
+                                <label for="price">{{"Libellé nature action"|translate}}</label>
                                 <input
                                   [value]="perso11.lib_etat_act"
                                   type="text"
@@ -77,7 +77,7 @@
                               </div>
                               <div class="mb-3">
                                 <label for="manufacturerbrand"
-                                  >Référence model</label
+                                  >{{"Référence model"|translate}}</label
                                 >
                                 <input
                                   formControlName="ref_mod"
@@ -87,7 +87,7 @@
                                 />
                               </div>
                               <label for="manufacturerbrand"
-                                >Date evaluation </label
+                                >{{"Date evaluation"|translate}} </label
                               >
                               <input
                                 formControlName="dat_eval"
@@ -99,7 +99,7 @@
                             <div class="col-sm-6">
                               <div class="mb-3">
                                 <label class="control-label"
-                                  >Année ancienneté</label
+                                  >{{"Année ancienneté"|translate}}</label
                                 >
                                 <input
                                   id="manufacturerbrand"
@@ -112,7 +112,7 @@
                               </div>
                               <div class="mb-3">
                                 <label class="control-label"
-                                  >Mois ancienneté</label
+                                  >{{"Mois ancienneté"|translate}}</label
                                 >
                                 <input
                                   id="manufacturerbrand"
@@ -125,7 +125,7 @@
                               </div>
                               <div class="mb-3">
                                 <label for="manufacturerbrand"
-                                  >Jour ancienneté
+                                  >{{"Jour ancienneté"|translate}}
                                 </label>
                                 <input
                                   id="manufacturerbrand"
@@ -138,7 +138,7 @@
                               </div>
                               <div class="mb-3">
                                 <label for="manufacturerbrand"
-                                  >Observation</label
+                                  >{{"Observation"|translate}}</label
                                 >
                                 <input
                                   id="manufacturerbrand"
@@ -151,7 +151,7 @@
                               </div>
                               <div class="mb-3">
                                 <label for="manufacturerbrand"
-                                  >Avis evaluateur</label
+                                  >{{"Avis evaluateur"|translate}}</label
                                 >
                                 <input
                                   id="manufacturerbrand"
@@ -169,7 +169,7 @@
                             class="btn btn-primary w-md"
                             (click)="GetConge22()"
                           >
-                            <i class="dripicons-search"> </i> Chercher
+                            <i class="dripicons-search"> </i> {{"Chercher"|translate}}
                           </button>
                           <div class="d-flex flex-wrap gap-2 mt-2"></div>
                         </form>
@@ -201,7 +201,7 @@
           <li [ngbNavItem]="2">
             <a ngbNavLink>
               <i class="bx bx-notepad d-block check-nav-icon mt-4 mb-2"></i>
-              <p class="fw-bold mb-4">Objectif agent</p>
+              <p class="fw-bold mb-4">{{"Objectif agent"|translate}}</p>
             </a>
             <ng-template ngbNavContent>
               <div class="container-fluid">
@@ -213,7 +213,7 @@
                   <div class="col-12">
                     <div class="card">
                       <div class="card-body">
-                        <h1 class="card-title">Objectif agent</h1>
+                        <h1 class="card-title">{{"Objectif agent"|translate}}</h1>
                        
                       </div>
                     </div>
@@ -233,7 +233,7 @@
           <li [ngbNavItem]="3">
             <a ngbNavLink>
               <i class="bx bx-badge-check d-block check-nav-icon mt-4 mb-2"></i>
-              <p class="fw-bold mb-4">Evaluation employée</p>
+              <p class="fw-bold mb-4">{{"Evaluation employée"|translate}}</p>
             </a>
             <ng-template ngbNavContent>
               <div class="container-fluid">
@@ -245,7 +245,7 @@
                   <div class="col-12">
                     <div class="card">
                       <div class="card-body">
-                        <h1 class="card-title">Evaluation employée</h1>
+                        <h1 class="card-title">{{"Evaluation employée"|translate}}</h1>
                         
                       </div>
                     </div>
@@ -264,7 +264,7 @@
           <li [ngbNavItem]="5">
             <a ngbNavLink>
               <i class="bx bx-analyse d-block check-nav-icon mt-4 mb-2"></i>
-              <p class="fw-bold mb-4">Competences réel & requise</p>
+              <p class="fw-bold mb-4">{{"Competences réel & requise"|translate}}</p>
             </a>
             <ng-template ngbNavContent>
               <div class="container-fluid">
@@ -276,7 +276,7 @@
                   <div class="col-12">
                     <div class="card">
                       <div class="card-body">
-                        <h1 class="card-title">Compétences réelles & réquises</h1>
+                        <h1 class="card-title">{{"Compétences réelles & réquises"|translate}}</h1>
                        
                       </div>
                     </div>
@@ -300,7 +300,7 @@
           <li [ngbNavItem]="4">
             <a ngbNavLink>
               <i class="bx bx-note d-block check-nav-icon mt-4 mb-2"></i>
-              <p class="fw-bold mb-4">Evaluation definitif</p>
+              <p class="fw-bold mb-4">{{"Evaluation definitif"|translate}}</p>
             </a>
             <ng-template ngbNavContent>
               <app-evaldefinitif></app-evaldefinitif>

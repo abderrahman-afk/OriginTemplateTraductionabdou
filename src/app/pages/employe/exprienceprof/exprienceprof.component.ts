@@ -6,6 +6,7 @@ import { TokenStorage } from 'src/app/core/services/token-storage.service';
 import { PersonnelService } from '../personnel.service';
 import * as jspdf from "jspdf";
 import "jspdf-autotable";
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-exprienceprof',
@@ -26,7 +27,7 @@ export class ExprienceprofComponent implements OnInit {
     mat_pers:this.token.getUser().matpers
   };
 
-  constructor(private serv: PersonnelService,private token: TokenStorage) {}
+  constructor(public translatee: TranslateService, private serv: PersonnelService,private token: TokenStorage) {}
   columnDefs = [
    
 
@@ -133,7 +134,7 @@ export class ExprienceprofComponent implements OnInit {
       cellEditor: "primeCellEditor",
     },
     {
-      headerName: " Année",
+      headerName: "Année",
       field: "wannee",
       editable: true,
       resizable: true,
@@ -143,7 +144,7 @@ export class ExprienceprofComponent implements OnInit {
       width: 100,
     },
     {
-      headerName: " Mois",
+      headerName: "Mois",
       field: "wmois",
       editable: true,
       resizable: true,
@@ -153,7 +154,7 @@ export class ExprienceprofComponent implements OnInit {
       width: 100,
     },
     {
-      headerName: " Jour",
+      headerName: "Jour",
       field: "wjours",
       editable: true,
       resizable: true,
@@ -167,6 +168,28 @@ export class ExprienceprofComponent implements OnInit {
 
   ngOnInit(): void {
     this.getFacture();
+    this.serv.language$.subscribe((language) => {
+      this.translateHeaderNames(language);
+    });
+    const currentLang = this.translatee.getBrowserLang();
+    this.translatee.onLangChange.subscribe(() => {
+      this.columnDefs = this.columnDefs.map((col) => {
+        col.headerName = this.translatee.instant(col.headerName,currentLang);
+        return col;
+      });
+    });
+    
+  }
+  changeLanguage() {
+    const currentLanguage = this.serv.languageSubject.value;
+    this.serv.setLanguage(currentLanguage === 'en' ? 'fr' : 'en');
+  }
+
+  translateHeaderNames(language: string) {
+    this.columnDefs = this.columnDefs.map((col) => {
+      col.headerName = this.translatee.instant(col.headerName, language);
+      return col;
+    });
   }
   defaultColDef = {
     sortable: true,

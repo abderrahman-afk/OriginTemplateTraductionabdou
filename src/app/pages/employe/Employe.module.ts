@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { UIModule } from '../../shared/ui/ui.module';
 import { WidgetModule } from '../../shared/widget/widget.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { Ng5SliderModule } from 'ng5-slider';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -37,7 +38,6 @@ import { AggridcompreelComponent } from './aggridcompreel/aggridcompreel.compone
 import { AggridcomprequiseComponent } from './aggridcomprequise/aggridcomprequise.component';
 import { AggridevalagentComponent } from './aggridevalagent/aggridevalagent.component';
 import { AggridobjagentComponent } from './aggridobjagent/aggridobjagent.component';
-import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -50,6 +50,7 @@ const config: DropzoneConfigInterface = {
 @NgModule({
   // tslint:disable-next-line: max-line-length
   declarations: [
+    
     InfopersComponent,
     InfoprofComponent,
     AggridadressComponent,
@@ -77,6 +78,7 @@ const config: DropzoneConfigInterface = {
     
   ],
   imports: [
+    TranslateModule,
     AgGridModule,
     CommonModule,
     EmployeRoutingModule,
@@ -91,8 +93,7 @@ const config: DropzoneConfigInterface = {
     WidgetModule,
     Ng5SliderModule,
     NgSelectModule,
-    NgbPaginationModule,
-    TranslateModule
+    NgbPaginationModule
     
     
   ],

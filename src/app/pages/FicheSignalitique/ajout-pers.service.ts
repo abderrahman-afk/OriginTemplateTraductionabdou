@@ -147,20 +147,4 @@ export class AjoutPersService {
   UpdateCv(user:any[]){
     return this.http.post(AUTH_API+ 'NIVEAU_PERS/updateNiv',user)
   }
-
-  AddNewLineConjoint(user:any[] ){
-    return this.http.post(AUTH_API + 'famille/AddNewLineConjoint',user)
-
-  }
-  AddNewLineEnfant(user:any ){
-    return this.http.post(AUTH_API + 'famille/AddNewLineEnfant',user)
-
-  }
-
-  AddNewLineCV(cv:any){
-    return this.http.post(AUTH_API + 'NIVEAU_PERS/AddNewLineCV',cv)
-
-  }
-
-  
 }

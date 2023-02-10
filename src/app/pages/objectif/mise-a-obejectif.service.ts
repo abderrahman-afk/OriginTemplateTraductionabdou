@@ -14,20 +14,20 @@ export class MiseAObejectifService {
 
   fetchListObjectif(codSoc : any ,matPers:any){
 
-    return this.http.get<any[]>('http://192.168.2.96:8080/objectifMang' + '/getobjmanager/'+codSoc+"/"+matPers)
+    return this.http.get<any[]>('http://localhost:8080/objectifMang' + '/getobjmanager/'+codSoc+"/"+matPers)
   
     
    }
    
   fetchListObjectifPers(codSoc : any ,matPers:any,matPersAg :any){
 
-    return this.http.get<any[]>('http://192.168.2.96:8080/objectifMang' + '/getobjectifag/'+codSoc+"/"+matPers+"/"+matPersAg)
+    return this.http.get<any[]>('http://localhost:8080/objectifMang' + '/getobjectifag/'+codSoc+"/"+matPers+"/"+matPersAg)
   
     
    }
    addObj(obj : any){
 
-  return   this.http.post<any[]>('http://192.168.2.96:8080/objectifMang/addobj',obj)
+  return   this.http.post<any[]>('http://localhost:8080/objectifMang/addobj',obj)
   
     
    }

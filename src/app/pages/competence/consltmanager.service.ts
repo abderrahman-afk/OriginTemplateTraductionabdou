@@ -12,46 +12,46 @@ export class ConsltmanagerService {
 
   getListCompetence(matPers:any){
 
-    return this.http.get<any[]>('http://192.168.2.96:8080/Competence' + '/getcomptence/'+matPers)
+    return this.http.get<any[]>('localhost:8080/Competence' + '/getcomptence/'+matPers)
   
     
    }
    
   getListCompetenceReq(matPers:any){
 
-    return this.http.get<any[]>('http://192.168.2.96:8080/Competence' + '/getcomptencereq/'+matPers)
+    return this.http.get<any[]>('localhost:8080/Competence' + '/getcomptencereq/'+matPers)
   
     
    }
 
    getListCompetenceReqPers  = (matPers:any,matPersAgent :any): Observable<any[]> => {
 
-    return this.http.get<any[]>('http://192.168.2.96:8080/Competence' + '/getcomptencereq/'+matPers+'/'+matPersAgent)
+    return this.http.get<any[]>('localhost:8080/Competence' + '/getcomptencereq/'+matPers+'/'+matPersAgent)
   
     
    }
    getListNatCompetence(){
 
-    return this.http.get<any[]>('http://192.168.2.96:8080/Competence/getallcompetence/')
+    return this.http.get<any[]>('localhost:8080/Competence/getallcompetence/')
   
     
    }
    getListPers(codSoc :any,matPers:any){
 
-    return this.http.get<any[]>('http://192.168.2.96:8080/Competence' + '/getlispesonel/'+codSoc+'/'+matPers)
+    return this.http.get<any[]>('localhost:8080/Competence' + '/getlispesonel/'+codSoc+'/'+matPers)
   
     
    }
 
    addCompetence(compt : any){
 
-    return   this.http.post<any[]>('http://192.168.2.96:8080/Competence/addcompetence',compt)
+    return   this.http.post<any[]>('localhost:8080/Competence/addcompetence',compt)
     
       
      }
      addCompetencePers(comptPers : any){
 
-      return   this.http.post<any[]>('http://192.168.2.96:8080/Competence/addcompetencepers',comptPers)
+      return   this.http.post<any[]>('localhost:8080/Competence/addcompetencepers',comptPers)
       
         
        }
@@ -60,20 +60,20 @@ export class ConsltmanagerService {
 
 
        deleteCompetencePers(codSoc: string, codCandidat: string, codNatComp: string, codComp: string) {
-        return this.http.delete('http://192.168.2.96:8080/Competence/delet/'+ codSoc + '/' + codCandidat + '/' + codNatComp + '/' + codComp);
+        return this.http.delete('localhost:8080/Competence/delet/'+ codSoc + '/' + codCandidat + '/' + codNatComp + '/' + codComp);
       }
 
 
       saveCompetencePers(competenceAndPersObject : any){
 
-        return   this.http.post<any[]>('http://192.168.2.96:8080/Competence/savecompetencepers',competenceAndPersObject)
+        return   this.http.post<any[]>('localhost:8080/Competence/savecompetencepers',competenceAndPersObject)
         
           
          }
 
          getCompReq(matPers:any){
 
-          return this.http.get<any[]>('http://192.168.2.96:8080/Competence' + '/getcomptencereqise/'+matPers)
+          return this.http.get<any[]>('localhost:8080/Competence' + '/getcomptencereqise/'+matPers)
         
           
          }

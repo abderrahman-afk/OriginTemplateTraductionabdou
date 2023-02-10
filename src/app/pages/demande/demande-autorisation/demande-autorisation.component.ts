@@ -10,9 +10,6 @@ import { Email } from '../elail.model';
 import { WebsocketService } from 'src/app/layouts/topbar/shared/services/websocket.service';
 import { AjoutPersService } from '../../FicheSignalitique/ajout-pers.service';
 import Inputmask from "inputmask";
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateService } from '@ngx-translate/core';
-import { PersonnelService } from '../../Employe/personnel.service';
 @Component({
   selector: 'app-demande-autorisation',
   templateUrl: './demande-autorisation.component.html',
@@ -57,8 +54,8 @@ etat_notif:""
    file!: File ; // Variable to store file
    listTypeAutorisation: any[] = [];
  
-   constructor(  private translatee:TranslateService ,private serv: PersonnelService,private demandeService:DemandeService,private formBuilder : FormBuilder
-     ,private tokenService:TokenStorage,private websocketService: WebsocketService,private persServ: AjoutPersService, private modalService: NgbModal) { }
+   constructor(private demandeService:DemandeService,private formBuilder : FormBuilder
+     ,private tokenService:TokenStorage,private websocketService: WebsocketService,private persServ: AjoutPersService) { }
    ngOnInit(): void {
      this.formAutorisation = this.formBuilder.group({
        
@@ -84,31 +81,7 @@ etat_notif:""
      this.getListAutorisation()
      this.getTypeAutorisation()
      this.getformatDateEmbauche()
-
-     console.log('lang curren ',this.translatee.currentLang)
-    this.serv.language$.subscribe((language) => {
-     this.translateHeaderNames(language);
-   });
-   const currentLang = this.translatee.getBrowserLang();
-   this.translatee.onLangChange.subscribe(() => {
-     this.columnAutorisation = this.columnAutorisation.map((col) => {
-       col.headerName = this.translatee.instant(col.headerName,currentLang);
-       return col;
-     });
-   });
    }
-
-   changeLanguage() {
-    const currentLanguage = this.serv.languageSubject.value;
-    this.serv.setLanguage(currentLanguage === 'en' ? 'fr' : 'en');
-  }
-
-  translateHeaderNames(language: string) {
-    this.columnAutorisation = this.columnAutorisation.map((col) => {
-      col.headerName = this.translatee.instant(col.headerName, language);
-      return col;
-    });
-  }
    columnAutorisation = [
      
      
@@ -383,13 +356,6 @@ etat_notif:""
   });
 }
 
-
-openModal(targetModal) {
-  this.modalService.open(targetModal, {
-    windowClass: "my-class",
-    centered: true,
-  });
-}
  
  modules: Module[] = [ClientSideRowModelModule];
 

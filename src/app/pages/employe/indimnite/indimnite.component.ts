@@ -9,6 +9,7 @@ import "jspdf-autotable";
 import { UserOptions } from "jspdf-autotable";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { TranslateService } from "@ngx-translate/core";
+import { TopbarComponent } from "src/app/layouts/topbar/topbar.component";
 @Component({
   selector: "app-indimnite",
   templateUrl: "./indimnite.component.html",
@@ -25,14 +26,16 @@ export class IndimniteComponent implements OnInit {
   };
   row: any = [];
   
-
+headerNameva:any="Bonjour"
   public columns = ["Abréviation Fixe", "Libélle", "Montant", "Date Indemnité","Numéro Niveau","Code Niveau","Type Rubrique"];
-
-  constructor(private translatee:TranslateService ,private serv: PersonnelService, private token: TokenStorage,private modalService: NgbModal) {}
+  vart!: string;
+   
+  constructor(public translatee: TranslateService,private serv: PersonnelService, private token: TokenStorage,private modalService: NgbModal) {}
   columnDefs = [
     {
-      headerName: "Abriviation fixe",
+      headerName:"Abriviation fixe",
       field: "abrv_fixe",
+
       editable: true,
       resizable: true,
       sortable: true,
@@ -41,7 +44,8 @@ export class IndimniteComponent implements OnInit {
       width: 150,
     },
     {
-      headerName: "Libelle",
+      headerName:"Libelle",
+    
       field: "lib_ind",
       editable: true,
       resizable: true,
@@ -97,6 +101,7 @@ export class IndimniteComponent implements OnInit {
     },
     {
       headerName: "Date fin indeminité",
+      
       floatingFilter: true,
 
       field: "date_ind_fin",
@@ -132,7 +137,7 @@ export class IndimniteComponent implements OnInit {
       cellEditor: "primeCellEditor",
     },
     {
-      headerName: " Numéro niveau",
+      headerName: "Numéro niveau",
       field: "num_niv",
       editable: true,
       resizable: true,
@@ -142,7 +147,7 @@ export class IndimniteComponent implements OnInit {
       width: 150,
     },
     {
-      headerName: " Code niveau",
+      headerName: "Code niveau",
       field: "cod_niv",
       editable: true,
       resizable: true,
@@ -153,7 +158,7 @@ export class IndimniteComponent implements OnInit {
     },
 
     {
-      headerName: " Type rubrique",
+      headerName: "Type rubrique",
       field: "type_par",
       editable: true,
       resizable: true,
@@ -163,10 +168,11 @@ export class IndimniteComponent implements OnInit {
       width: 150,
     },
   ];
+  
 
   ngOnInit(): void {
     this.getFacture();
-     console.log('lang curren ',this.translatee.currentLang)
+    console.log('lang curren ',this.translatee.currentLang)
      this.serv.language$.subscribe((language) => {
       this.translateHeaderNames(language);
     });
@@ -179,8 +185,8 @@ export class IndimniteComponent implements OnInit {
     });
 
  
+    
   }
-
   changeLanguage() {
     const currentLanguage = this.serv.languageSubject.value;
     this.serv.setLanguage(currentLanguage === 'en' ? 'fr' : 'en');
@@ -193,7 +199,16 @@ export class IndimniteComponent implements OnInit {
     });
   }
 
-
+  meth(header:any):any{
+     this.translatee.onLangChange.subscribe(
+      ((data:string)=>{console.log("tttt"+data)
+    this.vart=data
+  console.log("vat ",this.vart
+  );
+  })
+    )
+    return this.vart; 
+  }
   exportAsXLSX() {
     this.serv.exportAsExcelFile(this.rowData, "Document Indemnité");
   }

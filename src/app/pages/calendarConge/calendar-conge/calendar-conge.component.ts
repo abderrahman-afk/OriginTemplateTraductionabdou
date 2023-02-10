@@ -165,7 +165,6 @@ export class CalendarCongeComponent implements OnInit {
     this.tokenService.getUser().matpers).subscribe(
       (data: any[]) => {
         this.rowData = data;
-        console.log("eee"+this.rowData)
         this.events=data.map((e:any)=>({start:e.dateC,
           color:e.lib_mot==="REPOS HEBDOMADAIRE"?'#556ee6':e.lib_mot==="JOUR CHOME PAYE"?
           '#34c38f':e.lib_mot=="Congé annuel"?'#50a5f1':e.lib_mot==="Congé de maladie ordinaire"?

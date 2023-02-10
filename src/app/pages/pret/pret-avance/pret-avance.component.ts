@@ -5,7 +5,6 @@ import { PersonnelService } from '../../Employe/personnel.service';
 import { Module } from '@ag-grid-community/core';
 import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
 import { PretAvanceService } from '../pret-avance.service';
-import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -52,7 +51,7 @@ export class PretAvanceComponent implements OnInit {
     listPret:any
     libPret:any
     datDeb:any
-  constructor( private translatee:TranslateService ,private serve: PersonnelService,private serv :PretAvanceService,public token:TokenStorage, private service:PersonnelService,private serv1 : LigbsoinService ) {
+  constructor(private serv :PretAvanceService,public token:TokenStorage, private service:PersonnelService,private serv1 : LigbsoinService ) {
 
   
    }
@@ -65,29 +64,6 @@ export class PretAvanceComponent implements OnInit {
 this.getListPret()
  
     this.getgouv1()
-    console.log('lang curren ',this.translatee.currentLang)
-    this.serve.language$.subscribe((language) => {
-     this.translateHeaderNames(language);
-   });
-   const currentLang = this.translatee.getBrowserLang();
-   this.translatee.onLangChange.subscribe(() => {
-     this.columnDefs = this.columnDefs.map((col) => {
-       col.headerName = this.translatee.instant(col.headerName,currentLang);
-       return col;
-     });
-   });
-  }
-
-  hangeLanguage() {
-    const currentLanguage = this.serve.languageSubject.value;
-    this.serve.setLanguage(currentLanguage === 'en' ? 'fr' : 'en');
-  }
-
-  translateHeaderNames(language: string) {
-    this.columnDefs = this.columnDefs.map((col) => {
-      col.headerName = this.translatee.instant(col.headerName, language);
-      return col;
-    });
   }
   rechercher(){
 

@@ -120,7 +120,6 @@
   <!-- Tab Content -->
   <ng-template #TabContent>
     <form [formGroup]="formPersonnel" *ngIf="personnel">
-      <hr>
       <div class="card">
         <div class="card-body">
          
@@ -350,7 +349,6 @@
   <!-- Tab Content -->
   <ng-template #TabContent1>
     <form [formGroup]="formPersonnel" *ngIf="personnel">
-      <hr>
       <div class="card">
         <div class="card-body">
           
@@ -597,7 +595,6 @@
   </ng-template>
   <ng-template #TabContent2>
     <form [formGroup]="formPersonnel"  *ngIf="personnel">
-      <hr>
       <div class="card">
         <div class="card-body">
           <div class="card-title">Affectation</div>
@@ -660,7 +657,6 @@
   </ng-template>
   <ng-template #TabContent3>
     <form [formGroup]="formPersonnel">
-      <hr>
       <div class="card">
         <div class="card-body">
           <div class="card-title">Affectation</div>
@@ -714,12 +710,13 @@
     </form>
   </ng-template>
   <ng-template #TabContent4>
-    <hr>
     <div class="card">
       <div class="card-body" *ngIf="conj">
         <h4 class="card-title">Mise à jour Conjoint</h4>
-      
-          <ng2-smart-table [settings]="Conj" [source]="conj" (createConfirm)="AddNewLineConjoint($event);closeRow($event)" (custom)="onCustom($event)" (editConfirm)="UpdateConjoint($event);closeRow($event)" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
+        <p class="card-sub-title">
+          Example of editable table.
+        </p>
+          <ng2-smart-table [settings]="Conj" [source]="conj" (custom)="onCustom($event)" (editConfirm)="UpdateConjoint($event)" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
       </div>
   </div>
 
@@ -728,18 +725,23 @@
     <div class="card">
       <div class="card-body" *ngIf="enf">
         <h4 class="card-title">Mise à jour Enfant</h4>
-       
-          <ng2-smart-table #smartTable [settings]="settings" (createConfirm)="AddNewLineEnfant($event);closeRow($event)" [source]="enf" (custom)="onCustom($event)" (editConfirm)="updateEnfant($event);closeRow($event)" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
+        <p class="card-sub-title">
+          Example of editable table.
+        </p>
+          <ng2-smart-table #smartTable [settings]="settings" [source]="enf" (custom)="onCustom($event)" (editConfirm)="updateEnfant($event)" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
       </div>
   </div>
   </ng-template>
   <ng-template #TabContent5>
-    <hr>
+    
+    <br />
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Mise à jour CV</h4>
-      
-          <ng2-smart-table [settings]="CV" [source]="cv" (custom)="onCustom($event)" (createConfirm)="AddNewLineCV($event);closeRow($event)"(editConfirm)="UpdateCv($event);closeRow($event)" (deleteConfirm)="onDeleteConfirmCv($event)"></ng2-smart-table>
+        <p class="card-sub-title">
+          Example of editable table.
+        </p>
+          <ng2-smart-table [settings]="CV" [source]="cv" (custom)="onCustom($event)" (editConfirm)="UpdateCv($event)" (deleteConfirm)="onDeleteConfirmCv($event)"></ng2-smart-table>
       </div>
   </div>
   </ng-template>

@@ -13,25 +13,25 @@ export class ChartService {
   }
 
   GetAbsantiesme = (): Observable<any[]> => {
-    return this.httpClient.get<any[]>("http://192.168.2.96:8080/Absanteisme/Absanteisme");
+    return this.httpClient.get<any[]>("http://localhost:8080/Absanteisme/Absanteisme");
   };
 
   GetAbsantiesmeBySexe = (annee:any): Observable<any[]> => {
-    return this.httpClient.get<any[]>("http://192.168.2.96:8080/Absanteisme/AbsanteismeBySexe/"+annee);
+    return this.httpClient.get<any[]>("http://localhost:8080/Absanteisme/AbsanteismeBySexe/"+annee);
   };
   GetAbsantiesmeByLibelle = (annee:any): Observable<any[]> => {
-    return this.httpClient.get<any[]>("http://192.168.2.96:8080/Absanteisme/AbsanteismeByLibelle/"+annee);
+    return this.httpClient.get<any[]>("http://localhost:8080/Absanteisme/AbsanteismeByLibelle/"+annee);
   };
   GetDepartDefinitive = (annee:any): Observable<any[]> => {
-    return this.httpClient.get<any[]>("http://192.168.2.96:8080/DepartDefinitve/DepartDefinitve/"+annee);
+    return this.httpClient.get<any[]>("http://localhost:8080/DepartDefinitve/DepartDefinitve/"+annee);
   };
   GetDepartEntreSortie = (): Observable<any[]> => {
-    return this.httpClient.get<any[]>("http://192.168.2.96:8080/EntreeSortie/EntreeSortie");
+    return this.httpClient.get<any[]>("http://localhost:8080/EntreeSortie/EntreeSortie");
   };
   getConge = (codSoc:any,matPers:any): Observable<any[]> => {
     return this.httpClient.get<any[]>("http://127.0.0.1:8080/statsoldcng/stat/"+codSoc+"/"+matPers);
   };
   GetAbsantiesmeByLibellebycodandmat = (cod:any,mat:any): Observable<any[]> => {
-    return this.httpClient.get<any[]>("http://192.168.2.96:8080/Absanteisme/AbsanteismeByLibellebycodandmat/"+cod+"/"+mat);
+    return this.httpClient.get<any[]>("http://localhost:8080/Absanteisme/AbsanteismeByLibellebycodandmat/"+cod+"/"+mat);
   };
 }

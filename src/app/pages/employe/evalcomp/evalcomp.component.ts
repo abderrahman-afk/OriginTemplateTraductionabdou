@@ -10,6 +10,7 @@ import { GridApi } from "ag-grid-community";
 import { ClientSideRowModelModule } from "@ag-grid-community/client-side-row-model";
 import { Module } from "@ag-grid-community/core";
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -69,8 +70,8 @@ h:string="10908"
   // bread crumb items
 
 
-  constructor(private token:TokenStorage,private serv:PersonnelService,private serv2:FamilleService,private serv3:RenseignementpersService,
-    private servmod:ModeleService,private servficheeval:FicheevalcompService,private servval:ValeurficheevalService,private fb:FormBuilder) { }
+  constructor(private token:TokenStorage,private servv:PersonnelService,private serv2:FamilleService,private serv3:RenseignementpersService,
+    private servmod:ModeleService,private servficheeval:FicheevalcompService,private servval:ValeurficheevalService,private fb:FormBuilder,private translatee:TranslateService) { }
 
   ngOnInit() {
 
@@ -80,13 +81,34 @@ h:string="10908"
     this.getconjoint()
     this.getallmodele()
     this.getficheeval()
+    this.servv.language$.subscribe((language) => {
+      this.translateHeaderNames(language);
+    });
+    const currentLang = this.translatee.getBrowserLang();
+    this.translatee.onLangChange.subscribe(() => {
+      this.columnDefs = this.columnDefs.map((col) => {
+        col.headerName = this.translatee.instant(col.headerName,currentLang);
+        return col;
+      });
+    });
 
 
 
   }
+  changeLanguage() {
+    const currentLanguage = this.servv.languageSubject.value;
+    this.servv.setLanguage(currentLanguage === 'en' ? 'fr' : 'en');
+  }
+
+  translateHeaderNames(language: string) {
+    this.columnDefs = this.columnDefs.map((col) => {
+      col.headerName = this.translatee.instant(col.headerName, language);
+      return col;
+    });
+  }
   getpers(){
 
-    this.serv.getpersonnel(this.perso11).subscribe(
+    this.servv.getpersonnel(this.perso11).subscribe(
       data => {
         this.perso11 = data; console.log('exected' + data);
        this.adrpersbycodeandmat=this.perso11.adresses_personnel
@@ -99,7 +121,7 @@ h:string="10908"
       );}
       getadrpers(){
 
-        this.serv.getpersonnel(this.perso11).subscribe(
+        this.servv.getpersonnel(this.perso11).subscribe(
           data => {
 
            this.adrpersbycodeandmat=this.perso11.adresses_personnel

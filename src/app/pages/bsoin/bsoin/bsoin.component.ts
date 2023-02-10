@@ -8,6 +8,8 @@ import {
   Module,
 } from "@ag-grid-community/core";
 import { TokenStorage } from "src/app/core/services/token-storage.service";
+import { PersonnelService } from "../../Employe/personnel.service";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-bsoin",
@@ -35,14 +37,119 @@ export class BsoinComponent implements OnInit {
     this.idbesoin.mat_pers=this.token.getUser().matpers
     console.log("teeeeeeeeee"+this.token.getUser().matpers)*/
 
-  constructor(private serv: LigbsoinService, private token: TokenStorage) {}
+  constructor(private serv: LigbsoinService, private token: TokenStorage,private serve:PersonnelService,private translatee:TranslateService) {}
 
   ngOnInit() {
     this.mat = this.token.getUser().matpers;
     this.idbesoin.num_soins = this.numsoins;
     this.getgouv1();
     this.getListBulltin();
+    this.serve.language$.subscribe((language) => {
+      this.translateHeaderNames(language);
+      this.translateHeaderNamess(language);
+      this.translateHeaderNames3(language);
+      this.translateHeaderNames4(language);
+    });
+    const currentLang = this.translatee.getBrowserLang();
+    this.translatee.onLangChange.subscribe(() => {
+      this.columnAutorisation = this.columnAutorisation.map((col) => {
+        col.headerName = this.translatee.instant(col.headerName,currentLang);
+        return col;
+      }
+      
+      
+      
+      
+      
+      );
+      
+    });
+
+
+    this.serve.language$.subscribe((language) => {
+      
+    });
+   
+    this.translatee.onLangChange.subscribe(() => {
+      this.columnligbult = this.columnligbult.map((col2) => {
+        col2.headerName = this.translatee.instant(col2.headerName,currentLang);
+        return col2;
+      }
+      
+      
+      
+      
+      
+      );
+      
+    });
+    this.serve.language$.subscribe((language) => {
+      
+    });
+   
+    this.translatee.onLangChange.subscribe(() => {
+      this.columnLigBultStar = this.columnLigBultStar.map((col2) => {
+        col2.headerName = this.translatee.instant(col2.headerName,currentLang);
+        return col2;
+      }
+      
+      
+      
+      
+      
+      );
+      
+    });
+    this.serve.language$.subscribe((language) => {
+      
+    });
+   
+    this.translatee.onLangChange.subscribe(() => {
+      this.columnBultStar = this.columnBultStar.map((col2) => {
+        col2.headerName = this.translatee.instant(col2.headerName,currentLang);
+        return col2;
+      }
+      
+      
+      
+      
+      
+      );
+      
+    });
+
+
   }
+  changeLanguage() {
+    const currentLanguage = this.serve.languageSubject.value;
+    this.serve.setLanguage(currentLanguage === 'en' ? 'fr' : 'en');
+  }
+
+  translateHeaderNames(language: string) {
+    this.columnAutorisation = this.columnAutorisation.map((col) => {
+      col.headerName = this.translatee.instant(col.headerName, language);
+      return col;
+    });
+  }
+  translateHeaderNamess(language: string) {
+    this.columnBultStar = this.columnBultStar.map((col) => {
+      col.headerName = this.translatee.instant(col.headerName, language);
+      return col;
+    });
+  }
+  translateHeaderNames3(language: string) {
+    this.columnLigBultStar = this.columnLigBultStar.map((col) => {
+      col.headerName = this.translatee.instant(col.headerName, language);
+      return col;
+    });
+  }
+  translateHeaderNames4(language: string) {
+    this.columnligbult = this.columnligbult.map((col) => {
+      col.headerName = this.translatee.instant(col.headerName, language);
+      return col;
+    });
+  }
+
 
   test() {
     this.idbesoin.num_soins = this.numsoins;
@@ -284,7 +391,7 @@ export class BsoinComponent implements OnInit {
     },
 
     {
-      headerName: "Type Act ",
+      headerName: "Type Act",
       field: "type_act",
       editable: true,
       filter: true,
@@ -423,7 +530,7 @@ export class BsoinComponent implements OnInit {
       cellEditor: "primeCellEditor",
     },
     {
-      headerName: "Totale honor Star ",
+      headerName: "Totale honor Star",
       field: "tot_honor_star",
       editable: true,
       floatingFilter: true,

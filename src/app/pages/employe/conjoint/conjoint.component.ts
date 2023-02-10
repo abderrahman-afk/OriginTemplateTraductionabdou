@@ -5,6 +5,7 @@ import { ClientSideRowModelModule } from "@ag-grid-community/client-side-row-mod
 import { TokenStorage } from 'src/app/core/services/token-storage.service';
 import { PersonnelService } from '../personnel.service';
 import { FamilleService } from '../famille.service';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-conjoint',
   templateUrl: './conjoint.component.html',
@@ -15,7 +16,7 @@ export class ConjointComponent implements OnInit {
   api!: GridApi;
   rowData: any[] = [];
 
-  constructor(private serv: FamilleService,private tokenService:TokenStorage) {
+  constructor(public translate:TranslateService,private serve:PersonnelService,private serv: FamilleService,private tokenService:TokenStorage) {
     
   }
   columnDefs = [
@@ -241,7 +242,29 @@ export class ConjointComponent implements OnInit {
 
   ngOnInit(): void {
     this.GetConge();
+    this.serve.language$.subscribe((language) => {
+      this.translateHeaderNames(language);
+    });
+    const currentLang = this.translate.getBrowserLang();
+    this.translate.onLangChange.subscribe(() => {
+      this.columnDefs = this.columnDefs.map((col) => {
+        col.headerName = this.translate.instant(col.headerName,currentLang);
+        return col;
+      });
+    });
   }
+  changeLanguage() {
+    const currentLanguage = this.serve.languageSubject.value;
+    this.serve.setLanguage(currentLanguage === 'en' ? 'fr' : 'en');
+  }
+
+  translateHeaderNames(language: string) {
+    this.columnDefs = this.columnDefs.map((col) => {
+      col.headerName = this.translate.instant(col.headerName, language);
+      return col;
+    });
+  }
+
   defaultColDef = {
     sortable: true,
     filter: true,

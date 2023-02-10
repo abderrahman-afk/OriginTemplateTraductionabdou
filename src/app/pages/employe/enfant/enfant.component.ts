@@ -3,8 +3,10 @@ import { GridApi } from "ag-grid-community";
 import { Module } from '@ag-grid-community/core';
 import { ClientSideRowModelModule } from "@ag-grid-community/client-side-row-model";
 import { TokenStorage } from 'src/app/core/services/token-storage.service';
-import { PersonnelService } from '../personnel.service';
 import { FamilleService } from '../famille.service';
+import { PersonnelService } from '../personnel.service';
+
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-enfant',
@@ -18,7 +20,7 @@ export class EnfantComponent implements OnInit {
   enf: any[] = [];
   sexe:string=''
 
-  constructor(private serv: FamilleService,private tokenService:TokenStorage) {
+  constructor(public translate:TranslateService,public serve :PersonnelService,private serv: FamilleService,private tokenService:TokenStorage) {
     
   }
   columnDefs = [
@@ -301,7 +303,30 @@ export class EnfantComponent implements OnInit {
 
   ngOnInit(): void {
     this.GetConge();
+    this.serve.language$.subscribe((language) => {
+      this.translateHeaderNames(language);
+    });
+    const currentLang = this.translate.getBrowserLang();
+    this.translate.onLangChange.subscribe(() => {
+      this.columnDefs = this.columnDefs.map((col) => {
+        col.headerName = this.translate.instant(col.headerName,currentLang);
+        return col;
+      });
+    });
   }
+
+  changeLanguage() {
+    const currentLanguage = this.serve.languageSubject.value;
+    this.serve.setLanguage(currentLanguage === 'en' ? 'fr' : 'en');
+  }
+
+  translateHeaderNames(language: string) {
+    this.columnDefs = this.columnDefs.map((col) => {
+      col.headerName = this.translate.instant(col.headerName, language);
+      return col;
+    });
+  }
+
   defaultColDef = {
     sortable: true,
     filter: true,

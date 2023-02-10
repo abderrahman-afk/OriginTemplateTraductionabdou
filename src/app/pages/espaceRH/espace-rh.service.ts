@@ -1,8 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-const AUTH_API = 'http://192.168.2.96:8080/';
-const AUTH_APII = 'http://192.168.2.96:8080/demande/downloadFile/';
+const AUTH_API = 'http://localhost:8080/';
+const AUTH_APII = 'http://localhost:8080/demande/downloadFile/';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
@@ -26,45 +26,45 @@ export class EspaceRhService {
     return this.http.get<any[]>(AUTH_API + "demande/getDemandesRepRh");
   };
   UpdateDemande(data:any):Observable<any>{
-    return this.http.put<any>("http://192.168.2.96:8080/demande/updateRh",data);
+    return this.http.put<any>("http://localhost:8080/demande/updateRh",data);
   }
   GetListDemandeAutorisation = (): Observable<any[]> => {
-    return this.http.get<any[]>("http://192.168.2.96:8080/demande/getdemauto");
+    return this.http.get<any[]>("http://localhost:8080/demande/getdemauto");
   };
   GetListDemandePret = (): Observable<any[]> => {
-    return this.http.get<any[]>("http://192.168.2.96:8080/demande/getdempret");
+    return this.http.get<any[]>("http://localhost:8080/demande/getdempret");
   };
   GetListDemandeAttestation = (): Observable<any[]> => {
-    return this.http.get<any[]>("http://192.168.2.96:8080/demande/getdemattestation");
+    return this.http.get<any[]>("http://localhost:8080/demande/getdemattestation");
   };
   GetListDemandeFormation = (): Observable<any[]> => {
-    return this.http.get<any[]>("http://192.168.2.96:8080/demande/getdemformation");
+    return this.http.get<any[]>("http://localhost:8080/demande/getdemformation");
   };
  
   GetListDemandecongee= (): Observable<any[]> => {
-    return this.http.get<any[]>("http://192.168.2.96:8080/demande/getdemcongee");
+    return this.http.get<any[]>("http://localhost:8080/demande/getdemcongee");
   };
   GetListDemandeSituation = (): Observable<any[]> => {
-    return this.http.get<any[]>("http://192.168.2.96:8080/demande/getDemSituation");
+    return this.http.get<any[]>("http://localhost:8080/demande/getDemSituation");
   };
   GethistListDemandeAutorisation = (): Observable<any[]> => {
-    return this.http.get<any[]>("http://192.168.2.96:8080/demande/gethistdemauto");
+    return this.http.get<any[]>("http://localhost:8080/demande/gethistdemauto");
   };
   GethistListDemandePret = (): Observable<any[]> => {
-    return this.http.get<any[]>("http://192.168.2.96:8080/demande/gethistdempret");
+    return this.http.get<any[]>("http://localhost:8080/demande/gethistdempret");
   };
   GethistListDemandeAttestation = (): Observable<any[]> => {
-    return this.http.get<any[]>("http://192.168.2.96:8080/demande/gethistdemattestation");
+    return this.http.get<any[]>("http://localhost:8080/demande/gethistdemattestation");
   };
   GethistListDemandeFormation = (): Observable<any[]> => {
-    return this.http.get<any[]>("http://192.168.2.96:8080/demande/gethistdemformation");
+    return this.http.get<any[]>("http://localhost:8080/demande/gethistdemformation");
   };
  
   GethistListDemandecongee= (): Observable<any[]> => {
-    return this.http.get<any[]>("http://192.168.2.96:8080/demande/gethistdemcongee");
+    return this.http.get<any[]>("http://localhost:8080/demande/gethistdemcongee");
   };
   GethistListDemandeSituation = (): Observable<any[]> => {
-    return this.http.get<any[]>("http://192.168.2.96:8080/demande/gethistDemSituation");
+    return this.http.get<any[]>("http://localhost:8080/demande/gethistDemSituation");
   };
   
 }

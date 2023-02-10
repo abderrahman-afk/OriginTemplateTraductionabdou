@@ -16,10 +16,10 @@ export const environment = {
     measurementId: '',
 
   },
-  urlServerMouadh : 'http://192.168.2.96:8080',
-  urlServerDhiya : 'http://192.168.2.96:8080',
-  urlServerhichem : 'http://192.168.2.96:8080',
-  WS_BASE_URL: 'http://192.168.2.96:8081/ws-notification',
+  urlServerMouadh : 'http://localhost:8080',
+  urlServerDhiya : 'http://localhost:8080',
+  urlServerhichem : 'http://localhost:8080',
+  WS_BASE_URL: 'http://localhost:8081/ws-notification',
   
 
 

@@ -16,6 +16,7 @@ import { BsoinComponent } from './bsoin/bsoin.component';
 import { BsoinRoutingModule } from './bsoin-routing.module';
 
 import { AgGridModule } from '@ag-grid-community/angular';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 const config: DropzoneConfigInterface = {
@@ -30,6 +31,7 @@ const config: DropzoneConfigInterface = {
     BsoinComponent
   ],
   imports: [
+    TranslateModule,
     AgGridModule,
     CommonModule,
     BsoinRoutingModule,

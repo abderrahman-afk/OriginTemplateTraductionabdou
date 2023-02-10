@@ -38,7 +38,6 @@ export class TopbarComponent implements OnInit {
   listAllNotif:any
 n:any
 notif:any
-index:any
  pers:any = {
     cod_soc:this.token.getUser().cod_soc,
     mat_pers:this.token.getUser().matpers}
@@ -63,9 +62,8 @@ role=this.token.getUser().role_portail
   }
 
   listLang = [
-    { text: 'Français', flag: 'assets/images/flags/french.jpg', lang: 'es' },
     { text: 'English', flag: 'assets/images/flags/us.jpg', lang: 'en' },
-   
+    { text: 'Français', flag: 'assets/images/flags/french.jpg', lang: 'es' },
 
   ];
 
@@ -86,7 +84,7 @@ role=this.token.getUser().role_portail
     const val = this.listLang.filter(x => x.lang === this.cookieValue);
     this.countryName = val.map(element => element.text);
     if (val.length === 0) {
-      if (this.flagvalue === undefined) { this.valueset = 'assets/images/flags/french.jpg'; }
+      if (this.flagvalue === undefined) { this.valueset = 'assets/images/flags/us.jpg'; }
     } else {
       this.flagvalue = val.map(element => element.flag);
     }
@@ -94,8 +92,7 @@ role=this.token.getUser().role_portail
 
     this.notifForm=this.fb.group({
       id_notif:[""],
-      etat_notif:[""],
-      type_notif:[""]
+      etat_notif:[""]
     })
 
   }
@@ -190,10 +187,11 @@ console.log( this.listAllNotif)
       id_notif: user.id_notif,
   
       etat_notif: user.etat_notif,
-      type_notif: user.type_notif,
 
+  
+  
     });
-    this.lib=this.notifForm.get('type_notif').value
+    this.lib=this.notifForm.get('id_notif').value
     console.log(this.lib)
   
   
@@ -245,12 +243,15 @@ this.getAllnotification()
      })
  
  }
-  setLanguage(text: string, lang: string, flag: string) {
+  setLanguage(text: string, lang: string, flag: string,param?:string) {
     this.countryName = text;
     this.flagvalue = flag;
     this.cookieValue = lang;
     this.languageService.setLanguage(lang);
+    
+ 
   }
+
 
   /**
    * Toggles the right sidebar

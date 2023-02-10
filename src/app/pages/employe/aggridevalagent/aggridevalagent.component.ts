@@ -4,6 +4,8 @@ import { Module } from '@ag-grid-community/core';
 import { ClientSideRowModelModule } from "@ag-grid-community/client-side-row-model";
 import { TokenStorage } from 'src/app/core/services/token-storage.service';
 import { ObjempService } from '../objemp.service';
+import { PersonnelService } from '../personnel.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-aggridevalagent',
@@ -24,7 +26,7 @@ export class AggridevalagentComponent implements OnInit {
   };
 
 
-  constructor(private serv: ObjempService, private token: TokenStorage) {
+  constructor(private servv:PersonnelService,private translatee:TranslateService,private serv: ObjempService, private token: TokenStorage) {
 
 
 
@@ -74,7 +76,7 @@ export class AggridevalagentComponent implements OnInit {
       width: 250,
     },
     {
-      headerName: "Comment. Recom.",
+      headerName: "Comment. Recom",
       field: "comment_recom",
       editable: true,
       resizable: true,
@@ -89,6 +91,16 @@ export class AggridevalagentComponent implements OnInit {
 
 
   ngOnInit() {
+    this.servv.language$.subscribe((language) => {
+      this.translateHeaderNames(language);
+    });
+    const currentLang = this.translatee.getBrowserLang();
+    this.translatee.onLangChange.subscribe(() => {
+      this.columnDefs = this.columnDefs.map((col) => {
+        col.headerName = this.translatee.instant(col.headerName,currentLang);
+        return col;
+      });
+    });
 
     this.getFacture();
   }
@@ -109,6 +121,17 @@ export class AggridevalagentComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+  changeLanguage() {
+    const currentLanguage = this.servv.languageSubject.value;
+    this.servv.setLanguage(currentLanguage === 'en' ? 'fr' : 'en');
+  }
+
+  translateHeaderNames(language: string) {
+    this.columnDefs = this.columnDefs.map((col) => {
+      col.headerName = this.translatee.instant(col.headerName, language);
+      return col;
+    });
   }
 
 

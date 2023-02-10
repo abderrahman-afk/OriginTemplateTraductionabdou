@@ -12,8 +12,6 @@ import Swal from "sweetalert2";
 import { Email } from "../elail.model";
 import { WebsocketService } from "src/app/layouts/topbar/shared/services/websocket.service";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
-import { TranslateService } from "@ngx-translate/core";
-import { PersonnelService } from "../../Employe/personnel.service";
 @Component({
   selector: "app-demande-pret-avance",
   templateUrl: "./demande-pret-avance.component.html",
@@ -69,13 +67,9 @@ matChef:any
     },
   };
   constructor(
-    private translatee:TranslateService ,private serv: PersonnelService,
     public service: DemandeService,
     private formBuilder: FormBuilder,
-    private tokenService: TokenStorage,
-    private websocketService: WebsocketService,
-    private modalService: NgbModal,
-    private demandeService: DemandeService
+    private tokenService: TokenStorage,private websocketService: WebsocketService,private modalService: NgbModal,private demandeService: DemandeService
   ) {}
 
   ngOnInit(): void {
@@ -96,34 +90,9 @@ matChef:any
     });
     this.getGroupePret();
     this.getListAvance();
-    this.getEmailChef();
-    console.log('lang curren ',this.translatee.currentLang)
-    this.serv.language$.subscribe((language) => {
-     this.translateHeaderNames(language);
-   });
-   const currentLang = this.translatee.getBrowserLang();
-   this.translatee.onLangChange.subscribe(() => {
-     this.columnAvance = this.columnAvance.map((col) => {
-       col.headerName = this.translatee.instant(col.headerName,currentLang);
-       return col;
-     });
-   });
+    this.getEmailChef()
 
   }
-
-  changeLanguage() {
-    const currentLanguage = this.serv.languageSubject.value;
-    this.serv.setLanguage(currentLanguage === 'en' ? 'fr' : 'en');
-  }
-
-  translateHeaderNames(language: string) {
-    this.columnAvance = this.columnAvance.map((col) => {
-      col.headerName = this.translatee.instant(col.headerName, language);
-      return col;
-    });
-  }
-
-
   getEmailChef(){
     this.service.GetAdrChef("10321").subscribe(
       (data:any) =>{

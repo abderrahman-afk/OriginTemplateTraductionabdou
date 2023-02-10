@@ -6,6 +6,7 @@ import { Module } from "@ag-grid-community/core";
 import * as moment from 'moment';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { PersonnelService } from '../../Employe/personnel.service';
+import { DemandeService } from '../../demande/demande.service';
 
 @Component({
   selector: 'app-conge',
@@ -13,19 +14,16 @@ import { PersonnelService } from '../../Employe/personnel.service';
   styleUrls: ['./conge.component.scss']
 })
 export class CongeComponent implements OnInit {
-
-  mat_pers: any;
-  nom_pers: any;
-  formDocument:FormGroup
-  rowData: any[] ;
-
   matchef:any
   perso11 :any = {
     cod_soc:this.tokenService.getUser().cod_soc,
     mat_pers:this.tokenService.getUser().matpers}
-
+  mat_pers: any;
+  nom_pers: any;
   n:any
-  constructor(private serv: PointageService , private tokenService: TokenStorage,private  fb:FormBuilder,private ser:PersonnelService) { }
+  formDocument:FormGroup
+  rowData: any[] ;
+  constructor(private serv: PointageService , private tokenService: TokenStorage,private  fb:FormBuilder,private ser:PersonnelService,private demsev:DemandeService) { }
 
 
   ngOnInit() {
@@ -37,47 +35,46 @@ export class CongeComponent implements OnInit {
       nom_prenom:[""],
 
     });
+    
   }
 
+  getpers(){
 
-  // getpers(){
-
-  //   this.ser.getpersonnel(this.perso11).subscribe(
-  //     data => {
-  //       this.perso11 = data; console.log('exected' + data);
-  //       this.n=this.perso11.cod_serv
-  //       console.log("codserv"+this.n)
-  //       this.formDocument.patchValue({
-  //         codeServ:this.n,
-  //         matChef:this.tokenService.getUser().matpers,
+    this.ser.getpersonnel(this.perso11).subscribe(
+      data => {
+        this.perso11 = data; console.log('exected' + data);
+        this.n=this.perso11.cod_serv
+        console.log("codserv"+this.n)
+        this.formDocument.patchValue({
+          codeServ:this.n,
+          matChef:this.tokenService.getUser().matpers,
         
     
-  //       });
+        });
     
-  //       this.GetConge()
+        this.GetConge()
 
-  //     },
-  //     err => {
-  //       console.log(err);
-  //     }
-  //     );}
-
-
-      GetConge() {
-    
-        this.serv.GetConge(this.formDocument.value).subscribe(
-    
-          (data: any[]) => {
-            this.rowData = data;
-            console.log("row"+data)
-    
-            console.log(data);
-          },
-          (error) => {
-            console.log(error);
-          }
-        );
+      },
+      err => {
+        console.log(err);
       }
+      );}
+
+  GetConge() {
+    
+    this.serv.GetConge(this.formDocument.value).subscribe(
+
+      (data: any[]) => {
+        this.rowData = data;
+        console.log("row"+data)
+
+        console.log(data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 
   columnDefs = [
 

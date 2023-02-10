@@ -10,6 +10,7 @@ import { EtatApresPaieComponent } from './etat-apres-paie/etat-apres-paie.compon
 import { DeclarationComponent } from './declaration/declaration.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EtatApresPaieRhComponent } from './etat-apres-paie-rh/etat-apres-paie-rh.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ PaieRoutingModule,
     NgbTooltipModule,
     AgGridModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule
   ]
 })
 export class PaieModule { }

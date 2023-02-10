@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 
 
 const API_URL = environment.urlServerMouadh;
-const api = "http://192.168.2.96:8080";
+const api = "http://localhost:8080";
 const httpOptions = {
   headers: new HttpHeaders({ "Content-Type": "application/json" }),
 };
@@ -46,7 +46,7 @@ export class PointageService {
 
   GetConge = (x:any): Observable<any[]> => {
     return this.httpClient.post<any[]>(
-     "http://192.168.2.96:8080/conge/GetCongeChef", x);
+     "http://localhost:8080/conge/GetCongeChef", x);
   };
 
 

@@ -28,7 +28,7 @@ export class CalendarComponent implements OnInit {
   calendarEvents: any[];
 
   formData: FormGroup;
-  rowData:any[]
+  rowData:any[]=[]
   events:any[]=[]
   eventss:any=[{
     title:"lunch",start:"2022-10-22"
@@ -161,7 +161,6 @@ export class CalendarComponent implements OnInit {
     this.serv.getbyDd().subscribe(
       (data: any[]) => {
         this.rowData = data;
-        console.log(this.rowData)
         this.events=data.map((e:any)=>({title:e.libelle,start:e.date_even,color:"orange"}))
 
 

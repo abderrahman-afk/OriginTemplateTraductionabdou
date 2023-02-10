@@ -5,6 +5,7 @@ import { Module } from "@ag-grid-community/core";
 import { TokenStorage } from 'src/app/core/services/token-storage.service';
 import { ComptepersService } from '../comptepers.service';
 import { PersonnelService } from '../personnel.service';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-comptepers',
   templateUrl: './comptepers.component.html',
@@ -26,12 +27,12 @@ export class ComptepersComponent implements OnInit {
   perso11 :any = {
     cod_soc:this.tokenService.getUser().cod_soc,
     mat_pers:this.tokenService.getUser().matpers}
-  constructor(private serve:PersonnelService,private serv: ComptepersService,private tokenService:TokenStorage) {
+  constructor(public translate:TranslateService, private serve:PersonnelService,private serv: ComptepersService,private tokenService:TokenStorage) {
 
     this.columnDefs = [
 
       {
-        headerName: "Compte bancaire perso.",
+        headerName: "Compte bancaire perso",
         field: "lib_bul",
         editable: true,
         resizable: true,
@@ -72,8 +73,67 @@ export class ComptepersComponent implements OnInit {
   ngOnInit() {
     this.GetConge();
     this.GetConge22()
+    this.serve.language$.subscribe((language) => {
+      this.translateHeaderNames(language);
+      this.translateHeaderNamess(language);
+    });
+    const currentLang = this.translate.getBrowserLang();
+    this.translate.onLangChange.subscribe(() => {
+      this.columnDefs = this.columnDefs.map((col) => {
+        col.headerName = this.translate.instant(col.headerName,currentLang);
+        return col;
+      }
+      
+      
+      
+      
+      
+      );
+      
+    });
+
+
+    this.serve.language$.subscribe((language) => {
+      
+    });
+   
+    this.translate.onLangChange.subscribe(() => {
+      this.columnDefss = this.columnDefss.map((col2) => {
+        col2.headerName = this.translate.instant(col2.headerName,currentLang);
+        return col2;
+      }
+      
+      
+      
+      
+      
+      );
+      
+    });
+   
 
   }
+
+
+
+  changeLanguage() {
+    const currentLanguage = this.serve.languageSubject.value;
+    this.serve.setLanguage(currentLanguage === 'en' ? 'fr' : 'en');
+  }
+
+  translateHeaderNames(language: string) {
+    this.columnDefs = this.columnDefs.map((col) => {
+      col.headerName = this.translate.instant(col.headerName, language);
+      return col;
+    });
+  }
+  translateHeaderNamess(language: string) {
+    this.columnDefss = this.columnDefss.map((col) => {
+      col.headerName = this.translate.instant(col.headerName, language);
+      return col;
+    });
+  }
+
   columnDefss = [
    
     {

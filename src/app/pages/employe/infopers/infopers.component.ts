@@ -3,13 +3,16 @@ import { TokenStorage } from 'src/app/core/services/token-storage.service';
 import { FamilleService } from '../famille.service';
 import { PersonnelService } from '../personnel.service';
 import { RenseignementpersService } from '../renseignementpers.service';
-
+import { MENU } from '../menu';
+import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 @Component({
   selector: 'app-infopers',
   templateUrl: './infopers.component.html',
   styleUrls: ['./infopers.component.scss']
 })
 export class InfopersComponent implements OnInit {
+  term="Identite"
+  menu:any=[]
   cod_soc:any
   mat_pers:any
 conjoint:any=[]
@@ -41,13 +44,14 @@ h:string="10908"
   // bread crumb items
 
 
-  constructor(private token:TokenStorage,private serv:PersonnelService,private serv2:FamilleService,private serv3:RenseignementpersService) { }
+  constructor(public translate: TranslateService,   private token:TokenStorage,private serv:PersonnelService,private serv2:FamilleService,private serv3:RenseignementpersService) { }
 
   ngOnInit() {
     this.getpers()
     this.getadrpers()
     this.getrenspers()
     this.getconjoint()
+    this.menu = MENU;
 
 
     

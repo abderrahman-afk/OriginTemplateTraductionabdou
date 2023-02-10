@@ -17,7 +17,6 @@ import { OpppositionRhComponent } from './oppposition-rh/oppposition-rh.componen
 import { ConsltoppoComponent } from './consltoppo/consltoppo.component';
 import { aggridModules } from 'src/app/aggrid-modules';
 import { AgGridModule } from '@ag-grid-community/angular';
-import { TranslateModule } from '@ngx-translate/core';
 
 
 const config: DropzoneConfigInterface = {
@@ -48,7 +47,6 @@ const config: DropzoneConfigInterface = {
     NgSelectModule,
     NgbPaginationModule,
     AgGridModule,
-    TranslateModule
   
   ],
   providers: [

@@ -9,7 +9,6 @@ import { AgGridModule } from '@ag-grid-community/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PretAvanceRoutingModule } from './pret-avance-routing.module';
 import { PretAvanceComponent } from './pret-avance/pret-avance.component';
-import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -25,8 +24,7 @@ import { TranslateModule } from '@ngx-translate/core';
     NgbTooltipModule,
     AgGridModule,
     FormsModule,
-    ReactiveFormsModule,
-    TranslateModule
+    ReactiveFormsModule
   ]
 })
 export class PretAvanceModule { }

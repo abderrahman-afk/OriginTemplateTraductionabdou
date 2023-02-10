@@ -1,7 +1,7 @@
 import { DatePipe, formatDate } from '@angular/common';
 import { Component, Inject, LOCALE_ID, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CalendarOptions, EventApi, EventClickArg } from '@fullcalendar/angular';
+import { CalendarOptions, EventApi, EventClickArg } from '@fullcalendar/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { TokenStorage } from 'src/app/core/services/token-storage.service';
@@ -20,32 +20,27 @@ import { PersonnelService } from '../../Employe/personnel.service';
 export class EcheanceContratComponent implements OnInit {
 
 
+ 
+
+
   date1:any;
   date2:any;
 
+
   onGetValue() {
+  
  
     this.serv.getListContrat(this.date1,this.date2).subscribe(
       data => {
         this.list=data
-        for (var k = 0; k < this.list.length; k++) {
-          this.row.push([
-            this.list[k].nom_pren,
-            this.list[k].mat_pers,
-            this.list[k].dat_contrat,
-            this.list[k].dat_ech,
-            this.list[k].num_contrat,
-            this.list[k].cod_typ,
-            
-          ]);
-        }
+
   
   
       })
   
   
   }
-
+  // bread crumb items
   breadCrumbItems: Array<{}>;
 
   @ViewChild('modalShow') modalShow: TemplateRef<any>;
@@ -60,6 +55,7 @@ export class EcheanceContratComponent implements OnInit {
   newEventDate: any;
   editEvent: any;
   calendarEvents: any[];
+  // event form
   formData: FormGroup;
   rowData:any[]=[]
   events:any[]=[]
@@ -70,7 +66,6 @@ export class EcheanceContratComponent implements OnInit {
 
   calendarOptions: CalendarOptions = {
    
-
   };
   currentEvents: EventApi[] = [];
 
@@ -86,11 +81,13 @@ export class EcheanceContratComponent implements OnInit {
       editTitle: ['', [Validators.required]],
       editCategory: [],
     });
-   
+    this._fetchData();
     this.getListSituation()
   }
 
- 
+  /**
+   * Event click modal show
+   */
   handleEventClick(clickInfo: EventClickArg) {
     this.editEvent = clickInfo.event;
     this.formEditData = this.formBuilder.group({
@@ -128,20 +125,108 @@ export class EcheanceContratComponent implements OnInit {
     return this.formData.controls;
   }
 
-  
+  /**
+   * Delete-confirm
+   */
+  confirm() {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You won\'t be able to revert this!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#34c38f',
+      cancelButtonColor: '#f46a6a',
+      confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+      if (result.value) {
+        this.deleteEventData();
+        Swal.fire('Deleted!', 'Event has been deleted.', 'success');
+      }
+    });
+  }
+
+  position() {
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Event has been saved',
+      showConfirmButton: false,
+      timer: 1000,
+    });
+  }
+
+  /**
+   * Event add modal
+   */
+  openModal(event?: any) {
+    this.newEventDate = event;
+    this.modalService.open(this.modalShow);
+  }
+
+  /**
+   * save edit event data
+   */
+  editEventSave() {
+    const editTitle = this.formEditData.get('editTitle').value;
+    const editCategory = this.formEditData.get('editCategory').value;
+    
+    const editId = this.calendarEvents.findIndex(
+      (x) => x.id + '' === this.editEvent.id + ''
+    );
+
+    this.editEvent.setProp('title', editTitle);
+    this.editEvent.setProp('classNames', editCategory);
+
+    this.calendarEvents[editId] = {
+      ...this.editEvent,
+      title: editTitle,
+      id: this.editEvent.id,
+      classNames: editCategory + ' ' + 'text-white',
+    };
+
+    this.position();
+    this.formEditData = this.formBuilder.group({
+      editTitle: '',
+      editCategory: '',
+    });
+    this.modalService.dismissAll();
+  }
+
+  /**
+   * Delete event
+   */
   deleteEventData() {
     this.editEvent.remove();
     this.modalService.dismissAll();
   }
 
-
+  /**
+   * Close event modal
+   */
+  closeEventModal() {
+    this.formData = this.formBuilder.group({
+      title: '',
+      category: '',
+    });
+    this.modalService.dismissAll();
+  }
 
   getListSituation() {
     this.serv.getContrat().subscribe(
       (data: any[]) => {
         this.rowData = data;
 
-       
+        for (var k = 0; k < this.rowData.length; k++) {
+          this.row.push([
+            this.rowData[k].nom_pren,
+            this.rowData[k].mat_pers,
+            this.rowData[k].dat_contrat,
+            this.rowData[k].dat_ech,
+            this.rowData[k].num_contrat,
+            this.rowData[k].cod_typ,
+            
+          ]);
+        }
         this.events=data.map((e:any)=>({title:e.nom_pren,start:e.dat_ech,color:"orange"}))
 
 
@@ -149,10 +234,7 @@ export class EcheanceContratComponent implements OnInit {
           headerToolbar: {
             left: 'dayGridMonth,dayGridWeek,dayGridDay',
             center: 'title',
-            right: 'prevYear,prev,next,nextYear',
-            
-            // <==== HERE =====
-
+            right: 'prevYear,prev,next,nextYear'
           },
           initialView: "dayGridMonth",
           themeSystem: "bootstrap",
@@ -162,11 +244,9 @@ export class EcheanceContratComponent implements OnInit {
           editable: true,
           selectable: true,
           selectMirror: true,
-          locales: [ { code: 'fr' }], // <==== HERE =====
-          firstDay: 1,
           dayMaxEvents: true,
       
-       //   eventClick: this.handleEventClick.bind(this),
+          eventClick: this.handleEventClick.bind(this),
           eventsSet: this.handleEvents.bind(this),
           eventTimeFormat: { // like '14:30:00'
             hour: '2-digit',
@@ -189,6 +269,15 @@ export class EcheanceContratComponent implements OnInit {
 fetchListContrat(){
 
 }
+   
+  private _fetchData() {
+    // Event category
+    //this.category = category;
+    // Calender Event Data
+   // this.calendarEvents = calendarEvents;
+    // form submit
+    this.submitted = false;
+  }
 
   columnContrat = [
     { headerName: "Nom Prenom", 

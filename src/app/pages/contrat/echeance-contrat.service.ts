@@ -11,16 +11,14 @@ export class EcheanceContratService {
 
   getContrat (){
 
-    return this.http.get<any[]>('http://192.168.2.96:8080/contrat/getcontrat')
+    return this.http.get<any[]>('http://localhost:8080/contrat/getcontrat')
   
     
    }
    getListContrat (date1:any,date2:any){
 
-    return this.http.get<any[]>('http://192.168.2.96:8080/contrat/getlistcontrat/'+date1+'/'+date2)
+    return this.http.get<any[]>('http://localhost:8080/contrat/getlistcontrat/'+date1+'/'+date2)
   
     
    }
-
-   
 }

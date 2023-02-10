@@ -7,6 +7,7 @@ import { PersonnelService } from '../personnel.service';
 import { NivpersService } from '../nivpers.service';
 import * as jspdf from "jspdf";
 import "jspdf-autotable";
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-gridetab',
@@ -27,12 +28,12 @@ row:any=[]
     mat_pers:this.token.getUser().matpers
   };
 
-  constructor(private serv: NivpersService,private token: TokenStorage) {}
+  constructor(public translatee: TranslateService,private serv2:PersonnelService, private serv: NivpersService,private token: TokenStorage) {}
   columnDefs = [
    
    
     {
-      headerName: "Diploma",
+      headerName: "Diplome",
       field: "diplome",
       editable: true,
       resizable: true,
@@ -188,6 +189,27 @@ row:any=[]
 
   ngOnInit(): void {
     this.getFacture();
+    this.serv2.language$.subscribe((language) => {
+      this.translateHeaderNames(language);
+    });
+    const currentLang = this.translatee.getBrowserLang();
+    this.translatee.onLangChange.subscribe(() => {
+      this.columnDefs = this.columnDefs.map((col) => {
+        col.headerName = this.translatee.instant(col.headerName,currentLang);
+        return col;
+      });
+    });
+  }
+  changeLanguage() {
+    const currentLanguage = this.serv2.languageSubject.value;
+    this.serv2.setLanguage(currentLanguage === 'en' ? 'fr' : 'en');
+  }
+
+  translateHeaderNames(language: string) {
+    this.columnDefs = this.columnDefs.map((col) => {
+      col.headerName = this.translatee.instant(col.headerName, language);
+      return col;
+    });
   }
   defaultColDef = {
     sortable: true,
