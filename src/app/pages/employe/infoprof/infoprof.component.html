@@ -1,0 +1,1334 @@
+<div class="container-fluid">
+  <app-page-title
+    title="Informations Professionnel"
+    
+  ></app-page-title>
+  <div class="checkout-tabs">
+    <div class="row">
+      <div class="col-xl-2 col-sm-3">
+        <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-pills flex-column">
+          <li [ngbNavItem]="1">
+            <a ngbNavLink>
+              <i class="bx bxs-user d-block check-nav-icon mt-4 mb-2"></i>
+              <p class="fw-bold mb-4">Information Générale</p>
+            </a>
+            <ng-template ngbNavContent>
+              <div class="container-fluid">
+                <!-- start page title -->
+
+                <!-- end page title -->
+
+                <div class="row">
+                  <div class="col-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <h1 class="card-title">Information Générale </h1>
+                       
+                        <p class="card-title-desc">Information :</p>
+
+                        <form>
+                          <div class="row">
+                            <div class="col-sm-3">
+                              <div class="mb-3">
+                                <label for="productname"
+                                  >Date d'embauche
+                                </label>
+                                <input
+                                  [value]="perso11.dat_emb"
+                                  id="productname"
+                                  name="productname"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                              <div class="mb-3">
+                                <label class="control-label"
+                                  >Date d'entrée adminisration</label
+                                >
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.dat_ent"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  class="form-control"
+                                  disabled
+                                />
+                              </div>
+                             
+                            </div>
+
+                            <div class="col-sm-2">
+                              <div *ngFor="let item of perso11.rens_pers" class="mb-3">
+                                <label for="manufacturername"
+                                  >Date Fin Fidelité
+                                </label>
+                                <input
+                                  value="{{ item.dt_fin_fidelite }}"
+                                  id="manufacturername"
+                                  name="manufacturername"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                            </div>
+
+                            <div class="col-sm-2">
+                              <div *ngFor="let item of perso11.rens_pers" class="mb-3">
+                                <label for="manufacturername"
+                                  >Date Fin Fidelité
+                                </label>
+                                <input
+                                  value="{{ item.dt_fin_fidelite }}"
+                                  id="manufacturername"
+                                  name="manufacturername"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                            </div>
+                            <div class="col-sm-2">
+                              <div class="mb-3">
+                                <label for="manufacturername"
+                                  >Date Titularisation
+                                </label>
+                                <input
+                                  [value]="perso11.dat_tit"
+                                  id="manufacturername"
+                                  name="manufacturername"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                            </div>
+                            <hr />
+
+
+
+
+
+
+                            <div class="col-sm-2">
+                              <div class="mb-3">
+                                <label class="control-label"
+                                  >Code convention</label
+                                >
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.cod_categ"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div class="mb-3">
+                                <label class="control-label">
+                                  Code Categorie</label
+                                >
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.cod_cat"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div class="mb-3">
+                                <label class="control-label"> Code Grade</label>
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.cod_grad"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div class="mb-3">
+                                <label class="control-label">
+                                  Code Affectation</label
+                                >
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.cod_serv"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div class="mb-3">
+                                <label class="control-label">
+                                  Code Classe</label
+                                >
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.cod_class"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div class="mb-3">
+                                <label class="control-label">
+                                  Code Fonction</label
+                                >
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.cod_fonct"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div class="mb-3">
+                                <label class="control-label">
+                                  Code Qualification
+                                </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.poste_trav"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div class="mb-3">
+                                <label class="control-label">
+                                  Code Region</label
+                                >
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.cod_lieu_geog"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div class="mb-3">
+                                <label class="control-label">
+                                  Code Filliére</label
+                                >
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.cod_fil"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                            </div>
+                            <div class="col-sm-4">
+                              <div *ngIf="perso11.libcaeg!='Code inexistant'" class="mb-3">
+                                <label class="control-label"
+                                  >Libelle convention</label
+                                >
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.libcaeg"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div *ngIf="perso11.libcaeg=='Code inexistant'" class="mb-3">
+                                <label class="control-label"
+                                  >Libelle convention</label
+                                >
+                                <input
+                                  id="manufacturerbrand"
+                                  value=""
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div *ngIf="perso11.libcat!='Code inexistant'" class="mb-3">
+                                <label class="control-label"
+                                  >Libelle Categorie</label
+                                >
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.libcat"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div *ngIf="perso11.libcat=='Code inexistant'" class="mb-3">
+                                <label class="control-label"
+                                  >Libelle Categorie</label
+                                >
+                                <input
+                                  id="manufacturerbrand"
+                                  value=""
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div *ngIf="perso11.lib_grad!='Code inexistant'" class="mb-3">
+                                <label class="control-label"
+                                  >Libelle Grade</label
+                                >
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.lib_grad"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div *ngIf="perso11.lib_grad=='Code inexistant'" class="mb-3">
+                                <label class="control-label"
+                                  >Libelle Grade</label
+                                >
+                                <input
+                                  id="manufacturerbrand"
+                                  value=""
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div *ngIf="perso11.lib_serv!='Code inexistant'" class="mb-3">
+                                <label class="control-label">Affectation</label>
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.lib_serv"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div *ngIf="perso11.lib_serv=='Code inexistant'" class="mb-3">
+                                <label class="control-label">Affectation</label>
+                                <input
+                                  id="manufacturerbrand"
+                                  value=""
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div *ngIf="perso11.lib_class!='Code inexistant'" class="mb-3">
+                                <label class="control-label">
+                                  Libelle classe
+                                </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.lib_class"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                                
+                              </div>
+                              <div *ngIf="perso11.lib_class=='Code inexistant'" class="mb-3">
+                                <label class="control-label">
+                                  Libelle classe
+                                </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  value=""
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                                
+                              </div>
+                              <div *ngIf="perso11.lib_fonct!='Code inexistant'" class="mb-3">
+                                <label class="control-label">
+                                  Libelle Fonction
+                                </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.lib_fonct"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div *ngIf="perso11.lib_fonct=='Code inexistant'" class="mb-3">
+                                <label class="control-label">
+                                  Libelle Fonction
+                                </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]=""
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+
+                              <div *ngIf="perso11.lib_poste_trav!='Code inexistant'" class="mb-3">
+                                <label class="control-label">
+                                  Libelle Qualification
+                                </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.lib_poste_trav"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div *ngIf="perso11.lib_poste_trav=='Code inexistant'" class="mb-3">
+                                <label class="control-label">
+                                  Libelle Qualification
+                                </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  value=""
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div *ngIf="perso11.lib_lieu_geog!='Code inexistant'" class="mb-3">
+                                <label class="control-label">
+                                  Libelle Region
+                                </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.lib_lieu_geog"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div *ngIf="perso11.lib_lieu_geog=='Code inexistant'" class="mb-3">
+                                <label class="control-label">
+                                  Libelle Region
+                                </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  value=""
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div *ngIf="perso11.lib_fil!='Code inexistant'" class="mb-3">
+                                <label class="control-label">
+                                  Libelle Filliére
+                                </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.lib_fil"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div *ngIf="perso11.lib_fil=='Code inexistant'" class="mb-3">
+                                <label class="control-label">
+                                  Libelle Filliére
+                                </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]=""
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                            </div>
+                            <div class="col-sm-3">
+                              <div class="mb-3">
+                                <label class="control-label"
+                                  >Date Effet convention</label
+                                >
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.dat_categ"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div class="mb-3">
+                                <label class="control-label"
+                                  >Date Effet categorie</label
+                                >
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.dat_cat"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+
+                              <div class="mb-3">
+                                <label class="control-label">
+                                  Date Effet grade
+                                </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.dat_grad"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+
+                              <div class="mb-3">
+                                <label class="control-label">
+                                  Date Effet affectation
+                                </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.dat_qualf"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div class="mb-3">
+                                <label class="control-label">
+                                  Date Effet Classe
+                                </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.dat_class"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+
+                              <div class="mb-3">
+                                <label class="control-label"
+                                  >Date Effet Fonction
+                                </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.dat_fonct"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div class="mb-3">
+                                <label class="control-label">
+                                  Date Effet Qualification
+                                </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.dat_qualf"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div class="mb-3">
+                                <label class="control-label">
+                                  Date Effet Filliére
+                                </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.dat_fil"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <hr>
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <div class="mb-3">
+                                <label class="control-label"> Status </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.lib_affect"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+
+                              <div class="mb-3">
+                                <label class="control-label"> Position </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.lib_motif"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="mb-3">
+                                <label class="control-label">
+                                  Status 2éme langue
+                                </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.lib_affect2"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div class="mb-3">
+                                <label class="control-label">
+                                  Position 2éme langue
+                                </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  [value]="perso11.libmotif22"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                         
+
+                          <div class="d-flex flex-wrap gap-2 mt-2"></div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- end row -->
+              </div>
+              <!-- container-fluid -->
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="2">
+            <a ngbNavLink>
+              <i class="bx bx-disc d-block check-nav-icon mt-4 mb-2"></i>
+              <p class="fw-bold mb-4">Pointage</p>
+            </a>
+            <ng-template ngbNavContent>
+              <div class="container-fluid">
+                <!-- start page title -->
+
+                <!-- end page title -->
+
+                <div class="row">
+                  <div class="col-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <h1 class="card-title">Pointage </h1>
+                        <p class="card-title-desc">Information</p>
+
+                        <form>
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <div
+                                *ngFor="let item of perso11.rens_pers"
+                                class="mb-3"
+                              >
+                                <label for="productname">
+                                  Régime Travail
+                                </label>
+                                <input *ngIf="item.regime_trav=='M'"
+                                  value="Mensuel"
+                                  id="productname"
+                                  name="productname"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                                <input *ngIf="item.regime_trav=='H'"
+                                value="Horaire"
+                                id="productname"
+                                name="productname"
+                                type="text"
+                                disabled
+                                class="form-control"
+                              />
+                              </div>
+                              <div
+                                *ngFor="let item of perso11.rens_pers"
+                                class="mb-3"
+                              >
+                                <label for="manufacturername">
+                                  Début Cycle
+                                </label>
+                                <input
+                                  value="{{ item.deb_cycle }}"
+                                  id="manufacturername"
+                                  name="manufacturername"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div
+                                *ngFor="let item of perso11.rens_pers"
+                                class="mb-3"
+                              >
+                                <label for="manufacturerbrand"
+                                  >Code Regime
+                                </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  value="{{ item.cod_reg }}"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div
+                                *ngFor="let item of perso11.rens_pers"
+                                class="mb-3"
+                              >
+                                <label for="manufacturerbrand"
+                                  >Code Regime Congé
+                                </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  value="{{ item.reg_cng }}"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+
+                              <div
+                                *ngFor="let item of perso11.rens_pers"
+                                class="mb-3"
+                              >
+                                <label for="price">Regime Heure </label>
+                                <input
+                                  value="{{ item.regime_heur }}"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                                <div class="invalid-feedback"></div>
+                              </div>
+                              <div
+                                *ngFor="let item of adrpersbycodeandmat"
+                                class="mb-3"
+                              >
+                                <label for="manufacturerbrand">Signature</label>
+                                <input
+                                  id="manufacturerbrand"
+                                  value="{{ item.signature }}"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                              <div
+                                *ngFor="let item of perso11.rens_pers"
+                                class="mb-3"
+                              >
+                                <label for="price"> Pelérinage </label>
+                                <input
+                                  *ngIf="item.code_pelerinage == 'N'"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                  value="Non"
+                                />
+                                <input
+                                  *ngIf="item.code_pelerinage == 'O'"
+                                  type="text"
+                                  class="form-control"
+                                  value="Oui"
+                                  disabled
+                                />
+                                <input
+                                  *ngIf="item.code_pelerinage == null"
+                                  type="text"
+                                  class="form-control"
+                                  value=""
+                                  disabled
+                                />
+                                <div class="invalid-feedback"></div>
+                              </div>
+                              <div
+                                *ngFor="let item of perso11.rens_pers"
+                                class="mb-3"
+                              >
+                                <label class="control-label"> Fin Cycle </label>
+                                <input
+                                  value="{{ item.fin_cycle }}"
+                                  id="manufacturerbrand"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div
+                                *ngFor="let item of perso11.rens_pers"
+                                class="mb-3"
+                              >
+                                <label for="price">Régime </label>
+                                <input
+                                  value="{{ item.lib_regime }}"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                                <div class="invalid-feedback"></div>
+                              </div>
+                              <div
+                                *ngFor="let item of perso11.rens_pers"
+                                class="mb-3"
+                              >
+                                <label for="price">Régime Congé </label>
+                                <input
+                                  value="{{ item.lib_regimecng }}"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                                <div class="invalid-feedback"></div>
+                              </div>
+                              <div
+                                *ngFor="let item of perso11.rens_pers"
+                                class="mb-3"
+                              >
+                                <label for="manufacturerbrand">Pointe </label>
+
+                                <input
+                                  *ngIf="item.pointe == 'O'"
+                                  value="Oui"
+                                  disabled
+                                  id="manufacturerbrand"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  class="form-control"
+                                />
+                                <input
+                                  *ngIf="item.pointe == 'N'"
+                                  value="Non"
+                                  disabled
+                                  id="manufacturerbrand"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  class="form-control"
+                                />
+                                <input
+                                  *ngIf="item.pointe == null"
+                                  value=""
+                                  id="manufacturerbrand"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="d-flex flex-wrap gap-2 mt-2"></div>
+                        </form>
+                      </div>
+                    </div>
+
+                   
+                  </div>
+                </div>
+                <!-- end row -->
+              </div>
+              <!-- container-fluid -->
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="3">
+            <a ngbNavLink>
+              <i
+                class="bx bx-money -check d-block check-nav-icon mt-4 mb-2"
+              ></i>
+              <p class="fw-bold mb-4">Mode de Payemnt</p>
+            </a>
+            <ng-template ngbNavContent>
+              <div class="container-fluid">
+              <div class="card">
+                <div class="card-body">
+                  
+                    
+                      <h4 class="card-title mb-4">Mode de payement</h4>
+                     
+
+                      <app-comptepers></app-comptepers>
+
+                      <div class="table-responsive"></div>
+                    
+                  
+                </div>
+              </div>
+            </div>
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="4">
+            <a ngbNavLink>
+              <i
+                class="bx bx-add-to-queue -check d-block check-nav-icon mt-4 mb-2"
+              ></i>
+              <p class="fw-bold mb-4">Variables d'octroi et d'indemnité</p>
+            </a>
+            <ng-template ngbNavContent>
+              <div class="container-fluid">
+                <!-- start page title -->
+
+                <!-- end page title -->
+
+                <div class="row">
+                  <div class="col-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title mb-4">Variables d'octroi et d'indemnité</h4>
+                        <p class="card-title-desc">Information :</p>
+
+                        <form>
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <div *ngFor="let item of rens" class="mb-3">
+                                <label for="productname">Droit lait</label>
+                                <input
+                                  value="{{ item.droit_lait }}"
+                                  id="productname"
+                                  name="productname"
+                                  disabled
+                                  type="text"
+                                  class="form-control"
+                                />
+                              </div>
+                              <div *ngFor="let item of rens" class="mb-3">
+                                <label for="manufacturername">Logement</label>
+                                <input
+                                  value="{{ item.pers_clog }}"
+                                  id="manufacturername"
+                                  name="manufacturername"
+                                  disabled
+                                  type="text"
+                                  class="form-control"
+                                />
+                              </div>
+                              <div *ngFor="let item of rens" class="mb-3">
+                                <label for="manufacturerbrand"
+                                  >Service Domestique
+                                </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  value="{{ item.ind_domest }}"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+
+
+
+                              <div *ngFor="let item of rens" class="mb-3">
+                                <label for="metadescription">Uniform </label>
+                                <input
+                                  value="{{ item.lib_uniform }}"
+                                  id="metakeywords"
+                                  value="Oui"
+                                  name="manufacturername"
+                                  type="text"
+                                  class="form-control"
+                                  disabled
+                                />
+                              </div>
+                             
+                            </div>
+
+                            <div class="col-sm-6">
+                              <div *ngFor="let item of rens" class="mb-3">
+                                <label class="control-label"
+                                  >Libellé Droit Lait</label
+                                >
+                                <input
+                                  id="manufacturerbrand"
+                                  value="{{ item.lib_lait }}"
+                                  name="manufacturerbrand"
+                                  disabled
+                                  type="text"
+                                  class="form-control"
+                                />
+                              </div>
+                              <div *ngFor="let item of rens" class="mb-3">
+                                <label class="control-label"
+                                  >Libellé Logement</label
+                                >
+                                <input
+                                  id="manufacturerbrand"
+                                  value="{{ item.lib_clog }}"
+                                  name="manufacturerbrand"
+                                  disabled
+                                  type="text"
+                                  class="form-control"
+                                />
+                              </div>
+                              
+                              <div *ngFor="let item of rens" class="mb-3">
+                                <label for="manufacturerbrand"
+                                  >Libellé Service Domestique</label
+                                >
+                                <input
+                                  id="manufacturerbrand"
+                                  value="{{ item.lib_dom }}"
+                                  disabled
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  class="form-control"
+                                />
+                              </div>
+                             
+                            </div>
+                          </div>
+                          <div class="d-flex flex-wrap gap-2 mt-2"></div>
+                        </form>
+                      </div>
+                    </div>
+
+                    <div class="card">
+                      <div class="card-body">
+                        <form>
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <div *ngFor="let item of rens" class="mb-3">
+                                <label for="metatitle">Voiture</label>
+                                <input
+                                  value="{{ item.pers_cvoit }}"
+                                  id="metatitle"
+                                  name="productname"
+                                  disabled
+                                  type="text"
+                                  class="form-control"
+                                />
+                              </div>
+
+                              <div *ngFor="let item of rens" class="mb-3">
+                                <label for="metakeywords"
+                                  >Baréme de Transport</label
+                                >
+                                <input
+                                  id="metakeywords"
+                                  value="{{ item.cod_bareme }}"
+                                  name="manufacturername"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                             
+                            </div>
+
+                            <div class="col-sm-6">
+                              <div *ngFor="let item of rens" class="mb-3">
+                                <label for="metadescription"
+                                  >Libélle Voiture
+                                </label>
+                                <input
+                                  value="{{ item.lib_cvoit }}"
+                                  id="metakeywords"
+                                  disabled
+                                  value="Oui"
+                                  name="manufacturername"
+                                  type="text"
+                                  class="form-control"
+                                />
+                              </div>
+
+                              <div *ngFor="let item of rens" class="mb-3">
+                                <label for="metakeywords"
+                                  >Nb Mois Bonification</label
+                                >
+                                <input
+                                  id="metakeywords"
+                                  value="{{ item.iep_mojhd_chehid }}"
+                                  name="manufacturername"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                                                           
+                            </div>
+                          </div>
+                          <div class="d-flex flex-wrap gap-2"></div>
+                        </form>
+                      </div>
+                    </div>
+
+
+
+                    <div class="card">
+                      <div class="card-body">
+                        <form>
+                          <div class="row">
+                            <div class="col-sm-6">
+                           
+
+                              <div *ngFor="let item of rens" class="mb-3">
+                                <label for="manufacturerbrand">Chaufage</label>
+                                <input
+                                  id="manufacturerbrand"
+                                  value="{{ item.code_cchauf }}"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  class="form-control"
+                                  disabled
+                                />
+                              </div>
+
+                              <div *ngFor="let item of rens" class="mb-3">
+                                <label for="price">Eau</label>
+                                <input
+                                  value="{{ item.pers_ceau }}"
+                                  type="text"
+                                  class="form-control"
+                                  disabled
+                                />
+                                <div class="invalid-feedback"></div>
+                              </div>
+                            
+                              <div *ngFor="let item of rens" class="mb-3">
+                                <label for="manufacturerbrand"
+                                  >Residence
+                                </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  value="{{ item.code_residence }}"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div *ngFor="let item of rens" class="mb-3">
+                                <label for="manufacturerbrand"
+                                  >Electricité
+                                </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  value="{{ item.pers_celec }}"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                             
+                            </div>
+
+                            <div class="col-sm-6">
+                        
+                                      
+                              
+                              <div *ngFor="let item of rens" class="mb-3">
+                                <label for="manufacturerbrand"
+                                  >Libellé Chaufage
+                                </label>
+                                <input
+                                  id="manufacturerbrand"
+                                  value="{{ item.lib_CCHAUF }}"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div *ngFor="let item of rens" class="mb-3">
+                                <label for="manufacturerbrand"
+                                  >Libellé Eau</label
+                                >
+                                <input
+                                  id="manufacturerbrand"
+                                  value="{{ item.lib_eau }}"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div *ngFor="let item of rens" class="mb-3">
+                                <label for="manufacturerbrand"
+                                  >Libellé Residence</label
+                                >
+                                <input
+                                  id="manufacturerbrand"
+                                  value="{{ item.lib_residence }}"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                              <div *ngFor="let item of rens" class="mb-3">
+                                <label for="manufacturerbrand"
+                                  >Libellé Electricité</label
+                                >
+                                <input
+                                  id="manufacturerbrand"
+                                  value="{{ item.lib_celec }}"
+                                  name="manufacturerbrand"
+                                  type="text"
+                                  disabled
+                                  class="form-control"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="d-flex flex-wrap gap-2"></div>
+                        </form>
+                      </div>
+                    </div>
+
+
+                    <div class="card">
+                      <div class="card-body">
+                        <form>
+                          <div class="row">
+                            <div class="col-sm-6">     
+                              <div *ngFor="let item of rens" class="mb-3">
+                                <label for="metadescription"
+                                  >Fils Moujahid/chahid
+                                </label>
+                                <input
+                                  value="{{ item.f_mojhd_chehid }}"
+                                  id="metakeywords"
+                                  disabled
+                                  name="manufacturername"
+                                  type="text"
+                                  class="form-control"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="d-flex flex-wrap gap-2"></div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- end row -->
+              </div>
+              <!-- container-fluid -->
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="6">
+            <a ngbNavLink>
+              <i class="bx bx-file-blank d-block check-nav-icon mt-4 mb-2"></i>
+              <p class="fw-bold mb-4">Experiences Professionnel</p>
+            </a>
+            <ng-template ngbNavContent>
+              <div class="container-fluid">
+                <!-- start page title -->
+
+                <!-- end page title -->
+
+                <div class="row">
+                  <div class="col-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <h1 class="card-title">Experiences Professionnel</h1>
+                        
+                        <p class="card-title-desc">Information</p>
+
+                        <app-exprienceprof></app-exprienceprof>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- end row -->
+              </div>
+              <!-- container-fluid -->
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="5">
+            <a ngbNavLink>
+              <i
+                class="bx bx-italic -check d-block check-nav-icon mt-4 mb-2"
+              ></i>
+              <p class="fw-bold mb-4">Indemnité</p>
+            </a>
+            <ng-template ngbNavContent>
+              <div class="container-fluid">
+                <!-- start page title -->
+
+                <!-- end page title -->
+
+                <div class="row">
+                  <div class="col-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <h1 class="card-title">Indemnité</h1>
+                      
+                        <p class="card-title-desc">Information</p>
+
+                        <app-indimnite></app-indimnite>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- end row -->
+              </div>
+              <!-- container-fluid -->
+            </ng-template>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-10">
+        <div [ngbNavOutlet]="nav"></div>
+      </div>
+    </div>
+  </div>
+</div>

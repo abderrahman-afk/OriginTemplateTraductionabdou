@@ -1,0 +1,262 @@
+<app-loader></app-loader>
+
+<div class="container-fluid">
+  <!-- start page title -->
+  <div class="row">
+    <div class="col-12">
+      <div
+        class="page-title-box d-flex align-items-center justify-content-between"
+      >
+        <h4 class="mb-0 font-size-18">Tableau de bord</h4>
+        <div class="page-title-right">
+          <ol class="breadcrumb m-0">
+            <li class="breadcrumb-item active">
+              Bienvenue dans le tableau de bord
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-xl-6">
+      <div class="card overflow-hidden">
+        <div class="bg-primary bg-soft">
+          <div class="row">
+            <div class="col-7">
+              <div class="text-primary p-3">
+                <h5 class="text-primary">Bienvenue !</h5>
+              
+                <p *ngIf="role">Bienvenu dans l'espace : <b>{{ role }}</b><p>
+                  
+                    
+                     <p> Matricule : <b>{{ pers.mat_pers }}</b></p>
+                      <span class="text-muted font-16">{{ pers.lib_adm_tech }}</span>
+                    
+                  
+              </div>
+            </div>
+            <div class="col-5 align-self-end">
+              <img
+                src="assets/images/profile-img.png"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="card-body pt-0">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="avatar-md profile-user-wid mb-4">
+                <img
+                  src="assets/images/users/avatar-1.jpg"
+                  alt=""
+                  class="img-thumbnail rounded-circle"
+                />
+              </div>
+              <h5>{{ pers.nom_pers }} {{ pers.pren_pers }}</h5>
+              <p>{{ pers.lib_adm_tech }}</p>
+              <!-- <h5 *ngIf="role">Role: {{role}}</h5> -->
+            </div>
+
+            <div class="col-sm-8">
+              <div class="pt-4">
+                <div class="mt-4">
+                  <a
+                    href="/employe/infopers"
+                    class="btn btn-primary btn-sm"
+                    style="float: right"
+                    >Voir profil <i class="mdi mdi-arrow-right ms-1"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          
+          <div class="text-center">
+            <!-- <div class="avatar-sm mx-auto mb-4">
+                                <span class="avatar-title rounded-circle bg-primary bg-soft font-size-24">
+                                    <i class="mdi mdi-facebook text-primary"></i>
+                                </span>
+                            </div> -->
+            <p class="font-16 text-muted mb-2"></p>
+            
+            <!-- <p class="text-muted">Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero
+                                venenatis
+                                faucibus tincidunt.</p>
+                            <a href="javascript: void(0);" class="text-primary font-16">Learn more <i
+                                    class="mdi mdi-chevron-right"></i></a> -->
+          </div>
+          <div class="row mt-4">
+            <div class="col-3">
+              <div class="social-source text-center mt-3">
+                <div class="avatar-xs mx-auto mb-3">
+                  <span
+                    class="avatar-title rounded-circle bg-primary font-size-16"
+                  >
+                    <i class="mdi mdi-account-alert"></i>
+                  </span>
+                </div>
+                <h5 class="font-size-15">Code echelon</h5>
+                <span class="text-muted font-16">{{ pers.cod_ech }}</span>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="social-source text-center mt-3">
+                <div class="avatar-xs mx-auto mb-3">
+                  <span
+                    class="avatar-title rounded-circle bg-success font-size-16"
+                  >
+                    <i class="mdi mdi-alert-decagram"></i>
+                  </span>
+                </div>
+                <h5 class="font-size-15">Date echelon</h5>
+                <span class="text-muted font-16">{{ pers.dat_ech }}</span>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="social-source text-center mt-3">
+                <div class="avatar-xs mx-auto mb-3">
+                  <span
+                    class="avatar-title rounded-circle bg-info font-size-16"
+                  >
+                    <i class="mdi mdi-update"></i>
+                  </span>
+                </div>
+                <h5 class="font-size-15">Nombre d'enfant</h5>
+                <span class="text-muted font-16">{{ pers.nbre_enf }}</span>
+              </div>
+            </div>
+
+            <div class="col-3">
+              <div class="social-source text-center mt-3">
+                <div class="avatar-xs mx-auto mb-3">
+                  <span
+                    class="avatar-title rounded-circle bg-warning font-size-16"
+                  >
+                    <i class="mdi mdi-sleep"></i>
+                  </span>
+                </div>
+                <h5 class="font-size-15">Niveau salariale</h5>
+                <span class="text-muted font-16">{{ pers.niv_sal }}</span>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="social-source text-center mt-3">
+                <div class="avatar-xs mx-auto mb-3">
+                  <span
+                    class="avatar-title rounded-circle bg-danger font-size-16"
+                  >
+                    <i class="mdi mdi-update"></i>
+                  </span>
+                </div>
+                <h5 class="font-size-15">Solde actuelle:</h5>
+                <span class="text-muted font-16">{{ soldactueele }}</span>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="social-source text-center mt-3">
+                <div class="avatar-xs mx-auto mb-3">
+                  <span
+                    class="avatar-title rounded-circle bg-info font-size-16"
+                  >
+                    <i class="mdi mdi-altimeter"></i>
+                  </span>
+                </div>
+                <h5 class="font-size-15">Numéro retraite:</h5>
+                <span class="text-muted font-16">{{ pers.num_retr }}</span>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="social-source text-center mt-3">
+                <div class="avatar-xs mx-auto mb-3">
+                  <span
+                    class="avatar-title rounded-circle bg-success font-size-16"
+                  >
+                    <i class="mdi mdi-animation-outline"></i>
+                  </span>
+                </div>
+                <h5 class="font-size-15">Date d'ambauche:</h5>
+                <span class="text-muted font-16">{{ pers.dat_emb }}</span>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="social-source text-center mt-3">
+                <div class="avatar-xs mx-auto mb-3">
+                  <span
+                    class="avatar-title rounded-circle bg-primaryfont-size-16"
+                  >
+                    <i class="mdi mdi-arch"></i>
+                  </span>
+                </div>
+                <h5 class="font-size-15">Date grade:</h5>
+                <span class="text-muted font-16">{{ pers.dat_grad }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <app-saas></app-saas>
+      <!--  <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title mb-4">Monthly Earning</h4>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="text-muted">This month</p>
+                            <h3>$34,252</h3>
+                            <p class="text-muted"><span class="text-success mr-2"> 12% <i class="mdi mdi-arrow-up"></i>
+                                </span> From
+                                previous period</p>
+
+                            <div class="mt-4">
+                                <a href="" class="btn btn-primary btn-sm">View More <i
+                                        class="mdi mdi-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+
+                            <apx-chart dir="ltr" class="apex-charts" [series]="monthlyEarningChart.series"
+                                [chart]="monthlyEarningChart.chart" [legend]="monthlyEarningChart.legend"
+                                [colors]="monthlyEarningChart.colors" [labels]="monthlyEarningChart.labels"
+                                [stroke]="monthlyEarningChart.stroke" [plotOptions]="monthlyEarningChart.plotOptions">
+                            </apx-chart>
+                        </div>
+                    </div>
+                    <p class="text-muted mb-0">We craft digital, graphic and dimensional thinking.</p>
+                </div>
+            </div> -->
+    </div>
+
+    <div class="col-xl-6">
+      <!-- <div class="row">
+                <div *ngFor="let stat of statData" class="col-md-4">
+                    <app-stat [title]="stat.title" [value]="stat.value" [icon]="stat.icon"></app-stat>
+                </div>
+            </div> -->
+
+      <div class="card">
+        <div class="card-body">
+          <div class="d-sm-flex flex-wrap">
+
+          </div>
+
+          <app-evenement></app-evenement>
+        </div>
+      </div>
+
+      <div class="col-xl-12">
+        <app-crypto></app-crypto>
+      </div>
+    </div>
+  </div>
+
+ 

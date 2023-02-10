@@ -1,0 +1,460 @@
+{
+  "HEADER": {
+    "SEARCH": "Rechercher...",
+    "MEGA_MENU": "Méga Menu",
+    "NOTIFICATIONS": {
+      "TITLE": "Avis",
+      "VIEW_ALL": "Voir tout",
+      "LOAD_MORE": "Voir plus..",
+      "FIRST": {
+        "TITLE": "Votre commande est passée",
+        "TEXT": "Si plusieurs langues fusionnent la grammaire",
+        "TIME": "il y a 3 minutes"
+      },
+      "SECOND": {
+        "TITLE": "Jacques Lemire",
+        "TEXT": "Cela ressemblera à de l'anglais simplifié.",
+        "TIME": "Il ya 1 heure"
+      },
+      "THIRD": {
+        "TITLE": "Votre article est expédié",
+        "TEXT": "Si plusieurs langues fusionnent la grammaire",
+        "TIME": "il y a 3 minutes"
+      },
+      "FOUR": {
+        "TITLE": "Salena Layfield",
+        "TEXT": "En tant qu'ami sceptique de Cambridge western.",
+        "TIME": "Il ya 1 heure"
+      }
+    },
+    "SETTINGS": "Paramètres",
+    "UI": {
+      "TITLE": "Composants de l'interface utilisateur",
+      "LIGHTBOX": "Boite à lumière",
+      "RANGE_SLIDER": "Curseur de plage",
+      "SWEET_ALERT": "Alerte sucrée",
+      "RATING": "Notation",
+      "FORMS": "Formes",
+      "TABLES": "les tables",
+      "CHARTS": "Graphiques"
+    },
+    "APPLICATIONS": {
+      "TITLE": "applications",
+      "ECOMMERCE": "commerce électronique",
+      "CALENDAR": "Calendrier",
+      "EMAIL": "E-mail",
+      "PROJECTS": "Projets",
+      "TASKS": "Tâches",
+      "CONTACTS": "Contacts"
+    },
+    "EXTRA_PAGES": {
+      "TITLE": "Pages supplémentaires",
+      "LIGHT_SIDEBAR": "Barre latérale lumineuse",
+      "COMPACT_SIDEBAR": "Barre latérale compacte",
+      "HORIZONTAL_LAYOUT": "Disposition horizontale",
+      "MAINTENANCE": "Entretien",
+      "COMING SOON": "À venir Soon",
+      "TIMELINE": "chronologie",
+      "FAQ": "FAQ"
+    },
+    "LOGIN": {
+      "PROFILE": "Profil",
+      "MY_WALLET": "Mon portefeuille",
+      "SETTINGS": "Paramètres",
+      "LOCK_SCREEN": "Écran verrouillé",
+      "LOGOUT": "Se déconnecter"
+    }
+  },
+  
+  "MENUITEMS": {
+    "MENU": {
+      "TEXT": "Menu"
+    },
+    "DASHBOARDS": {
+      "TEXT": "Tableaux de bord",
+      "BADGE": "04",
+      "LIST": {
+        "DEFAULT": "Défaut",
+        "SAAS": "Saas",
+        "CRYPTO": "Crypto",
+        "BLOG": "Blog"
+      }
+    },
+    "CALENDRIERCONGES": {
+      "TEXT": "Calendrier des congés"
+
+    },
+    "FICHEEVAL": {
+      "TEXT": "Feuille d'évaluation"
+    },
+    "CALENDAR": {
+      "TEXT": "Calendrier"
+    },
+    "CHAT": {
+      "TEXT": "Chat",
+      "BADGE": "Nouveau"
+    },
+    "FILEMANAGER": {
+      "TEXT": "Gestionnaire de fichiers",
+      "BADGE": "Nouveau"
+    },
+    "EMPLOYE": {
+      "TEXT": "Employé",
+      "LIST": {
+        "INFOPROF": "Information professionnelle",
+        "INFOPERS": "Informations personnelles",
+        "INFOSOC": "informations sociales"
+
+      }
+    },
+    "DEMANDE": {
+      "TEXT": "Demande",
+      "LIST": {
+        "PRETAVANCE": "Prêt et avance",
+        "AUTORISATION": "Autorisation",
+        "CONGE": "Congé",
+        "SITUATION": "Situation",
+        "FORMATION": "Formation",
+        "DOCUMENT": "Document"
+      
+      }
+    },
+    
+    "PAIE": {
+      "TEXT": "Payer",
+      "LIST": {
+        "ETAT": "Etat après paye",
+        "TEMPLATE": {
+          "EDITION": "édition fiche de paie"
+   
+
+        }
+      }
+    },
+    "CONSULTCONGE": {
+      "TEXT": "Congé de consultation",
+      "LIST": {
+        "SOLDE": "Solde de congé"
+            }
+    },
+    "EVENEMENT": {
+      "TEXT": "Événement",
+      "LIST": {
+        "LISTEVENT": "Liste des événements",
+        "HISTORIQUE": "Historique des événements",
+        "CALENDRIER": "calendrier des événements"
+            }
+    },
+    "BULTSOIN": {
+      "TEXT": "Rapport de soins",
+      "LIST": {
+        "CONSBULTSOIN": "Consultation des bulletins de soins"
+     
+      }
+    },
+    "CHART": {
+      "TEXT": "Graphiques",
+      "LIST": {
+        "CHART": "Consultation des graphiques"
+     
+      }
+    },
+    "AVPR": {
+      "TEXT": "avances de prêts",
+      "LIST": {
+        "CONAVPR": "Consultation préalable de prêt",
+        "CONSOPP": "Consultation de l'opposition"
+      }
+    },
+    "BLOG": {
+      "TEXT": "Blog",
+      "BADGE": "Nouveau",
+      "LIST": {
+        "BLOGLIST": "Liste des blogs",
+        "BLOGGRID": "Blogue de la grille",
+        "DETAIL": "BlogDétails"
+      }
+    },
+    "PAGES": {
+      "TEXT": "pages"
+    },
+    "EMAIL": {
+      "TEXT": "E-mail",
+      "LIST": {
+        "INBOX": "Boîte de réception",
+        "READEMAIL": "Lire l'e-mail",
+        "TEMPLATE": {
+          "BADGE": "Nouveau",
+          "TEXT": "Modèle",
+          "LIST": {
+            "BASIC": "Action de base",
+            "ALERT": "E-mail d'alerte",
+            "BILLING": "E-mail de facturation"
+          }
+        }
+      }
+    },
+    "ESPACECHEF": {
+      "TEXT": "Chef d'espace",
+      "LIST": {
+        "CONSESPCHEF": "Chef d'espace de consultation",
+        "HISTCHEF": "Consultation historique",
+        "POINTAGE":{
+          "TEXT":"Poinatge",
+          "POINTAGEE":{
+            "CONSPOINTAGE":"Pointage",
+            "CONSRETARD":"Retard",
+            "CONSAUTORISATION":"Autorisation",
+            "CONSCONGE":"Congé"
+
+
+          }
+
+      } ,
+        "COLAB": {
+          "TEXT":"Consultation des employés",
+          "COLABB":{
+            "INFOPROF": "Information professionnelle",
+            "INFOPERS": "Informations personnelles",
+            "INFOSOC": "Informations sociales"       
+             }
+        },
+        "CONSCONT": "Contrat de consultation",
+        "OBJ": "Objectif",
+        "COMPE": "Compétence",
+        "Eval": "Évaluation"
+       
+      }
+    },
+    "ESPACERH": {
+      "TEXT": "Espace RH",
+      "LIST": {
+        "CONSRH": "Espace de consultation RH",
+        "CONSHISRH": "Consultation historique RH",
+        "CONSOPP": "Consultation de l'opposition",
+        "CONSCONGE": "Solde des congés",
+        "CONSPAIE": "Consultation sur la paie",
+        "AJOUTEV": "Ajouter un événement",
+        "COMPET": "Compétences"
+      }
+    },
+    "COMPONENTS": {
+      "TEXT": "Composants"
+    },
+    "UIELEMENTS": {
+      "TEXT": "Éléments de l'interface utilisateur",
+      "LIST": {
+        "ALERTS": "Alertes",
+        "BUTTONS": "Boutons",
+        "CARDS": "Cartes",
+        "CAROUSEL": "Carrousel",
+        "DROPDOWNS": "Listes déroulantes",
+        "GRID": "Grille",
+        "IMAGES": "Images",
+        "LIGHTBOX": "Boite à lumière",
+        "MODALS": "Modaux",
+        "RANGESLIDER": "Curseur de plage",
+        "PROGRESSBAR": "Barres de progression",
+        "PLACEHOLDER": "Espace réservé",
+        "SWEETALERT": "Alerte sucrée",
+        "TABS": "Tablatures et accordéons",
+        "TYPOGRAPHY": "Typographie",
+        "VIDEO": "Vidéo",
+        "GENERAL": "Général",
+        "COLORS": "Couleurs",
+        "CROPPER": "Recadrage d'image"
+      }
+    },
+    "FORMS": {
+      "TEXT": "Formes",
+      "BADGE": "09",
+      "LIST": {
+        "ELEMENTS": "Éléments de formulaire",
+        "VALIDATION": "Validation du formulaire",
+        "ADVANCED": "Formulaire avancé",
+        "EDITOR": "Éditeur de formulaire",
+        "FILEUPLOAD": "Téléchargement de fichier de formulaire",
+        "REPEATER": "Répéteur de formulaire",
+        "WIZARD": "Assistant Formulaire",
+        "MASK": "Masque de formulaire",
+        "LAYOUTS": "Dispositions de formulaire"
+      }
+    },
+    "TABLES": {
+      "TEXT": "les tables",
+      "LIST": {
+        "BASIC": "Tableaux de base",
+        "ADVANCED": "Tableau avancé"
+      }
+    },
+    "CHARTS": {
+      "TEXT": "Graphiques",
+      "LIST": {
+        "APEX": "Tableau des sommets",
+        "CHARTJS": "Chartjs Chart",
+        "CHARTIST": "Carte chartiste",
+        "ECHART": "Carte E"
+      }
+    },
+    "ICONS": {
+      "TEXT": "Icônes",
+      "LIST": {
+        "BOXICONS": "Boxicons",
+        "MATERIALDESIGN": "Conception matérielle",
+        "DRIPICONS": "Dripicons",
+        "FONTAWESOME": "Police géniale"
+      }
+    },
+    "MAPS": {
+      "TEXT": "Plans",
+      "LIST": {
+        "GOOGLEMAP": "Google Maps"
+      }
+    },
+    "MULTILEVEL": {
+      "TEXT": "Multi-niveaux",
+      "LIST": {
+        "LEVEL1": {
+          "1": "Niveau 1.1",
+          "2": "Niveau 1.2",
+          "LEVEL2": {
+            "1": "Niveau 2.1",
+            "2": "Niveau 2.2"
+          }
+        }
+      }
+    }
+  },
+
+  "Identify":"Identite",
+    "Bonjour": "HELLO",
+    "GOODBYE": "Au revoir",
+    "HOME": "Accueil",
+    "ABOUT": "À propos",
+    "Sélectionner une matricle":"Select ID",
+    "Matricule":"ID",
+    "End date":"Date Fin",
+    "Street":"Rue",
+    "2nd street language":"Rue 2éme langue",
+    "Governorate":"Gouvernorat",
+    "Diploma":"Diplome",
+    "Speciality":"Specialité",
+    "Institution":"Etablissement",
+    "Observation":"Observation",
+    "Date Level":"Date Niveau",
+    "Start date":"Date Debut",
+    "Personal bank account":"Compte bancaire perso",
+    "Bank code":"Code banque",
+    "bank wording":"libellé banque",
+    "Agency code":"code agence",
+    "Year":"Année",
+    "Month":"Mois",
+    "Day":"Jour",
+    "Establishment name":"Nom etablissement",
+    "Wording":"Libelle",
+    "Amount":"Montant",
+    "Indemnity date":"Date indemnité",
+    "Level number":"Numéro niveau",
+    "Level code":"Code niveau",
+    "Heading type":"Type rubrique",
+    "Fixed abbreviation":"Abriviation fixe",
+    "Indemnity end date":"Date fin indeminité",
+    "Skill code":"Code compétence",
+    "Number of points":"Nbr des points",
+    "Acquired":"Acquis",
+    "Criterion label":"Libellé critére",
+    "Skill":"Compétence",
+    "Evaluation wording":"Libélle evaluation",
+    "A. Social Bank":"C. Banque sociale",
+    "Objective number":"Numero objectif",
+    "Objective wording":"Libellé objectif",
+    "Appreciation":"Appreciation",
+    "How. Recom":"Comment. Recom",
+    "Description Competence":"Libellé Compétence",
+    "Level":"Niveau",
+    "Validation date":"Date validation",
+    "Percentage":"Pourcentage",
+   "Actual rate.Obj": "Taux reel.Obj",
+"Rate App. comp":"Taux App. Comp",
+"Rate Eval. Def":"Taux Eval. Def",
+"Lib. Val":"Lib. Val",
+"Social bank code":"Code banque sociale",
+"Social agency code":"Code agence sociale",
+"abdou":"abdou",
+"Advance loan group code":"Code groupe prêt",
+"amount requested":"Montant demandé",
+"Answer":"Réponse",
+"Leader response":"Réponse chef",
+"File":"Fichier",
+"advance loan":"Type prêt",
+"Exit time":"Heure sortie",
+"Return time":"Heure retour",
+"Minutes out":"Minute sortie",
+"Return minute":"Minute retour",
+"RH response":"Réponse RH",
+"Pattern":"Motif",
+"Request date":"Date demande",
+"Object":"Objet",
+"Rh Observation":"Observation Rh",
+"Theme":"Théme",
+"Title code":"Code titre",
+"Type of training":"Type formation",
+"Theme code":"Code théme",
+"Leader answer":"Reponse chef",
+"Certificate number":"Numéro attestation",
+"Pay slip":"Type Bulletin",
+"Label":"Libellé",
+"Actual date range":"Date tranche réel",
+"Deduction":"Retenue",
+"Loan outstanding balance":"Rest cap prêt",
+"Validated":"Validé",
+"Settle":"Régler",
+"hech":"hechhech",
+   
+"Year off":"Année congé",
+"Together leave":"Cumule congé",    
+"Leave Taken":"Conge pris",
+"leave balance":"Solde congé",
+"leave wording":"Libélle congé",
+"Date Leave":"Date Congé",
+"Nbr Days":"Nbr Jours",
+"Planned return date":"Date retour prévu",
+"Return Date":"Date Retour",
+"Leave reason":"Motif congé",
+"Treatment number":"Numéro soins",
+"Onboard number":"Numéro bord",
+"Treatment Date":"Date Soin",
+"parent type":"Type parent ",
+"Newsletter status":"Etat bulletin",
+"nature_bs":"nature_bs",
+"tot_honor":"tot_honor",
+"Date entered":"Date saisie",
+"num_ass":"num_ass",
+"Line number":"Numéro Lig",
+"Wording Act":"Libellé Acte",
+"Act Type":"Type Act",
+"abrv_act":"abrv_act",
+"Net total":"Totale net",
+"Total honor":"Totale honor",
+"Date Act":"Date Acte",
+"org label":"Libellé org",
+
+"Bulletin Number":"Numéro Bulletin",
+"Year Edge":"Année Bord",
+"Date Treatment sta":"Date Soin star",
+"Date BCT treatment":"Date Soin BCT",
+"Total honor Star":"Totale honor Star",
+"Total honor BCT":"Totale honor BCT",
+"Total refunded Star":"Totale remboursé Star",
+"Total A reimbursed Bct":"Totale A remboursé Bct",
+"Amount refunded before":"Montant remboursé avant"
+
+
+
+
+   
+    
+  
+
+  
+}
